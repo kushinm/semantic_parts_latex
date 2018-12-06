@@ -25,84 +25,73 @@
 \usepackage{apacite}
 
 
-\title{How to Make a Proceedings Paper Submission}
+\title{semantic parts}
  
-\author{{\large \bf Morton Ann Gernsbacher (MAG@Macc.Wisc.Edu)} \\
-  Department of Psychology, 1202 W. Johnson Street \\
-  Madison, WI 53706 USA
-  \AND {\large \bf Sharon J.~Derry (SDJ@Macc.Wisc.Edu)} \\
-  Department of Educational Psychology, 1025 W. Johnson Street \\
-  Madison, WI 53706 USA}
+\author{{\large \bf Temp} \AND {\large \bf Temp}
+  }
+
+
+
+
+
 
 
 \begin{document}
 
-\maketitle
+\maketitle 
 
 
 \begin{abstract}
-The abstract should be one paragraph, indented 1/8~inch on both sides,
-in 9~point font with single spacing. The heading ``{\bf Abstract}''
-should be 10~point, bold, centered, with one line of space below
-it. This one-paragraph abstract section is required only for standard
-six page proceedings papers. Following the abstract should be a blank
-line, followed by the header ``{\bf Keywords:}'' and a list of
-descriptive keywords separated by semicolons, all in 9~point font, as
-shown below.
+This is where our abstract will go
 
 \textbf{Keywords:} 
-add your choice of indexing terms or keywords; kindly use a
-semicolon; between each term
+sketching; cognitive science; perception
 \end{abstract}
 
 
-\section{General Formatting Instructions}
 
-The entire contribution of a proceedings paper (including figures,
-references, and anything else) can be no longer than six pages.
-
-The text of the paper should be formatted in two columns with an
-overall width of 7 inches (17.8 cm) and length of 9.25 inches (23.5
-cm), with 0.25 inches between the columns. Leave two line spaces
-between the last author listed and the text of the paper. The left
-margin should be 0.75 inches and the top margin should be 1 inch.
-\textbf{The right and bottom margins will depend on whether you use
-  U.S. letter or A4 paper, so you must be sure to measure the width of
-  the printed text.} Use 10~point Times Roman with 12~point vertical
-spacing, unless otherwise specified.
-
-The title should be in 14~point, bold, and centered. The title should
-be formatted with initial caps (the first letter of content words
-capitalized and the rest lower case). Each author's name should appear
-on a separate line, 11~point bold, and centered, with the author's
-email address in parentheses. Under each author's name list the
-author's affiliation and postal address in ordinary 10~point type.
-
-Indent the first line of each paragraph by 1/8~inch (except for the
-first paragraph of a new section). Do not add extra vertical space
-between paragraphs.
+\section{Introduction}
+This is where our introduction will go
 
 
-\section{First Level Headings}
-
-First level headings should be in 12~point, initial caps, bold and
-centered. Leave one line space above the heading and 1/4~line space
-below the heading.
 
 
-\subsection{Second Level Headings}
-
-Second level headings should be 11~point, initial caps, bold, and
-flush left. Leave one line space above the heading and 1/4~line
-space below the heading.
+\section{Methods}
 
 
-\subsubsection{Third Level Headings}
+\subsection{Stimuli}
 
-Third level headings should be 10~point, initial caps, bold, and flush
-left. Leave one line space above the heading, but no space after the
-heading.
+ From \_\_ we obtained 1198 sketches of 32 real-world objects belonging to 4 basic-level categories : cars, chairs, dogs, and birds. There were 8 diverse exemplars per category.
+The sketches were made during a 2-player ‘Pictionary’-style game, where a sketcher had to create sketches of target images so as to distinguish the target from 3 distractor images. The viewer had to guess which of the 4 images the sketch represented.
+There were 2 main context conditions in the original experiment - close and far. In the close condition the target image and the distractors belonged to the same basic-level category. In the far condition, the target and each of the distractors belonged to a different basic-level category.
 
+The sketches were represented as scalable vector graphics (SVG) images. We were interested in having participants label strokes in a given sketch. We defined a stroke to be equivalent to a single cubic Bézier curve, i.e., a Bézier curve with two fixed end points and two control points to control curvature.
+
+
+
+\subsection{Participants}
+
+We recruited a total of 326 participants via Amazon Mechanical Turk (AMT). Participants were paid a base amount of \$1 and were given an additional bonus of \$0.002 for every stroke they annotated. In addition to this, they were given a \$0.02 bonus for every sketch for which they labeled all strokes. 
+
+
+\subsection{Annotation Procedure}
+
+To collect fine-grained annotations of our sketches, we implemented a web-based Javascript annotation tool. 
+Our task consisted of one demonstration trial and 10 annotation trials. We provided participants with a sketch to be annotated on a canvas as well as a category-specific menu of labels, which they were encouraged to use for the annotation task. We also provided them with the option of entering their own labels through a free-response box, which could be accessed by clicking an option called ‘Other’ on the menu. 
+The participant could see the constituent strokes of the sketch by hovering their cursor over different parts of the canvas.  To label a stroke, they could click on it or click and drag their cursor over several strokes. This would highlight the selected strokes. Next, they would choose a label from the menu or submit their own through the free response box. The highlighted strokes would change color to match the background color of the selected part-word in the menu. This was to provide a visual aid to the participant as to what strokes had already been labeled and as what part. Participants were encouraged to conduct their labeling of strokes in bouts — they were to highlight all the strokes corresponding to a single instance of a part before selecting a label from the menu. A running counter next to each part would indicate how many bouts of annotation had been completed for that part. A running progress meter below the canvas would inform the sketcher as to how many strokes they had labeled out of the total number of strokes in the sketch. Once they were done with sketch, participants could go on to the next trial by clicking a ‘Next’ button under the canvas. They could choose to continue to the next trial without labeling every stroke in a sketch, but they would lose out on the completion bonus as well as the amount they would have earned for labeling the remaining strokes.
+After receiving instructions on how to use the tool, participants were told to test out the interface in a demonstration trial. For this trial alone they could not proceed unless they labeled every stroke in the sketch. The sketch shown for the demo trial was the same for every participant.
+
+\noindent In total we collected 3608 annotations
+
+
+\subsection{Analysis}
+
+Temp
+
+\section{Results}
+
+
+\section{Discussion}
 
 \section{Formalities, Footnotes, and Floats}
 
