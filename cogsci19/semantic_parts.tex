@@ -34,6 +34,10 @@
 \usepackage{stmaryrd}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+
 
 \newcommand{\jefan}[1]{{\color{blue}{[jefan: #1]}}}
 \newcommand{\kushin}[1]{{\color{orange}{[kushin: #1]}}}
@@ -142,12 +146,38 @@ The splines contained in 76.85\% of strokes in our dataset shared a single label
 
 \kushin{This might be best as a table? With accompanying plots of course}
 
+\begin{figure}[h]
+\begin{subfigure}[t]{0.2\textwidth}
+\centering
+\includegraphics[width=1.2\textwidth]{figures/bird_streak_diff.png}
+\caption{Bird}
+\end{subfigure}
+ \hfill
+\begin{subfigure}[t]{0.2\textwidth}
+\centering
+\includegraphics[width=1.2\textwidth]{figures/car_streak_diff.png}
+\caption{Car}
+\end{subfigure}
+\hfill
+\begin{subfigure}[t]{0.2\textwidth}
+\centering
+\includegraphics[width=1.2\textwidth]{figures/chair_streak_diff.png}
+\caption{Chair}
+\end{subfigure}
+ \hfill
+\begin{subfigure}[t]{0.2\textwidth}
+\centering
+\includegraphics[width=1.2\textwidth]{figures/dog_streak_diff.png}
+\caption{Dog}
+\end{subfigure}
+\caption{Streak length differences for each sketch category}
+\end{figure}
+
 The following are the means and standard deviations for the distributions of the difference between true and scrambled streak lengths for each of the object categories.
 Bird: Mean = 0.33 , Std = 0.015
 Car: Mean = 0.33, Std = 0.018
 Chair: Mean = 0.65 , Std = 0.018
 Dog: Mean = 0.20 , Std = 0.013
-
 
 
 % table for now: Is there spatial contiguity in how people structure their sketches?
