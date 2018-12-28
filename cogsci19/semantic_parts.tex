@@ -118,6 +118,7 @@ They could choose to continue to the next trial without labeling every stroke in
 \noindent In total, we collected 3608 annotations of 1195 unique sketches. 
 
 \subsection{Preprocessing}
+\kushin{should this just be under the previous section?}
 After collecting annotations, we filtered out any sketches that weren't fully annotated. This means that any sketch which didn't have all of its constituent splines labeled was excluded. This left us with 3319 annotations of 1190 unique sketches.
 Since there was some variability in the number of times each sketch in our dataset was annotated, we selected those sketches that had been annotated exactly 3 times. This left us with 764 unique sketches, each of which had been annotated 3 times.
 We also created unique dictionaries for each object category that mapped participant-generated labels to the most frequently occurring labels in our dataset. This helped reduce the total number of unique labels in our dataset from 228 to 24.
@@ -126,7 +127,7 @@ We also created unique dictionaries for each object category that mapped partici
 
 
 \subsection{Analysis}
-
+\kushin{Not sure if this is the right level of detail or the best structure for this section, but this should contain all the information we wish to convey}
 We were interested in how reliably different people saw the same parts in abstract sketches of objects. So we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. Reliability was measured in terms of 'agreement' on spline labels. For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline.
 
 While we decided to collect annotation data at the level of splines, it is possible that strokes themselves correspond to individual instances of parts. To assess the relationship between strokes and semantically meaningful parts we investigated 3 possible correspondence relationships — a) Singular strokes correspond to singular parts b) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries c) Multiple strokes are required to convey a single part. We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts.
@@ -144,7 +145,7 @@ The splines contained in 76.85\% of strokes in our dataset shared a single label
 
 \subsection{Stroke sequence organization}
 
-\kushin{This might be best as a table? With accompanying plots of course}
+\kushin{Can't quite decide how to structure this section. Might be best as a table? With accompanying plots of course. Some temporary example plots below}
 
 \begin{figure}[h]
 \begin{subfigure}[t]{0.2\textwidth}
