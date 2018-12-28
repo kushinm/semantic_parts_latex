@@ -21,6 +21,7 @@
 \documentclass[10pt,letterpaper]{article}
 
 \usepackage{cogsci}
+\usepackage{comment}
 \usepackage{pslatex}
 \usepackage{apacite}
 \usepackage{amsmath,amssymb}
@@ -35,6 +36,7 @@
 \usepackage{array}
 
 \newcommand{\jefan}[1]{{\color{blue}{[jefan: #1]}}}
+\newcommand{\kushin}[1]{{\color{orange}{[kushin: #1]}}}
 
 \title{Semantic structure in communicative drawings}
  
@@ -73,7 +75,7 @@ This is where our introduction will go.
 
 \subsection{Dataset}
 
-We required sketches of the common objects created under different contexts. 
+We required sketches of common objects created under different contexts. 
 So we obtained sketch data from a two-player 'Pictionary'-style reference game experiment. 
 In this experiment, a 'sketcher' aimed to produce sketches of target objects to distinguish them from three distractor objects. 
 A 'viewer' had to guess which of the 4 images the sketch represented. 
@@ -109,22 +111,45 @@ Labeling was done by clicking on individual splines or clicking and dragging acr
 Participants were encouraged to conduct their labeling of strokes in bouts — they were to highlight all the strokes corresponding to a single instance of a part before selecting a label from the menu. 
 Participants could do the task at their own pace and continue to a subsequent sketch whenever they felt they were ready. 
 They could choose to continue to the next trial without labeling every stroke in a sketch, but they would lose out on the completion bonus as well as the amount they would have earned for labeling the remaining strokes.
-\noindent In total, we collected 3608 annotations
+\noindent In total, we collected 3608 annotations of 1195 unique sketches. 
 
-\jefan{add preprocessing details here}
+\subsection{Preprocessing}
+After collecting annotations, we filtered out any sketches that weren't fully annotated. This means that any sketch which didn't have all of its constituent splines labeled was excluded. This left us with 3319 annotations of 1190 unique sketches.
+Since there was some variability in the number of times each sketch in our dataset was annotated, we selected those sketches that had been annotated exactly 3 times. This left us with 764 unique sketches, each of which had been annotated 3 times.
+We also created unique dictionaries for each object category that mapped participant-generated labels to the most frequently occurring labels in our dataset. This helped reduce the total number of unique labels in our dataset from 228 to 24.
+
+
+
 
 \subsection{Analysis}
 
+We were interested in how reliably different people saw the same parts in abstract sketches of objects. So we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. Reliability was measured in terms of 'agreement' on spline labels. For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline.
+
+While we decided to collect annotation data at the level of splines, it is possible that strokes themselves correspond to individual instances of parts. To assess the relationship between strokes and semantically meaningful parts we investigated 3 possible correspondence relationships — a) Singular strokes correspond to singular parts b) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries c) Multiple strokes are required to convey a single part. We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts.
+
+We also compared b) and c) by looking at the average number of strokes used to represent specific parts within a given category of sketches. A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part.
+
+To assess whether participants organized their sequences of strokes in terms of semantically meaningful parts, we coded each stroke in our sketches in terms of their part label and calculated 'part-streaks' — streaks of strokes belonging to the same part being drawn successively in sequence. Averaging these part streaks within a sketch gave us an average streak length, which indicated to what extent participants made strokes belonging to the same part in succession. Next, we scrambled the order of strokes within sketches and calculated the average streak length again. We took the difference between the true average streak length and scrambled average streak length and repeated this processes several times to obtain a sampling distribution of the difference between the true and scrambled streak lengths. 
+
 \section{Results}
 \subsection{Inter-annotator reliability}
-How much agreement is there of what a spline represents between different annotators? That is, do different people see the same parts in abstract-ish sketches?
+67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
 
 \subsection{Relationship between strokes and parts}
-Was there a need for us to collect data at the spline-level, or is it so that the individual strokes people make correspond to singular parts?
-Do people need to make multiple strokes to represent a single part/instance of a part?
+The splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels.
 
 \subsection{Stroke sequence organization}
-Is there any semantically meaningful manner in which people organize their strokes when sketching? Do people draw all the stroke belonging to the same part in a 'streak'? 
+
+\kushin{This might be best as a table? With accompanying plots of course}
+
+The following are the means and standard deviations for the distributions of the difference between true and scrambled streak lengths for each of the object categories.
+Bird: Mean = 0.33 , Std = 0.015
+Car: Mean = 0.33, Std = 0.018
+Chair: Mean = 0.65 , Std = 0.018
+Dog: Mean = 0.20 , Std = 0.013
+
+
+
 % table for now: Is there spatial contiguity in how people structure their sketches?
 
 \subsection{Modulation between communicative contexts}
