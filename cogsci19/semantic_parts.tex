@@ -118,67 +118,67 @@ They could choose to continue to the next trial without labeling every stroke in
 \noindent In total, we collected 3608 annotations of 1195 unique sketches. 
 
 \subsection{Preprocessing}
-\kushin{should this just be under the previous section?}
-After collecting annotations, we filtered out any sketches that weren't fully annotated. This means that any sketch which didn't have all of its constituent splines labeled was excluded. This left us with 3319 annotations of 1190 unique sketches.
+After collecting annotations, we filtered out any sketches that didn't have all of its constituent splines labeled. This left us with 3319 annotations of 1190 unique sketches.
 Since there was some variability in the number of times each sketch in our dataset was annotated, we selected those sketches that had been annotated exactly 3 times. This left us with 764 unique sketches, each of which had been annotated 3 times.
 We also created unique dictionaries for each object category that mapped participant-generated labels to the most frequently occurring labels in our dataset. This helped reduce the total number of unique labels in our dataset from 228 to 24.
 
-
-
-
-\subsection{Analysis}
-\kushin{Not sure if this is the right level of detail or the best structure for this section, but this should contain all the information we wish to convey}
-We were interested in how reliably different people saw the same parts in abstract sketches of objects. So we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. Reliability was measured in terms of 'agreement' on spline labels. For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline.
-
-While we decided to collect annotation data at the level of splines, it is possible that strokes themselves correspond to individual instances of parts. To assess the relationship between strokes and semantically meaningful parts we investigated 3 possible correspondence relationships — a) Singular strokes correspond to singular parts b) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries c) Multiple strokes are required to convey a single part. We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts.
-
-We also compared b) and c) by looking at the average number of strokes used to represent specific parts within a given category of sketches. A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part.
-
-To assess whether participants organized their sequences of strokes in terms of semantically meaningful parts, we coded each stroke in our sketches in terms of their part label and calculated 'part-streaks' — streaks of strokes belonging to the same part being drawn successively in sequence. Averaging these part streaks within a sketch gave us an average streak length, which indicated to what extent participants made strokes belonging to the same part in succession. Next, we scrambled the order of strokes within sketches and calculated the average streak length again. We took the difference between the true average streak length and scrambled average streak length and repeated this processes several times to obtain a sampling distribution of the difference between the true and scrambled streak lengths. 
+Given that our goal was to created an annotated dataset of sketches created under different contexts, we required that the annotations we collected through our interface be reliable. In order to assess this reliability, we looked at whether different annotators saw the same parts in these abstract sketches of objects. Specifically, we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. Reliability was measured in terms of 'agreement' on spline labels. For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline. We found that 67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
+For the purposes of analysis, we set the modal label for each spline as its true label.
 
 \section{Results}
-\subsection{Inter-annotator reliability}
-67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
 
 \subsection{Relationship between strokes and parts}
-The splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels.
 
-\subsection{Stroke sequence organization}
-
-\kushin{Can't quite decide how to structure this section. Might be best as a table? With accompanying plots of course. Some temporary example plots below}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Part-Stroke.jpeg}
+\caption{The three part-stroke relationships we explored. Each squiggle represents a hypothetical stroke. Different colors indicate different part-labels.}
+\end{figure}
 
 \begin{figure}[h]
 \begin{subfigure}[t]{0.2\textwidth}
 \centering
-\includegraphics[width=1.2\textwidth]{figures/bird_streak_diff.png}
+\includegraphics[width=1.2\textwidth]{figures/bird_average_parts.png}
 \caption{Bird}
 \end{subfigure}
  \hfill
 \begin{subfigure}[t]{0.2\textwidth}
 \centering
-\includegraphics[width=1.2\textwidth]{figures/car_streak_diff.png}
+\includegraphics[width=1.2\textwidth]{figures/car_average_parts.png}
 \caption{Car}
 \end{subfigure}
 \hfill
 \begin{subfigure}[t]{0.2\textwidth}
 \centering
-\includegraphics[width=1.2\textwidth]{figures/chair_streak_diff.png}
+\includegraphics[width=1.2\textwidth]{figures/chair_average_parts.png}
 \caption{Chair}
 \end{subfigure}
  \hfill
 \begin{subfigure}[t]{0.2\textwidth}
 \centering
-\includegraphics[width=1.2\textwidth]{figures/dog_streak_diff.png}
+\includegraphics[width=1.2\textwidth]{figures/dog_average_parts.png}
 \caption{Dog}
 \end{subfigure}
-\caption{Streak length differences for each sketch category}
+\caption{Average number of strokes used to draw each part per category. While participants use multiple strokes to represent some parts, other parts are sometimes expressed using single strokes. It is possible that}
+\label{strokesperpart}
 \end{figure}
 
-The following are the means and standard deviations for the distributions of the difference between true and scrambled streak lengths for each of the object categories.
-Bird: Mean = 0.33 , Std = 0.015
-Car: Mean = 0.33, Std = 0.018
-Chair: Mean = 0.65 , Std = 0.018
-Dog: Mean = 0.20 , Std = 0.013
+
+People's hierarchical organization of visual concepts, such object category membership being determined by its constituent parts, allows for robust recognition of objects in the real world. We were interested in whether people might employ similar abstractions in producing sketches of such objects as well. Since an individual stroke correspond to a person's decision to make a mark on the canvas, we looked at the relationship between strokes and the parts that they represented in our dataset. 
+We explored 3 possible stroke-to-part relationships:
+a) Singular strokes correspond to singular parts, b) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries, and c) Multiple strokes are required to convey a single part. 
+
+We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts. We found that splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels. People, in general, tended to use their strokes to draw a single part while only sometimes utilizing a single stroke to represent multiple parts.
+
+We also compared a) and c) by looking at the average number of strokes used to represent specific parts within a given category of sketches. A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part. Figure \ref{strokesperpart} shows these part-specific stroke averages by object category.
+\kushin{I feel the above summary, including the figure caption for figure 2 is a little inconclusive. Thoughts on how to remedy this?}
+
+
+
+\subsection{Stroke sequence organization}
+
+\kushin{Will update this with newer z-score based analysis}
+
 
 
 % table for now: Is there spatial contiguity in how people structure their sketches?
