@@ -53,9 +53,9 @@
 % }
 
 \author{{\large \bf Kushin Mukherjee\textsuperscript{1}, Robert X. D. Hawkins\textsuperscript{2}, Judith E. Fan\textsuperscript{2,3}} \\
-\textsuperscript{1}Department of Cognitive Science, Vassar College (\texttt{kumukherjee@vassar.edu})\\
-\textsuperscript{2}Department of Psychology, Stanford University (\texttt{\{rxdh,jefan\}@stanford.edu})\\ 
-\textsuperscript{3}Department of Psychology, University of California, San Diego (\texttt{jefan@ucsd.edu})}
+\textsuperscript{1}Department of Cognitive Science, Vassar College, \\
+\textsuperscript{2}Department of Psychology, Stanford University, \\
+\textsuperscript{3}Department of Psychology, University of California, San Diego}
 
 
 \begin{document}
@@ -63,19 +63,20 @@
 \maketitle 
 
 \begin{abstract}
-\jefan{Between the title and author list would be a great place to place a 2-column spanning banner containing several example annotated sketches. Getting this idea from the way SIGGRAPH conference papers are usualyl formatted, would be a great way immediately signal to the reader the kind of data we're working with.}
-Drawing is a versatile tool for communication, spanning detailed renderings and simple sketches. 
+\jefan{Between the title and author list would be a great place to place a 2-column spanning banner containing several example annotated sketches.}
+Drawing is a versatile tool for communication, spanning detailed renderings and sparse sketches. 
 Even the same object can be drawn in different ways, depending on the context. 
-How do people decide how to draw in order to be understood?
-Here we investigate the semantic structure of drawings as a window into how people deploy both perceptual information and conceptual knowledge to produce communicatively effective drawings in context.
-We analyzed a dataset containing drawings of real-world objects that were produced in different semantic contexts, and contained both detailed and simpler sketches of each object. 
-We explored the hypothesis that during visual communication, people spontaneously decompose visual objects into semantically meaningful parts (e.g., chairs consist of legs, seat, and back), resulting in a tight correspondence between the organization of this semantic part knowledge and the procedure people use to sketch an object. 
-For example, if someone aims to produce a recognizable sketch of a chair, they produce strokes that represent individually meaningful parts, e.g., seat, armrest, legs.
-To investigate this, we developed a web-based platform to collect dense semantic annotations of the stroke elements in each drawing. 
-We found that: (1) people are highly consistent in how they interpret what individual strokes mean; (2) single strokes tend to represent a single part category (e.g., leg vs. leg + seat), while multiple strokes may be combined to represent an entire part category (e.g., all the legs on a chair); and (3) strokes representing the same part tend to be clustered in time, suggesting that people tend to start and finish drawing one part of an object before moving onto the next.
+Here we examine the semantic structure of object drawings to understand how people deploy perceptual information and conceptual knowledge to convey relevant information in context.
+Towards this end, we developed a web-based platform to densely annotate drawings of real-world objects produced in different semantic contexts, including detailed and simpler sketches of each object. 
+We found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time; and \textit{4}, detailed and sparse drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
+Taken together, our results support the notion that during visual communication, people readily decompose visual objects into semantically meaningful parts (e.g., chairs consist of legs, seat, and back), resulting in a close correspondence between this semantic part knowledge and the actions they perform to draw objects. 
+More broadly, they highlight the importance of structured representations to understand how drawings convey meaning. 
+
+
+% We found that: (1) people are highly consistent in how they interpret what individual strokes mean; (2) single strokes tend to represent a single part category (e.g., leg vs. leg + seat), while multiple strokes may be combined to represent an entire part category (e.g., all the legs on a chair); and (3) strokes representing the same part tend to be clustered in time, suggesting that people tend to start and finish drawing one part of an object before moving onto the next.
 
 \textbf{Keywords:} 
-sketching; cognitive science; perception
+sketch understanding; perceptual organization; visual production; object representation; pragmatics
 \end{abstract}
 
 \section{Introduction}
@@ -135,13 +136,13 @@ For the purposes of analysis, we set the modal label for each spline as its true
 
 \subsection{Relationship between strokes and parts}
 
-\begin{figure}
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Part-Stroke.jpeg}
 \caption{The three part-stroke relationships we explored. Each squiggle represents a hypothetical stroke. Different colors indicate different part-labels.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \begin{subfigure}[t]{0.2\textwidth}
 \centering
 \includegraphics[width=1.2\textwidth]{figures/bird_average_parts.png}
@@ -170,16 +171,21 @@ For the purposes of analysis, we set the modal label for each spline as its true
 \end{figure}
 
 
-People's hierarchical organization of visual concepts, such object category membership being determined by its constituent parts, allows for robust recognition of objects in the real world. We were interested in whether people might employ similar abstractions in producing sketches of such objects as well. Since an individual stroke correspond to a person's decision to make a mark on the canvas, we looked at the relationship between strokes and the parts that they represented in our dataset. 
+People's hierarchical organization of visual concepts, such object category membership being determined by its constituent parts, allows for robust recognition of objects in the real world. 
+We were interested in whether people might employ similar abstractions in producing sketches of such objects as well. 
+Since an individual stroke correspond to a person's decision to make a mark on the canvas, we looked at the relationship between strokes and the parts that they represented in our dataset. 
 We explored 3 possible stroke-to-part relationships:
 a) Singular strokes correspond to singular parts, b) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries, and c) Multiple strokes are required to convey a single part. 
 
-We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts. We found that splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels. People, in general, tended to use their strokes to draw a single part while only sometimes utilizing a single stroke to represent multiple parts.
+We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. 
+On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts. 
+We found that splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels. 
+People, in general, tended to use their strokes to draw a single part while only sometimes utilizing a single stroke to represent multiple parts.
 
-We also compared a) and c) by looking at the average number of strokes used to represent specific parts within a given category of sketches. A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part. Figure \ref{strokesperpart} shows these part-specific stroke averages by object category.
+We also compared a) and c) by looking at the average number of strokes used to represent specific parts within a given category of sketches. 
+A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part. 
+Figure \ref{strokesperpart} shows these part-specific stroke averages by object category.
 \kushin{I feel the above summary, including the figure caption for figure 2 is a little inconclusive. Thoughts on how to remedy this?}
-
-
 
 \subsection{Stroke sequence organization}
 
