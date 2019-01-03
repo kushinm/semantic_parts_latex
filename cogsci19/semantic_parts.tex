@@ -165,7 +165,7 @@ For the purposes of analysis, we set the modal label for each spline as its true
 \includegraphics[width=1.2\textwidth]{figures/dog_average_parts.png}
 \caption{Dog}
 \end{subfigure}
-\caption{Average number of strokes used to draw each part per category. While participants use multiple strokes to represent some parts, other parts are sometimes expressed using single strokes. It is possible that}
+\caption{Average number of strokes used to draw each part per category. While participants use multiple strokes to represent some parts, other parts are sometimes expressed using single strokes.}
 \label{strokesperpart}
 \end{figure}
 
@@ -183,8 +183,22 @@ We also compared a) and c) by looking at the average number of strokes used to r
 
 \subsection{Stroke sequence organization}
 
-\kushin{Will update this with newer z-score based analysis}
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/Part_sequence.png}
+\caption{Analyzing stroke sequences in sketches. We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.}
+\label{stroke_sequence_fig}
+\end{figure}
 
+Since individual strokes seemed to mostly correspond to singular part labels, we can view strokes as the building blocks for sketches much like words are the building blocks for sentences. Under this view of stroke organization, we looked at whether there was any meaningful temporal organization of strokes in terms of their part labels. If there was any such organization, any variation between the context conditions would also highlight a difference in how parts are mapped onto strokes under different communicative needs. This investigation was done through a permutation test approach where we created distributions of scrambled stroke sequences to test whether in the true sequence strokes of the same part were preferentially grouped together. Figure \ref{stroke_sequence_fig} outlines the procedure we undertook for this analysis.
+74 sketches were excluded from this analysis because a) they consisted of only a single stroke, b) all the constituent strokes shared the same part label, or c) each stroke in the sketch had a unique label, making the permutation procedure not feasible.
+We calculated the z-score of the true sequence of every sketch relative to their scrambled distributions. The higher this statistic was, the greater the amount of grouping of similar parts was relative to if the strokes were organized in a random fashion.
+
+ The mean z-score for sketches in the close condition was 2.58 (95 CI: 2.26, 2.90) and 1.56 (95 CI: 1.38, 1.74) for the far condition.
+
+
+ 
+ 
 
 
 % table for now: Is there spatial contiguity in how people structure their sketches?
