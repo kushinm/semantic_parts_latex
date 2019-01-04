@@ -62,12 +62,14 @@
 \maketitle 
 
 \begin{abstract}
-Drawing is a versatile tool for communication, spanning detailed renderings and sparse sketches. 
-Even the same object can be drawn in different ways, depending on the context. 
-Here we examine the semantic structure of object drawings to understand how people deploy perceptual information and conceptual knowledge to convey relevant information in context.
-Towards this end, we developed a web-based platform to densely annotate drawings of real-world objects produced in different semantic contexts, including detailed and simpler sketches of each object. 
+
+The ability to represent semantically meaningful structure in our environment is a powerful aspect of human visual perception and cognition. 
+As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic. 
+How are visual object concepts organized such that they can robustly encode such abstract correspondences?
+Here we explore the hypothesis that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts. 
+Towards this end, we developed a web-based platform to densely annotate the semantic attributes of drawings of real-world objects produced in different contexts, allowing us to examine the semantic structure of more-detailed and sparser drawings of the same object. 
 We found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time; and \textit{4}, detailed and sparse drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
-Taken together, our results support the notion that during visual communication, people readily deploy their abstract understanding of the semantic structure of objects in order to select actions that effectively communicate about them. 
+Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
 
 \textbf{Keywords:} 
@@ -75,6 +77,8 @@ sketch understanding; perceptual organization; visual production; object represe
 \end{abstract}
 
 \section{Introduction}
+
+%% revise so that the throughline is clearer: how does the human mind organize visual concepts such that they can be deployed so flexibly? answer: compositionality. what is a good way of probing compositionality? you could use discrimination tasks, but compositional tasks are much more direct. what is good about compositionality? it enables flexibility. how do you probe flexibility? compositional tasks across different contexts. 
 
 When we open our eyes, we do not experience a meaningless array of photons --- instead, we parse the world into people, objects, and their relationships. 
 The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition. 
@@ -90,7 +94,7 @@ By contrast, visual production tasks permit participants to include any elements
 
 Here we investigate one of the most basic forms of visual production, the communication of object concepts via drawing.
 Specifically, our goal is to understand how the semantic structure of such communicative drawings may shed light on how the structure of high-level object object representations supports their flexible expression across contexts. 
-Our approach builds on prior work that has investigated the production of object drawings to communicate \cite{FanCommon2018} in two ways: (1) an explicit focus on interpretable semantic structure in drawings and (2) the manipulation of semantic context to investigate flexibility in how perceptual and semantic knowledge is expressed. 
+Our approach builds on prior work that has investigated the production of object drawings to communicate \cite{FanCommon2018} in two ways: first, an explicit focus on interpretable semantic structure in drawings, and second, the manipulation of semantic context to investigate flexibility in how perceptual and semantic knowledge is expressed. 
 
 Towards this end, we developed a web-based platform to densely annotate drawings of real-world objects produced in different semantic contexts, including detailed and simpler sketches of each object. 
 Overall, we found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time; and \textit{4}, detailed and sparse drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
