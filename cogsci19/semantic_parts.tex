@@ -57,7 +57,6 @@
 \textsuperscript{2}Department of Psychology, Stanford University, \\
 \textsuperscript{3}Department of Psychology, University of California, San Diego}
 
-
 \begin{document}
 
 \maketitle 
@@ -77,35 +76,47 @@ sketch understanding; perceptual organization; visual production; object represe
 
 \section{Introduction}
 
-%% Key aspect of human visual perception and cognition is ability to extract semantically meaningful, structured information from raw sensory inputs. Drawings are natural and effective way of exposing this. 
+When we open our eyes, we do not experience a meaningless array of photons --- instead, we parse the world into people, objects, and their relationships. 
+The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition. 
 
-%% Classical approaches to understanding real-world perceptual organization posited geometric primitives (i.e., geons), exhibiting strong inductive bias towards hierarchical structure in objects. 
+Recent advances in computational neuroscience and artificial intelligence have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, exemplified by modern deep learning approaches \cite{yamins2014performance}.
+Nevertheless, a major gap remains in elucidating how the feature representations learned by deep learning models can be adapted to emulate the structure and flexibility of human visual semantic knowledge \cite{lake2017building}.
+A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the efficiency and interpretability of structured representations that reflect how visual concepts are organized in the human mind \cite{battaglia2018relational}. 
+Yet pursuing this strategy clearly relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
 
-%% Modern approaches to modeling visual perception employ end-to-end training on large image datasets, avoiding explicitly `hand-engineered' structured representations. The resulting representations have been pretty useful for making progress on general-purpose image understanding, including sketch understanding. 
+The goal of this paper is to contribute to this understanding by probing the \textit{production} of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility.
+This focus on production departs from the conventional strategy for inferring the organization of visual concepts from behavior, which relies upon tasks that evaluate \textit{comprehension} of visual inputs, usually with respect to experimenter-defined dimensions. 
+By contrast, visual production tasks permit participants to include any elements they consider relevant to their goals and compose these elements into a structured whole, yielding high-dimensional information about how visual semantic knowledge is organized and deployed. 
 
-%% However, capturing image-level correspondences between sketches and images still requires substantial supervision, and there is not a clear way of encoding one of the major axes of variation across sketches -- visual abstraction. 
+Here we investigate one of the most basic forms of visual production, the communication of object concepts via drawing.
+Specifically, our goal is to understand how the semantic structure of such communicative drawings may shed light on how the structure of high-level object object representations supports their flexible expression across contexts. 
+Our approach builds on prior work that has investigated the production of object drawings to communicate \cite{FanCommon2018} in two ways: (1) an explicit focus on interpretable semantic structure in drawings and (2) the manipulation of semantic context to investigate flexibility in how perceptual and semantic knowledge is expressed. 
 
-%% Our study is motivated by classical ideas from object perception and recent currents in machine learning that focus on learning high-level structured representations of objects. 
+Towards this end, we developed a web-based platform to densely annotate drawings of real-world objects produced in different semantic contexts, including detailed and simpler sketches of each object. 
+Overall, we found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time; and \textit{4}, detailed and sparse drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
+Taken together, our results support the notion that during visual communication, people readily deploy their abstract understanding of the semantic structure of objects in order to select actions that effectively communicate about them. 
 
 \section{Methods}
 
 \subsection{Dataset}
 
+% We required sketches of common objects created under different contexts. 
+% So we obtained sketch data from a two-player Pictionary reference game experiment. 
+
+In order to investigate  
+
+We obtained 1198 sketches for the annotation task. 
 
 
-
-
-We required sketches of common objects created under different contexts. 
-So we obtained sketch data from a two-player Pictionary reference game experiment. 
 In this experiment, one participant (the sketcher) aimed to produce sketches of target objects to distinguish them from three distractor objects. 
-A 'viewer' had to guess which of the 4 images the sketch represented. 
+ had to guess which of the 4 images the sketch represented. 
 The targets and distractors were chosen from a set 32 real-world objects belonging to 4 basic-level categories: cars, chairs, dogs, and birds. 
 Each category had 8 distinct exemplars. 
 There were 2 main context conditions in this experiment - close and far. 
 In the close condition, the target image and the distractors belonged to the same basic-level category. 
 In the far condition, the target and each of the distractors belonged to a different basic-level category.
 
-We obtained 1198 sketches for the annotation task. 
+
 These sketches were represented as scalable vector graphics (SVG) images. 
 The strokes that participants made on the canvas when creating the sketch can be represented as a concatenated string of cubic Bezier curves.  
 Thus, the final sketch can be represented by a list of such concatenated strings, each of which corresponds to an event of the participant placing their drawing instrument on the canvas, making some marks on the canvas, and lifting the instrument off of the canvas. 
@@ -213,8 +224,6 @@ We calculated the z-score of the true sequence of every sketch relative to their
 
 
  
- 
-
 
 % table for now: Is there spatial contiguity in how people structure their sketches?
 
@@ -225,6 +234,7 @@ like, are they more similar to each other, more like "bird" and lacking object-s
 a way of measuring this is that the centroid (euclidean norm, magnitude of the vector) is closer to the origin for far vs. close, and also that the RMSD to centroid of far sketches is smaller than for close sketches.... }
 
 
+
 \section{Discussion}
 
 \section{Acknowledgments}
@@ -233,19 +243,14 @@ a way of measuring this is that the centroid (euclidean norm, magnitude of the v
 
 \subsection{Figures}
 
-
-
-
-
-
 \section{References}
 
+\bibliography{semantic_parts}
 \bibliographystyle{apacite}
-
 \setlength{\bibleftmargin}{.125in}
-\setlength{\bibindent}{-\bibleftmargin}
+\setlength{\bibindent}{-\bibleftmargin}ı
 
-\bibliography{CogSci_Template}
+
 
 
 \end{document}
