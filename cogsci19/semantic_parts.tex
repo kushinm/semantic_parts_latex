@@ -146,7 +146,7 @@ This data format provides a relatively compact representation of each drawing co
 \label{refgame_gallery}
 \end{SCfigure*}
 
-\subsection{Semantic annotation procedure}
+\subsection{Semantic annotation}
 
 In the present study, we developed a novel web-based platform to crowdsource semantic annotations for every spline of every stroke of every sketch in our dataset. 
 
@@ -155,9 +155,13 @@ In the present study, we developed a novel web-based platform to crowdsource sem
 For this experiment, participants provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every sub-stroke element they annotated and \$0.02 for every sketch they annotated completely. 
 
-\noindent \textbf{Annotation task} \hspace{3mm} 
-
-
+\noindent \textbf{Annotation task} \hspace{3mm} \jefan{Would be good to put a cleaned up version of the annotation task interface around here.} In each annotation session, participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
+Each trial, one of these sketches appeared in the center of the display, above the same array of four objects that the sketcher had viewed, with one of these objects highlighted as the target. 
+Thus the annotator had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
+The goal of the annotator was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
+To facilitate this, participants were provided with a menu of common part labels that were tailored to each basic-level category represented in our dataset. \jefan{It would be good to have a table containing the part labels that were provided for each category.}
+However, participants were also free to generate their own part label if none of the common labels applied.
+In total, we collected 3608 annotation trials of 1195 unique sketches. \jefan{What happened to the other 3 drawings?}
 
 % To collect fine-grained annotations of our drawings, we developed a web-based annotation tool. 
 % Each participant annotated 10 sketches. 
@@ -169,12 +173,26 @@ Participants were provided with a base compensation of \$0.35, plus \$0.002 for 
 % They could choose to continue to the next trial without labeling every stroke in a sketch, but they would lose out on the completion bonus as well as the amount they would have earned for labeling the remaining strokes.
 % In total, we collected 3608 annotations of 1195 unique sketches. 
 
-\subsection{Preprocessing}
-After collecting annotations, we filtered out any sketches that didn't have all of its constituent splines labeled. This left us with 3319 annotations of 1190 unique sketches.
-Since there was some variability in the number of times each sketch in our dataset was annotated, we selected those sketches that had been annotated exactly 3 times. This left us with 764 unique sketches, each of which had been annotated 3 times.
-We also created unique dictionaries for each object category that mapped participant-generated labels to the most frequently occurring labels in our dataset. This helped reduce the total number of unique labels in our dataset from 228 to 24.
+\noindent \textbf{Inclusion criteria} \hspace{3mm} Because one of our central goals was to understand the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
+Moreover, in order to be able to examine inter-annotator consistency in how drawings were annotated, we only examined drawings that were annotated by at least three distinct participants. 
+\jefan{By the way, are we including drawings that were annotated more than three times? We could, of course, and just ignore the 4th and onward... Also, have we ever checked whether the annotations were coming from distinct participants? Not sure, this requires comparing workerId, which we do not save to the group dataframe.}
+Some of the custom part labels provided by participants were valid, but at a finer grain than the most frequently appearing labels. \jefan{Perhaps include an example of one of these.} 
+In order to characterize the seamntic structure of drawings at a consistent granularity, we also manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels, where appropriate. 
+After applying these inclusion criteria, our annotated dataset consisted of 764 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
-Given that our goal was to created an annotated dataset of sketches created under different contexts, we required that the annotations we collected through our interface be reliable. In order to assess this reliability, we looked at whether different annotators saw the same parts in these abstract sketches of objects. Specifically, we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. Reliability was measured in terms of 'agreement' on spline labels. For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline. We found that 67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
+% After collecting annotations, we filtered out any sketches that didn't have all of its constituent splines labeled. 
+% This left us with 3319 annotations of 1190 unique sketches.
+% Since there was some variability in the number of times each sketch in our dataset was annotated, we selected those sketches that had been annotated exactly 3 times. 
+% This left us with 764 unique sketches, each of which had been annotated 3 times.
+% We also created unique dictionaries for each object category that mapped participant-generated labels to the most frequently occurring labels in our dataset. 
+% This helped reduce the total number of unique labels in our dataset from 228 to 24.
+
+Given that our goal was to created an annotated dataset of sketches created under different contexts, we required that the annotations we collected through our interface be reliable. 
+In order to assess this reliability, we looked at whether different annotators saw the same parts in these abstract sketches of objects. 
+Specifically, we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. 
+Reliability was measured in terms of 'agreement' on spline labels. 
+For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline. 
+We found that 67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
 For the purposes of analysis, we set the modal label for each spline as its true label.
 
 \section{Results}
