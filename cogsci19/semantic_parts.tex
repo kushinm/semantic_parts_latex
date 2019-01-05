@@ -86,27 +86,30 @@ sketch understanding; perceptual organization; visual production; object represe
 
 When we open our eyes, we do not experience a meaningless array of photons --- instead, we parse the world into people, objects, and their relationships. 
 The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition. 
+As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic. 
+How are visual object concepts organized such that they can robustly encode such abstract correspondences?
+Here we explore the hypothesis that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts. 
 
 Recent advances in computational neuroscience and artificial intelligence have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, exemplified by modern deep learning approaches \cite{yamins2014performance}.
 Nevertheless, a major gap remains in elucidating how the feature representations learned by deep learning models can be adapted to emulate the structure and flexibility of human visual semantic knowledge \cite{lake2017building}.
-A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the efficiency and interpretability of structured representations that reflect how visual concepts are organized in the human mind \cite{battaglia2018relational}. 
-Yet pursuing this strategy clearly relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
+A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the human mind \cite{battaglia2018relational}. 
+Pursuing this strategy relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
 
-The goal of this paper is to contribute to this understanding by probing the \textit{production} of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility.
-This focus on production departs from the conventional strategy for inferring the organization of visual concepts from behavior, which relies upon tasks that evaluate \textit{comprehension} of visual inputs, usually with respect to experimenter-defined dimensions. 
-By contrast, visual production tasks permit participants to include any elements they consider relevant to their goals and compose these elements into a structured whole, yielding high-dimensional information about how visual semantic knowledge is organized and deployed. 
+The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing.
+This approach departs from the conventional strategy for inferring the organization of visual object concepts from behavior, which relies upon tasks that elicit judgments about visual inputs, usually with respect to experimenter-defined dimensions. 
+By contrast, visual communication tasks permit participants to include any elements they consider relevant to their goals and combine these elements freely, yielding high-dimensional information about how visual semantic knowledge is organized and deployed under a naturalistic task objective. 
 
-Here we investigate one of the most basic forms of visual production, the communication of object concepts via drawing.
-Specifically, our goal is to understand how the semantic structure of such communicative drawings may shed light on how the structure of high-level object object representations supports their flexible expression across contexts. 
-Our approach builds on prior work that has investigated the production of object drawings to communicate \cite{FanCommon2018} in two ways: first, an explicit focus on interpretable semantic structure in drawings, and second, the manipulation of semantic context to investigate flexibility in how perceptual and semantic knowledge is expressed. 
+Our aim in probing the semantic structure of communicative drawings is to shed light on how the semantic organization of visual object representations supports their flexible expression across contexts. 
+Our approach advances recent work \cite{FanCommon2018,long2018drawings} that has investigated the production of object drawings to communicate in two ways: first, an explicit focus on compositional semantic structure in drawings, and second, the examination of flexibility in how visual semantic knowledge is expressed in different semantic contexts. 
 
 Towards this end, we developed a web-based platform to densely annotate drawings of real-world objects produced in different semantic contexts, including detailed and simpler sketches of each object. 
-Overall, we found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time; and \textit{4}, detailed and sparse drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
-Taken together, our results support the notion that during visual communication, people readily deploy their abstract understanding of the semantic structure of objects in order to select actions that effectively communicate about them. 
+Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time; and (4) detailed and sparse drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
+Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context. 
 
 \section{Methods}
 
-\subsection{Dataset}
+
+\subsection{Reference game dataset}
 
 \begin{figure}[htbp]
 \centering
@@ -116,11 +119,11 @@ Taken together, our results support the notion that during visual communication,
 \end{figure}
 
 We obtained 1198 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a sketching-based reference game \cite{fan2018modeling}.
-Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars (Fig.~\ref{refgame_gallery}).
+Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars (Fig.~\ref{refgame_gallery}A).
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
 One participant (i.e., the sketcher) aimed to draw one of these objects --- the target --- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
-Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
-This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C). 
+Across trials, the similarity of the distractors to the target was manipulated, yielding two types of semantic context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
+This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C, Fig.~\ref{refgame_gallery}B\&C). 
 
 \begin{SCfigure*}
 \centering
@@ -128,6 +131,18 @@ This context manipulation led sketchers to produce simpler sketches containing f
 \caption{(A) Target objects. (B) Example object drawings produced in a close context. (C) Example drawings produced in a far context.}
 \label{refgame_gallery}
 \end{SCfigure*}
+
+\subsection{Semantic annotation procedure}
+
+\subsection{Participants}
+
+326 participants were recruited via Amazon Mechanical Turk (AMT).  
+For this experiment, participants provided informed consent in accordance with the Stanford University IRB. 
+Participants were provided with a base compensation of \$0.35, plus \$0.002 for every sub-stroke element they annotated and \$0.02 for every sketch they annotated completely. 
+
+
+
+
 
 These sketches were represented as scalable vector graphics (SVG) images. 
 The strokes that participants made on the canvas when creating the sketch can be represented as a concatenated string of cubic Bezier curves.  
@@ -137,14 +152,7 @@ A single spline was equivalent to a single cubic Bezier curve, i.e., a Bezier cu
 We had participants in our annotation task label each sketch's constituent splines.
 
 
-\subsection{Participants}
-
-We recruited a total of 326 participants via Amazon Mechanical Turk (AMT).  
-For this experiment, participants provided informed consent in accordance with the Stanford University IRB. 
-Participants were paid a base amount of \$0.35 and were given an additional bonus of \$0.002 for every stroke they annotated. 
-In addition to this, they were given a \$0.02 bonus for every sketch for which they labeled all strokes. 
-
-\subsection{Annotation Procedure}
+Similar to , sub-strokes are parameterized as cubic spline curve segments \cite{lake2015human}
 
 To collect fine-grained annotations of our sketches, we implemented a web-based Javascript annotation tool. 
 Each participant annotated 10 sketches. 
