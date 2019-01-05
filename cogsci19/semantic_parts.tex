@@ -36,6 +36,7 @@
 \usepackage{array}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{sidecap}
 \usepackage[export]{adjustbox}
 \hyphenpenalty=100000
 
@@ -107,19 +108,26 @@ Taken together, our results support the notion that during visual communication,
 
 \subsection{Dataset}
 
-\begin{figure*}[htbp]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/2_sketch_gallery.pdf}
-\caption{(A) Object renderings. (B) Example sketches produced in a close context. (C) Example sketches produced in a far context. (D-E) Sketchers used fewer strokes in the far condition, while producing sketches that were accurately recognized by the viewer in both conditions.}
-\label{sketch_gallery}
-\end{figure*}
+\includegraphics[width=0.48\textwidth]{figures/refgame_performance.pdf}
+\caption{(A) Participants were paired in an online environment to play a drawing-based reference game in which the sketcher aimed to draw a target object such that a viewer could distinguish it from three distractor objects. (B) In close contexts, the target and distractors all belonged to the same basic-level category; in far contexts, the target and distractors belonged to different basic-level categories. (C) Sketchers used fewer strokes in the far condition, while producing sketches that were accurately recognized by the viewer in both conditions.}
+\label{refgame_performance}
+\end{figure}
 
 We obtained 1198 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a sketching-based reference game \cite{fan2018modeling}.
-On each trial of this reference game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects. 
-Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), containing eight exemplars each.  
-One participant (i.e., the sketcher) aimed to draw one of these objects --- the target --- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects. 
-Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{sketch_gallery}). 
-This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far context trials than on close trials, while still achieving high recognition accuracy in both contexts. 
+Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars (Fig.~\ref{refgame_gallery}).
+On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
+One participant (i.e., the sketcher) aimed to draw one of these objects --- the target --- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
+Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
+This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C). 
+
+\begin{SCfigure*}
+\centering
+\includegraphics[width=0.8\textwidth]{figures/refgame_gallery.pdf}
+\caption{(A) Target objects. (B) Example object drawings produced in a close context. (C) Example drawings produced in a far context.}
+\label{refgame_gallery}
+\end{SCfigure*}
 
 These sketches were represented as scalable vector graphics (SVG) images. 
 The strokes that participants made on the canvas when creating the sketch can be represented as a concatenated string of cubic Bezier curves.  
