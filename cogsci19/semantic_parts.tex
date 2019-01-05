@@ -76,7 +76,7 @@ Taken together, our results support the notion that people deploy their abstract
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
 
 \textbf{Keywords:} 
-sketch understanding; perceptual organization; visual production; object representation; pragmatics
+sketch understanding; perceptual organization; visual production; object representation; compositionality
 \end{abstract}
 
 \section{Introduction}
@@ -107,22 +107,19 @@ Taken together, our results support the notion that during visual communication,
 
 \subsection{Dataset}
 
-% We required sketches of common objects created under different contexts. 
-% So we obtained sketch data from a two-player Pictionary reference game experiment. 
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/2_sketch_gallery.pdf}
+\caption{(A) Object renderings. (B) Example sketches produced in a close context. (C) Example sketches produced in a far context. (D-E) Sketchers used fewer strokes in the far condition, while producing sketches that were accurately recognized by the viewer in both conditions.}
+\label{sketch_gallery}
+\end{figure*}
 
-In order to investigate  
-
-We obtained 1198 sketches for the annotation task. 
-
-
-In this experiment, one participant (the sketcher) aimed to produce sketches of target objects to distinguish them from three distractor objects. 
- had to guess which of the 4 images the sketch represented. 
-The targets and distractors were chosen from a set 32 real-world objects belonging to 4 basic-level categories: cars, chairs, dogs, and birds. 
-Each category had 8 distinct exemplars. 
-There were 2 main context conditions in this experiment - close and far. 
-In the close condition, the target image and the distractors belonged to the same basic-level category. 
-In the far condition, the target and each of the distractors belonged to a different basic-level category.
-
+We obtained 1198 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a sketching-based reference game \cite{fan2018modeling}.
+On each trial of this reference game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects. 
+Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), containing eight exemplars each.  
+One participant (i.e., the sketcher) aimed to draw one of these objects --- the target --- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects. 
+Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{sketch_gallery}). 
+This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far context trials than on close trials, while still achieving high recognition accuracy in both contexts. 
 
 These sketches were represented as scalable vector graphics (SVG) images. 
 The strokes that participants made on the canvas when creating the sketch can be represented as a concatenated string of cubic Bezier curves.  
