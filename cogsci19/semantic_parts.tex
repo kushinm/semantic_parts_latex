@@ -199,15 +199,16 @@ For example, a 3/3 agreement score for a given spline meant that each of the 3 a
 We found that 67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
 For the purposes of analysis, we set the modal label for each spline as its true label.
 
-
 \subsection{What is the relationship between the parts of an object and the strokes in a drawing?}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.4\textwidth]{figures/Part-Stroke.jpeg}
-\caption{The three part-stroke relationships we explored. Each squiggle represents a hypothetical stroke. Different colors indicate different part-labels.}
+\includegraphics[width=0.32\textwidth]{figures/Part-Stroke.png}
+\caption{The three part-stroke relationships we explored. Each squiggle represents a hypothetical stroke. 
+Different colors indicate different part-labels.
+Comparing (A) and (B) helps us understand how many parts are represented by a single stroke on average, 
+while comparing (A) and (C) shows whether more than a single stroke is required on average to completely represent a given part in a sketch. }
 \end{figure}
-
 \begin{figure}[htbp]
 \begin{subfigure}[t]{0.2\textwidth}
 \centering
@@ -234,24 +235,23 @@ For the purposes of analysis, we set the modal label for each spline as its true
 \end{subfigure}
 \caption{Average number of strokes used to draw each part per category. 
 While individual strokes rarely cross semantic boundaries, the total number of strokes used to draw all instances of a part in sketches vary. 
-Larger parts and parts that tend to have multiple instances tend to require multiple strokes.ß
+Larger parts and parts that tend to have multiple instances tend to require multiple strokes.
 }
 \label{strokesperpart}
 \end{figure}
-
 
 People's hierarchical organization of visual concepts, such object category membership being determined by its constituent parts, allows for robust recognition of objects in the real world. 
 We were interested in whether people might employ similar abstractions in producing sketches of such objects as well. 
 Since an individual stroke correspond to a person's decision to make a mark on the canvas, we looked at the relationship between strokes and the parts that they represented in our dataset. 
 We explored 3 possible stroke-to-part relationships:
-a) Singular strokes correspond to singular parts, b) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries, and c) Multiple strokes are required to convey a single part. 
+A) Singular strokes correspond to singular parts, B) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries, and C) Multiple strokes are required to convey a single part. 
 
-We compared a) and b) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. 
+We compared A) and B) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. 
 On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts. 
 We found that splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels. 
 People, in general, tended to use their strokes to draw a single part while only sometimes utilizing a single stroke to represent multiple parts.
 
-We also compared a) and c) by looking at the average number of strokes used to represent specific parts within a given category of sketches. 
+We also compared A) and C) by looking at the average number of strokes used to represent specific parts within a given category of sketches. 
 A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part. 
 Figure \ref{strokesperpart} shows these part-specific stroke averages by object category.
 \kushin{I feel the above summary, including the figure caption for figure 2 is a little inconclusive. Thoughts on how to remedy this?}
@@ -292,12 +292,13 @@ a way of measuring this is that the centroid (euclidean norm, magnitude of the v
 
 \subsection{Figures}
 
-\section{References}
+%\section{References}
 
 \bibliography{semantic_parts}
 \bibliographystyle{apacite}
 \setlength{\bibleftmargin}{.125in}
 \setlength{\bibindent}{-\bibleftmargin}ı
+
 
 
 
