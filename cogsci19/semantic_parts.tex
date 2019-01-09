@@ -35,22 +35,12 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{caption}
-\usepackage{subcaption}
 \usepackage{sidecap}
-\usepackage{titling}
 \usepackage{capt-of}
 \usepackage[export]{adjustbox}
 \usepackage{makecell}
 \hyphenpenalty=100000
-
-%\renewcommand\theadalign{bc}
-%\renewcommand\theadfont{\bfseries}
-%\renewcommand\theadgape{\Gape[4pt]}
-%\renewcommand\cellgape{\Gape[4pt]}
 \renewcommand\theadfont{\normalsize}
-
-
-
 \newcommand{\jefan}[1]{{\color{blue}{[jefan: #1]}}}
 \newcommand{\kushin}[1]{{\color{orange}{[kushin: #1]}}}
 
@@ -74,18 +64,22 @@
 
 \author{\large \bf Anonymous Authors}
 
-\renewcommand\maketitlehooka{\pagestyle{empty}\centering\sffamily}
-\renewcommand\maketitlehookc{\
- \includegraphics[width=.8\textwidth]{figures/banner.pdf}
- \captionsetup{width=0.8\textwidth}
- \captionof{figure}{Examples of 3D image renders with accompanying part-annotated sketches. 
- Below each render are 2 sketches made in the close and far contexts, respectively.}
- }
-
-
 \begin{document}
+\makeatletter
+\let\@oldmaketitle\@maketitle% Store \@maketitle
+\renewcommand{\@maketitle}{\@oldmaketitle% Update \@maketitle to insert...
+  \includegraphics[width=0.9\textwidth]
+    {figures/banner.pdf}
+    \captionsetup{width=0.8\textwidth}
+ \captionof{figure}{Examples of 3D image renders with accompanying part-annotated sketches. 
+ Below each render are 2 sketches made in the close and far contexts, respectively.}\bigskip}% ... an image
+\makeatother
+
+
 
 \maketitle 
+
+
 
 \begin{abstract}
 
