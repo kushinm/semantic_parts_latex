@@ -257,16 +257,15 @@ Since an individual stroke correspond to a person's decision to make a mark on t
 We explored 3 possible stroke-to-part relationships:
 A) Singular strokes correspond to singular parts, B) Singular strokes are used to convey multiple parts, that is, strokes cross semantic boundaries, and C) Multiple strokes are required to convey a single part. 
 
-We compared A) and B) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. 
-On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts. 
-We found that splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels. 
-People, in general, tended to use their strokes to draw a single part while only sometimes utilizing a single stroke to represent multiple parts.
+\kushin{will update this section}
 
-We also compared A) and C) by looking at the average number of strokes used to represent specific parts within a given category of sketches. 
-A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate that a single or few strokes might suffice in depicting that part. 
-Figure \ref{strokesperpart} shows these part-specific stroke averages by object category.
-\kushin{I feel the above summary, including the figure caption for figure 2 is a little inconclusive. Thoughts on how to remedy this?}
+%We compared A) and B) by looking at within-stroke label agreement for spline labels for all strokes in our dataset. High agreement among all the splines in a given stroke would be indicative of that being used to represent a single part. 
+%On the other hand, low agreement would indicate that stroke crosses semantic boundaries and is used to represent different parts. 
+%We found that splines contained in 76.85\% of strokes in our dataset shared a single label, 12.75\% of strokes contained 2 labels, and less than 11\% of strokes contained 3 or more labels. 
+%People, in general, tended to use their strokes to draw a single part while only sometimes utilizing a single stroke to represent multiple parts.
 
+%We also compared A) and C) by looking at the average number of strokes used to represent specific parts within a given category of sketches. 
+%A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate %that a single or few strokes might suffice in depicting that part. 
 \subsection{To what extent are strokes representing the same part produced in succession?}
 
 \begin{figure}
@@ -292,12 +291,28 @@ We calculated the z-score of the true sequence of every sketch relative to their
 e.g., when the far sketches are more abstract, how does that manifest in this feature representation?
 like, are they more similar to each other, more like "bird" and lacking object-specific details?
 a way of measuring this is that the centroid (euclidean norm, magnitude of the vector) is closer to the origin for far vs. close, and also that the RMSD to centroid of far sketches is smaller than for close sketches.... }
-We believe that people's concepts of object-categories are structured in order to facilitate both flexible recognition and production through compositional organization of the category's parts. Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
+
+We believe that people's concepts of object-categories are structured in such a way so as to facilitate both flexible recognition and production through a compositional organization of the category's parts. Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
 
 We represented each sketch in our dataset as a 48-dimensional feature vector. 
-24 of these components captured the number of strokes in a given sketch dedicated to each of the 24 unique part labels in our dataset. The remaining 24 components captured the total arc length of each of the 24 parts. Total arc length, here, serves as a proxy for the total amount of ink expended in drawing all instances of the given part in a sketch. Since each of the 24 parts didn't appear in every sketch, we normalized within each sketch such that the sum of the 'number of strokes' components and the sum of the total arc length components each summed to 1 for a given sketch. We then normalized across sketches such that each component in a sketch was represented as its z-score relative to the same component in all other sketches.
-We compared sparse and detailed sketches of the same object using these feature representations.
+24 of these components captured the number of strokes in a given sketch dedicated to each of the 24 unique part labels in our dataset. The remaining 24 components captured the total arc length of each of the 24 parts. Total arc length, here, serves as a proxy for the total amount of ink expended in drawing all instances of the given part in a sketch. Since each of the 24 parts didn't appear in every sketch, we normalized within each sketch such that the sum of the 'number of strokes' components and the sum of the total arc length components each summed to 1 for a given sketch. We then normalized across sketches such that each component in a sketch was represented as its z-score relative to the same component in all other sketches. In order to compare differences between sketches of the same target across contexts, we averaged feature vectors for sketches of each target by context condition to create 64 (32 objects * 2 conditions) averaged object vectors.
+We compared sparse and detailed sketches of the same object using these feature representations. 
+We once again applied a softmax function across object vectors, standardizing features to the same scale for meaningful comparison.
+we calculated the Euclidean norm of each object vector. The difference in mean Euclidean norms between close and far sketches was 0.072, and 28 out of 32 of the object vectors had higher Euclidean norms for detailed sketches relative to sparse sketches. We predicted that the rank ordering of feature weights might be preserved between detailed and sparse sketches. The Spearman Rank-Order correlation coefficient between detailed and sparse object features for all objects was statistically significantly positive. This indicated that the feature weight rank orderings was preserved between detailed and sparse sketches. The higher norms for detailed sketches indicates that while the part-specific profile may be preserved between context conditions, detailed sketches tend to be exaggerated in our feature space relative to sparse sketches.
 
+For each category of objects and context condition, we calculated the Euclidean norm of the object vectors and Euclidean pairwise distances between object vectors. 
+Using the mean of the norm and the standard deviation of pairwise distances, we calculated the coefficient of variation for detailed and sparse sketches by category. Detailed sketches had higher coefficients of variation for all categories \kushin{would report CV difference between close and far maybe?}.
+These results show that sparse sketches within a category are more similar to each other than detailed sketches are to each other. 
+The exaggeration in features in detailed sketches appear to make them not only distinct from sparse sketches, but from other detailed sketches of the same category as well.
+ 
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth]{figures/stroke_part_relationship.png}
+\caption{temp}
+\label{figg}
+\end{figure}
 
 
 
