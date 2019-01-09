@@ -37,14 +37,27 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{sidecap}
+\usepackage{titling}
+\usepackage{capt-of}
 \usepackage[export]{adjustbox}
+\usepackage{makecell}
 \hyphenpenalty=100000
+
+%\renewcommand\theadalign{bc}
+%\renewcommand\theadfont{\bfseries}
+%\renewcommand\theadgape{\Gape[4pt]}
+%\renewcommand\cellgape{\Gape[4pt]}
+\renewcommand\theadfont{\normalsize}
+
 
 
 \newcommand{\jefan}[1]{{\color{blue}{[jefan: #1]}}}
 \newcommand{\kushin}[1]{{\color{orange}{[kushin: #1]}}}
 
+
+
 \title{Semantic structure in communicative drawings}
+
  
 % \author{\begin{tabular}[htbp]{c@{\extracolsep{1em}}c@{\extracolsep{1em}}c@{\extracolsep{1em}}c} \\
 % {\large \bf Kushin Mukherjee} & {\large \bf Robert X. D. Hawkins} & {\large \bf Judith E. Fan}\\
@@ -60,6 +73,15 @@
 % \textsuperscript{3}Department of Psychology, University of California, San Diego}
 
 \author{\large \bf Anonymous Authors}
+
+\renewcommand\maketitlehooka{\pagestyle{empty}\centering\sffamily}
+\renewcommand\maketitlehookc{\
+ \includegraphics[width=.8\textwidth]{figures/banner.pdf}
+ \captionsetup{width=0.8\textwidth}
+ \captionof{figure}{Examples of 3D image renders with accompanying part-annotated sketches. 
+ Below each render are 2 sketches made in the close and far contexts, respectively.}
+ }
+
 
 \begin{document}
 
@@ -118,7 +140,7 @@ Taken together, our results support the notion that people deploy their abstract
 % \noindent \textbf{Drawing dataset} \hspace{3mm} 
 
 \subsection{Drawing dataset}
-We obtained 1198 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.
+We obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.
 Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars (Fig.~\ref{refgame_gallery}A).
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
 One participant (i.e., the sketcher) aimed to draw one of these objects -- the target -- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
@@ -155,11 +177,42 @@ In the present study, we developed a novel web-based platform to crowdsource sem
 For this experiment, participants provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every sub-stroke element they annotated and \$0.02 for every sketch they annotated completely. 
 
-\noindent \textbf{Annotation task} \hspace{3mm} \jefan{Would be good to put a cleaned up version of the annotation task interface around here.} In each annotation session, participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
+\noindent \textbf{Annotation task} \hspace{3mm} \jefan{Would be good to put a cleaned up version of the annotation task interface around here.} 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/annotation_tool.pdf}
+\caption{Sketch annotation Tool. (A) Participants were provided with the category label of the sketch whose parts they were to label. Labeled strokes changed color to match the label's color in the menu. (B) The accompanying part menu labels varied depending on the category of the sketch. (C) Images that the sketcher distinguished between during the reference game were provided for fuller context.}
+\label{refgame_performance}
+\end{figure}
+
+In each annotation session, participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
 Each trial, one of these sketches appeared in the center of the display, above the same array of four objects that the sketcher had viewed, with one of these objects highlighted as the target. 
 Thus the annotator had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 The goal of the annotator was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
 To facilitate this, participants were provided with a menu of common part labels that were tailored to each basic-level category represented in our dataset. \jefan{It would be good to have a table containing the part labels that were provided for each category.}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c | c|} 
+ \hline
+ Category & Labels \\ [0.5ex] 
+ \hline
+ %\hline
+ \thead{Bird} & \thead{eye, beak, head, body, wing, leg, feet, tail, other} \\ 
+  \hline
+ \thead{Car} &  \thead{bumper, headlight, hood, windshield, \\ window,  body, door, trunk, wheel, other }\\
+  \hline
+ \thead{Chair} & \thead{backrest, armrest, seat, leg, other}\\
+  \hline
+ \thead{Dog} & \thead{eye, mouth, ear, head, neck, body, \\ leg, paw, tail, other}\\ [1ex] 
+ \hline
+\end{tabular}
+\caption{The four sketch categories in our dataset and the accompanying part labels we provided for sketches of each category.
+}
+\label{table:1}
+\end{table}
+
 However, participants were also free to generate their own part label if none of the common labels applied.
 In total, we collected 3608 annotation trials of 1195 unique sketches. \jefan{What happened to the other 3 drawings? See top of `Drawing dataset' subsection.}
 
@@ -176,8 +229,9 @@ In total, we collected 3608 annotation trials of 1195 unique sketches. \jefan{Wh
 \noindent \textbf{Inclusion criteria} \hspace{3mm} Because one of our central goals was to understand the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
 Moreover, in order to be able to examine inter-annotator consistency in how drawings were annotated, we only examined drawings that were annotated by at least three distinct participants. 
 \jefan{By the way, are we including drawings that were annotated more than three times? We could, of course, and just ignore the 4th and onward... Also, have we ever checked whether the annotations were coming from distinct participants? Not sure, this requires comparing workerId, which we do not save to the group dataframe.}
-Some of the custom part labels provided by participants were valid, but at a finer grain than the most frequently appearing labels. \jefan{Perhaps include an example of one of these.} 
-In order to characterize the seamntic structure of drawings at a consistent granularity, we also manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels, where appropriate. 
+Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
+For example, in the case of chair sketches, strokes that represented legs were sometimes labeled as "leg support", "foot", and "strut". We mapped these labels to the more frequently occurring label "leg".
+In order to characterize the semantic structure of drawings at a consistent granularity, we also manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels, where appropriate. 
 After applying these inclusion criteria, our annotated dataset consisted of 764 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
 % After collecting annotations, we filtered out any sketches that didn't have all of its constituent splines labeled. 
@@ -201,44 +255,7 @@ For the purposes of analysis, we set the modal label for each spline as its true
 
 \subsection{What is the relationship between the parts of an object and the strokes in a drawing?}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.32\textwidth]{figures/Part-Stroke.png}
-\caption{The three part-stroke relationships we explored. Each squiggle represents a hypothetical stroke. 
-Different colors indicate different part-labels.
-Comparing (A) and (B) helps us understand how many parts are represented by a single stroke on average, 
-while comparing (A) and (C) shows whether more than a single stroke is required on average to completely represent a given part in a sketch. }
-\end{figure}
-\begin{figure}[htbp]
-\begin{subfigure}[t]{0.2\textwidth}
-\centering
-\includegraphics[width=1.\textwidth]{figures/bird_average_parts.png}
-\caption{Bird}
-\end{subfigure}
- \hfill
-\begin{subfigure}[t]{0.2\textwidth}
-\centering
-\includegraphics[width=1.\textwidth]{figures/car_average_parts.png}
-\caption{Car}
-\end{subfigure}
-\hfill
-\begin{subfigure}[t]{0.2\textwidth}
-\centering
-\includegraphics[width=1.\textwidth]{figures/chair_average_parts.png}
-\caption{Chair}
-\end{subfigure}
- \hfill
-\begin{subfigure}[t]{0.2\textwidth}
-\centering
-\includegraphics[width=1.\textwidth]{figures/dog_average_parts.png}
-\caption{Dog}
-\end{subfigure}
-\caption{Average number of strokes used to draw each part per category. 
-While individual strokes rarely cross semantic boundaries, the total number of strokes used to draw all instances of a part in sketches vary. 
-Larger parts and parts that tend to have multiple instances tend to require multiple strokes.
-}
-\label{strokesperpart}
-\end{figure}
+
 
 People's hierarchical organization of visual concepts, such object category membership being determined by its constituent parts, allows for robust recognition of objects in the real world. 
 We were interested in whether people might employ similar abstractions in producing sketches of such objects as well. 
@@ -260,7 +277,7 @@ Figure \ref{strokesperpart} shows these part-specific stroke averages by object 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.4\textwidth]{figures/Part_sequence.png}
+\includegraphics[width=0.4\textwidth]{figures/part_sequence.pdf}
 \caption{Analyzing stroke sequences in sketches. We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.}
 \label{stroke_sequence_fig}
 \end{figure}
@@ -298,6 +315,7 @@ a way of measuring this is that the centroid (euclidean norm, magnitude of the v
 \bibliographystyle{apacite}
 \setlength{\bibleftmargin}{.125in}
 \setlength{\bibindent}{-\bibleftmargin}ı
+
 
 
 
