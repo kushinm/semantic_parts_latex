@@ -166,11 +166,9 @@ In the present study, we developed a novel web-based platform to crowdsource sem
 For this experiment, participants provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every sub-stroke element they annotated and \$0.02 for every sketch they annotated completely. 
 
-\noindent \textbf{Annotation task} \hspace{3mm} \jefan{Would be good to put a cleaned up version of the annotation task interface around here.} 
-
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/annotation_tool.pdf}
+\includegraphics[width=0.45\textwidth]{figures/annotation_tool.pdf}
 \caption{Sketch annotation Tool. (A) Participants were provided with the category label of the sketch whose parts they were to label. Labeled strokes changed color to match the label's color in the menu. (B) The accompanying part menu labels varied depending on the category of the sketch. (C) Images that the sketcher distinguished between during the reference game were provided for fuller context.}
 \label{refgame_performance}
 \end{figure}
@@ -179,7 +177,7 @@ In each annotation session, participants were presented with 10 drawings that we
 Each trial, one of these sketches appeared in the center of the display, above the same array of four objects that the sketcher had viewed, with one of these objects highlighted as the target. 
 Thus the annotator had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 The goal of the annotator was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
-To facilitate this, participants were provided with a menu of common part labels that were tailored to each basic-level category represented in our dataset. \jefan{It would be good to have a table containing the part labels that were provided for each category.}
+To facilitate this, participants were provided with a menu of common part labels that were tailored to each basic-level category represented in our dataset. 
 
 \begin{table}[h!]
 \centering
@@ -203,8 +201,7 @@ To facilitate this, participants were provided with a menu of common part labels
 \end{table}
 
 However, participants were also free to generate their own part label if none of the common labels applied.
-In total, we collected 3608 annotation trials of 1195 unique sketches. \jefan{What happened to the other 3 drawings? See top of `Drawing dataset' subsection.}
-
+In total, we collected 3608 annotation trials of 1195 unique sketches. 
 % To collect fine-grained annotations of our drawings, we developed a web-based annotation tool. 
 % Each participant annotated 10 sketches. 
 % We provided participants with a sketch to be annotated on a canvas as well as a category-specific menu of labels, which they were encouraged to use for the annotation task. We also provided them with the option of entering their own labels through a free-response box. 
@@ -217,11 +214,11 @@ In total, we collected 3608 annotation trials of 1195 unique sketches. \jefan{Wh
 
 \noindent \textbf{Inclusion criteria} \hspace{3mm} Because one of our central goals was to understand the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
 Moreover, in order to be able to examine inter-annotator consistency in how drawings were annotated, we only examined drawings that were annotated by at least three distinct participants. 
-\jefan{By the way, are we including drawings that were annotated more than three times? We could, of course, and just ignore the 4th and onward... Also, have we ever checked whether the annotations were coming from distinct participants? Not sure, this requires comparing workerId, which we do not save to the group dataframe.}
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
-For example, in the case of chair sketches, strokes that represented legs were sometimes labeled as "leg support", "foot", and "strut". We mapped these labels to the more frequently occurring label "leg".
+For example, in the case of chair sketches, strokes that represented legs were sometimes labeled as 'leg support', 'foot', and 'strut'. 
 In order to characterize the semantic structure of drawings at a consistent granularity, we also manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels, where appropriate. 
-After applying these inclusion criteria, our annotated dataset consisted of 764 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
+In the case of the above examples, the participant generated labels were mapped to the label 'chair'.
+After applying these inclusion criteria, our annotated dataset consisted of 864 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
 % After collecting annotations, we filtered out any sketches that didn't have all of its constituent splines labeled. 
 % This left us with 3319 annotations of 1190 unique sketches.
@@ -235,23 +232,30 @@ After applying these inclusion criteria, our annotated dataset consisted of 764 
 \subsection{How well do different people agree on what strokes represent?}
 
 Given that our goal was to created an annotated dataset of sketches created under different contexts, we required that the annotations we collected through our interface be reliable. 
-In order to assess this reliability, we looked at whether different annotators saw the same parts in these abstract sketches of objects. 
+In order to assess reliability, we looked at whether different annotators consistently saw the same parts in these abstract sketches of objects. 
 Specifically, we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. 
 Reliability was measured in terms of 'agreement' on spline labels. 
 For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline. 
 We found that 67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
-For the purposes of analysis, we set the modal label for each spline as its true label.
+
+Since over 94\% of the splines in our dataset had at least 2 people agree on what part a given spline represented, for the purposes of analysis, we set the modal label for each spline as its 'true' label.
 
 \subsection{What is the relationship between the parts of an object and the strokes in a drawing?}
 
-
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{figures/stroke_part_relationship.pdf}
+\caption{Looking at the relationship between strokes and part labels. Most strokes are used to depict only a single part. Around half the time, parts require multiple strokes to be fully represented in a sketch. }
+\label{stroke_to_part}
+\end{figure}
 
 People's hierarchical organization of visual concepts, such object category membership being determined by its constituent parts, allows for robust recognition of objects in the real world. 
 We were interested in whether people might employ similar abstractions in producing sketches of such objects as well. 
-Since an individual stroke correspond to a person's decision to make a mark on the canvas, we looked at the relationship between strokes and the semantically meaningful parts that they represented.
+In other words, we wanted to see if there was any correspondence between strokes, which represents a person's decision to make a mark on the canvas, and the semantically meaningful labels our annotators applied to these strokes.
 
 We found that for the majority of strokes in sketches (81.64\%), participants used single strokes to represent individual parts. This showed that there was a tight coupling between strokes and part labels, and that each intentional stroke usually corresponded to a participant's decision to depict an instance of a part.
 We also found that there was relatively more variation in the number of strokes it took to draw all instances of a part in a given sketch. While 46.08\% of all parts were depicted using only a single stroke, 26.02\% and 11.33\% of part instances required 2 and 3 strokes to draw, respectively. 
+
 These results support the notion that people use their strokes to represent individual instances of semantically meaningful parts when sketching for  communicative purposes.
 
 
@@ -264,23 +268,22 @@ These results support the notion that people use their strokes to represent indi
 %A high average number of strokes for a given part would indicate that multiple strokes are utilized to draw that part, whereas a low average would indicate %that a single or few strokes might suffice in depicting that part. 
 \subsection{To what extent are strokes representing the same part produced in succession?}
 
-\begin{figure}
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.4\textwidth]{figures/part_sequence.pdf}
-\caption{Analyzing stroke sequences in sketches. We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambgled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.}
+\includegraphics[width=0.48\textwidth]{figures/part_sequence.pdf}
+\caption{\kushin{todo: update caption}Analyzing stroke sequences in sketches. We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambgled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.}
 \label{stroke_sequence_fig}
 \end{figure}
 
+
 Since individual strokes seemed to mostly correspond to singular part labels, we can view strokes as the building blocks for sketches much like words are the building blocks for sentences. Under this view of stroke organization, we looked at whether there was any meaningful temporal organization of strokes in terms of their part labels. If there was any such organization, any variation between the context conditions would also highlight a difference in how parts are mapped onto strokes under different communicative needs. This investigation was done through a permutation test approach where we created distributions of scrambled stroke sequences to test whether in the true sequence strokes of the same part were preferentially grouped together. Figure \ref{stroke_sequence_fig} outlines the procedure we undertook for this analysis.
-74 sketches were excluded from this analysis because a) they consisted of only a single stroke, b) all the constituent strokes shared the same part label, or c) each stroke in the sketch had a unique label, making the permutation procedure not feasible.
+78 sketches were excluded from this analysis because a) they consisted of only a single stroke, b) all the constituent strokes shared the same part label, or c) each stroke in the sketch had a unique label, making the permutation procedure not feasible.
 We calculated the z-score of the true sequence of every sketch relative to their scrambled distributions. The higher this statistic was, the greater the amount of grouping of similar parts was relative to if the strokes were organized in a random fashion.
 
  The mean z-score for sketches in the close condition was 2.58 (95 CI: 2.26, 2.90) and 1.56 (95 CI: 1.38, 1.74) for the far condition.
 
 
- 
 
-% table for now: Is there spatial contiguity in how people structure their sketches?
 
 \subsection{Modulation between communicative contexts}
 \jefan{where we would report analysis of the sketch part features (num strokes, arc length)
@@ -288,11 +291,15 @@ e.g., when the far sketches are more abstract, how does that manifest in this fe
 like, are they more similar to each other, more like "bird" and lacking object-specific details?
 a way of measuring this is that the centroid (euclidean norm, magnitude of the vector) is closer to the origin for far vs. close, and also that the RMSD to centroid of far sketches is smaller than for close sketches.... }
 
-We believe that people's concepts of object-categories are structured in such a way so as to facilitate both flexible recognition and production through a compositional organization of the category's parts. Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
+We believe that people's concepts of object-categories are structured in a manner that facilitates both flexible recognition and production through a compositional organization of the category's prototypical parts. Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
 
-We represented each sketch in our dataset as a 48-dimensional feature vector. 
-24 of these components captured the number of strokes in a given sketch dedicated to each of the 24 unique part labels in our dataset. The remaining 24 components captured the total arc length of each of the 24 parts. Total arc length, here, serves as a proxy for the total amount of ink expended in drawing all instances of the given part in a sketch. Since each of the 24 parts didn't appear in every sketch, we normalized within each sketch such that the sum of the 'number of strokes' components and the sum of the total arc length components each summed to 1 for a given sketch. We then normalized across sketches such that each component in a sketch was represented as its z-score relative to the same component in all other sketches. In order to compare differences between sketches of the same target across contexts, we averaged feature vectors for sketches of each target by context condition to create 64 (32 objects * 2 conditions) averaged object vectors.
+We also hypothesized that while there would be variations in 'style' depending on the communicative context, the organization of parts would remain the same across detailed and sparse sketches. To create a part profile for each sketch, we represented each sketch in our dataset as a 48-dimensional feature vector. 
+24 of these components captured the number of strokes in a given sketch dedicated to each of the 24 unique part labels in our dataset. The remaining 24 components captured the total arc length of each of the 24 parts. Total arc length, here, serves as a proxy for the total amount of ink expended in drawing all instances of the given part in a sketch. Since each of the 24 parts didn't appear in every sketch, we normalized within each sketch such that the sum of the 'number of strokes' components and the sum of the total arc length components each summed to 1 for a given sketch. We then normalized across sketches such that each component in a sketch was represented as its z-score relative to the same component in all other sketches. 
+In order to compare differences between sketches of the same target across contexts, we averaged feature vectors for sketches of each target by context condition to create 64 (32 objects * 2 conditions) averaged object vectors.
 We compared sparse and detailed sketches of the same object using these feature representations. 
+
+
+
 We once again applied a softmax function across object vectors, standardizing features to the same scale for meaningful comparison.
 we calculated the Euclidean norm of each object vector. The difference in mean Euclidean norms between close and far sketches was 0.072, and 28 out of 32 of the object vectors had higher Euclidean norms for detailed sketches relative to sparse sketches. We predicted that the rank ordering of feature weights might be preserved between detailed and sparse sketches. The Spearman Rank-Order correlation coefficient between detailed and sparse object features for all objects was statistically significantly positive. This indicated that the feature weight rank orderings was preserved between detailed and sparse sketches. The higher norms for detailed sketches indicates that while the part-specific profile may be preserved between context conditions, detailed sketches tend to be exaggerated in our feature space relative to sparse sketches.
 
@@ -303,12 +310,6 @@ The exaggeration in features in detailed sketches appear to make them not only d
  
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.4\textwidth]{figures/stroke_part_relationship.pdf}
-\caption{temp}
-\label{figg}
-\end{figure}
 
 
 
