@@ -131,11 +131,11 @@ Taken together, our results support the notion that people deploy their abstract
 
 \subsection{Communicative drawing dataset}
 We obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.\footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
-Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars (Fig.~\ref{refgame_gallery}A).
+Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
 One participant (i.e., the sketcher) aimed to draw one of these objects -- the target -- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of semantic context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
-This context manipulation led sketchers to produce simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C, Fig.~\ref{refgame_gallery}B\&C). 
+This context manipulation led sketchers to produce simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C. %, Fig.~\ref{refgame_gallery}B\&C). 
  
 Prior work analyzing the semantic properties of such drawing data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, a key limitation of treating a drawing like an image is that one loses information about the inherently sequential and contour-based nature of drawing production. 
@@ -169,29 +169,16 @@ Participants were provided with a base compensation of \$0.35, plus \$0.002 for 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.45\textwidth]{figures/annotation_tool.pdf}
-\caption{Sketch annotation Tool. (A) Participants were provided with the category label of the sketch whose parts they were to label. Labeled strokes changed color to match the label's color in the menu. (B) The accompanying part menu labels varied depending on the category of the sketch. (C) Images that the sketcher distinguished between during the reference game were provided for fuller context.}
-\label{refgame_performance}
+\includegraphics[width=0.48\textwidth]{figures/1_annotation_interface.pdf}
+\caption{Sketch annotation interface. Participants selected sub-stroke elements of the sketch and tagged them with category-congruent part labels from the menu. The original communicative context in which the sketch was generated was also provided: the target object (highlighted in red) and three distractors were displayed in an array below the sketch.}
+\label{annotation_interface}
 \end{figure}
 
 In each annotation session, participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
-Each trial, one of these sketches appeared in the center of the display, above the same array of four objects that the sketcher had viewed, with one of these objects highlighted as the target. 
+Each trial, one of these sketches appeared in the center of the display, above the same array of four objects that the sketcher had viewed, with one of these objects highlighted as the target (Fig.~\ref{annotation_interface}). 
 Thus the annotator had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 The goal of the annotator was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
 To facilitate this, participants were provided with a menu of common part labels that were tailored to each basic-level category represented in our dataset. 
-
-\begin{table}[]
-\begin{tabular}{ll}
-\hline
-\textbf{category} & \textbf{part labels} \\ \hline
-bird & eye, beak, head, body, wing, leg, feet, tail \\ \hline
-car & \begin{tabular}[c]{@{}l@{}}bumper, headlight, hood, windshield, \\ window,body, door, trunk, wheel\end{tabular} \\ \hline
-chair & backrest, armrest, seat, leg \\ \hline
-dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
-\end{tabular}
-\caption{Part labels provided to annotators for objects in each category.}
-\end{table}
-
 
 However, participants were also free to generate their own part label if none of the common labels applied.
 In total, we collected 3608 annotation trials of 1195 unique sketches. 
@@ -210,7 +197,7 @@ In total, we collected 3608 annotation trials of 1195 unique sketches.
 Because one of our primary goals was to understand the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
 Moreover, in order to be able to examine inter-annotator consistency in how drawings were annotated, we only examined drawings that were annotated by at least three distinct participants. 
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
-For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut'. 
+For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
 In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels. 
 After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
@@ -220,6 +207,19 @@ After applying these preprocessing steps, our annotated dataset consisted of 864
 % This left us with 764 unique sketches, each of which had been annotated 3 times.
 % We also created unique dictionaries for each object category that mapped participant-generated labels to the most frequently occurring labels in our dataset. 
 % This helped reduce the total number of unique labels in our dataset from 228 to 24.
+
+\begin{table}[]
+\begin{tabular}{ll}
+\hline
+\textbf{category} & \textbf{part labels} \\ \hline
+bird & eye, beak, head, body, wing, leg, feet, tail \\ \hline
+car & \begin{tabular}[c]{@{}l@{}}bumper, headlight, hood, windshield, \\ window,body, door, trunk, wheel\end{tabular} \\ \hline
+chair & backrest, armrest, seat, leg \\ \hline
+dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
+\end{tabular}
+\caption{Part labels provided to annotators for objects in each category.}
+\end{table}
+
 
 \section{Results}
 
