@@ -47,7 +47,7 @@
 
 
 
-\title{Semantic structure in communicative drawings}
+\title{Semantic structure in communicative sketches}
 
  
 % \author{\begin{tabular}[htbp]{c@{\extracolsep{1em}}c@{\extracolsep{1em}}c@{\extracolsep{1em}}c} \\
@@ -72,7 +72,7 @@
   \includegraphics[width=0.95\textwidth]
     {figures/banner.pdf}
     \captionsetup{width=0.95\textwidth}
- \captionof{figure}{Drawings of 3D objects produced in communication task. Different stroke colors correspond to different object parts.}\bigskip}% ... an image
+ \captionof{figure}{\footnotesize{Objects used in communication game with example drawings of each object, where stroke color indicates different parts.}}\bigskip}% ... an image
 \makeatother
 
 \maketitle 
@@ -80,16 +80,16 @@
 \begin{abstract}
 
 The ability to represent semantically meaningful structure in our environment is a powerful aspect of human visual perception and cognition. 
-As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic. 
+As a testament to this ability, we effortlessly grasp the correspondence between a drawing of an object and that physical object in the world, even if the drawing is far from realistic. 
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
-Here we explore the hypothesis that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts. 
-Towards this end, we developed a web-based platform to densely annotate the semantic attributes of drawings of real-world objects produced in different contexts, allowing us to examine the semantic structure of more-detailed and sparser drawings of the same object. 
-We found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time; and \textit{4}, detailed and sparse drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
+Here we consider the possibility that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts. 
+To evaluate this, we developed a web-based platform to densely annotate the object parts represented in drawings of real-world objects that varied in how detailed they were.  
+We found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time during production; and \textit{4}, both more detailed and sparser drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than sparser ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
 
 \textbf{Keywords:} 
-sketch understanding; perceptual organization; visual production; object representation; compositionality
+sketch understanding; perceptual organization; visual production; compositionality; objects and categories
 \end{abstract}
 
 \section{Introduction}
@@ -105,9 +105,10 @@ Here we explore the hypothesis that this is in part because we readily decompose
 Recent advances in computational neuroscience and artificial intelligence have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, exemplified by modern deep learning approaches \cite{yamins2014performance}.
 Nevertheless, a major gap remains in elucidating how the feature representations learned by deep learning models can be adapted to emulate the structure and flexibility of human visual semantic knowledge \cite{lake2017building}.
 A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the human mind \cite{battaglia2018relational}. 
-Pursuing this strategy relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
+However, pursuing this strategy relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
 
-The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing.This approach departs from the conventional strategy for inferring the organization of visual object concepts from behavior, which relies upon tasks that elicit judgments about visual inputs, usually with respect to experimenter-defined dimensions. 
+The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
+This approach departs from the conventional strategy for inferring the organization of visual object concepts from behavior, which relies upon tasks that elicit judgments about visual inputs, usually with respect to experimenter-defined dimensions. 
 By contrast, visual communication tasks permit participants to include any elements they consider relevant to their goals and combine these elements freely, yielding high-dimensional information about how visual semantic knowledge is organized and deployed under a naturalistic task objective. 
 
 Our aim in probing the semantic structure of communicative drawings is to shed light on how the semantic organization of visual object representations supports their flexible expression across contexts. 
@@ -122,13 +123,13 @@ Taken together, our results support the notion that people deploy their abstract
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/refgame_performance.pdf}
-\caption{(A) Participants were paired in an online environment to play a drawing-based reference game in which the sketcher aimed to draw a target object such that a viewer could distinguish it from three distractor objects. (B) In close contexts, the target and distractors all belonged to the same basic-level category; in far contexts, the target and distractors belonged to different basic-level categories. (C) Sketchers used fewer strokes in the far condition, while producing sketches that were accurately recognized by the viewer in both conditions.}
+\caption{(A) Drawings were collected in the context of an two-player drawing-based reference game in which one participant (sketcher) aimed to draw a target object so that the other participant (viewer) could distinguish it from three distractor objects. (B) In close contexts, the target and distractors all belonged to the same basic-level category; in far contexts, the target and distractors belonged to different basic-level categories. (C) Sketchers used fewer strokes in the far condition, while producing sketches that were accurately recognized by the viewer in both conditions.}
 \label{refgame_performance}
 \end{figure}
 
 % \noindent \textbf{Drawing dataset} \hspace{3mm} 
 
-\subsection{Drawing dataset}
+\subsection{Communicative drawing dataset}
 We obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.\footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars (Fig.~\ref{refgame_gallery}A).
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
@@ -150,18 +151,18 @@ This data format provides a relatively compact representation of each drawing co
 % A single spline was equivalent to a single cubic Bezier curve, i.e., a Bezier curve with two fixed end points and two control points to control curvature. 
 % We had participants in our annotation task label each sketch's constituent splines.
 
-\begin{SCfigure*}
-\centering
-\includegraphics[width=0.8\textwidth]{figures/refgame_gallery.pdf}
-\caption{(A) Target objects. (B) Example object drawings produced in a close context. (C) Example drawings produced in a far context.}
-\label{refgame_gallery}
-\end{SCfigure*}
+% \begin{SCfigure*}
+% \centering
+% \includegraphics[width=0.8\textwidth]{figures/refgame_gallery.pdf}
+% \caption{(A) Target objects. (B) Example object drawings produced in a close context. (C) Example drawings produced in a far context.}
+% \label{refgame_gallery}
+% \end{SCfigure*}
 
-\subsection{Semantic annotation}
+\subsection{Semantic part annotation}
 
 In the present study, we developed a novel web-based platform to crowdsource semantic annotations for every spline of every stroke of every sketch in our dataset. 
 
-\noindent \textbf{Participants} \hspace{3mm} 
+\subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT).  
 For this experiment, participants provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every sub-stroke element they annotated and \$0.02 for every sketch they annotated completely. 
@@ -179,26 +180,18 @@ Thus the annotator had full information about which object the sketcher had inte
 The goal of the annotator was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
 To facilitate this, participants were provided with a menu of common part labels that were tailored to each basic-level category represented in our dataset. 
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c | c|} 
- \hline
- \thead{Category} & \thead{Labels} \\ [0.5ex] 
- \hline
- %\hline
- \thead{Bird} & \thead{eye, beak, head, body, wing, leg, feet, tail, other} \\ 
-  \hline
- \thead{Car} &  \thead{bumper, headlight, hood, windshield, \\ window,  body, door, trunk, wheel, other }\\
-  \hline
- \thead{Chair} & \thead{backrest, armrest, seat, leg, other}\\
-  \hline
- \thead{Dog} & \thead{eye, mouth, ear, head, neck, body, \\ leg, paw, tail, other}\\ [1ex] 
- \hline
+\begin{table}[]
+\begin{tabular}{ll}
+\hline
+\textbf{category} & \textbf{part labels} \\ \hline
+bird & eye, beak, head, body, wing, leg, feet, tail \\ \hline
+car & \begin{tabular}[c]{@{}l@{}}bumper, headlight, hood, windshield, \\ window,body, door, trunk, wheel\end{tabular} \\ \hline
+chair & backrest, armrest, seat, leg \\ \hline
+dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \end{tabular}
-\caption{The four sketch categories in our dataset and the accompanying part labels we provided for sketches of each category.
-}
-\label{table:1}
+\caption{Part labels provided to annotators for objects in each category.}
 \end{table}
+
 
 However, participants were also free to generate their own part label if none of the common labels applied.
 In total, we collected 3608 annotation trials of 1195 unique sketches. 
@@ -212,13 +205,14 @@ In total, we collected 3608 annotation trials of 1195 unique sketches.
 % They could choose to continue to the next trial without labeling every stroke in a sketch, but they would lose out on the completion bonus as well as the amount they would have earned for labeling the remaining strokes.
 % In total, we collected 3608 annotations of 1195 unique sketches. 
 
-\noindent \textbf{Inclusion criteria} \hspace{3mm} Because one of our central goals was to understand the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
+\subsubsection{Data preprocessing}
+
+Because one of our primary goals was to understand the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
 Moreover, in order to be able to examine inter-annotator consistency in how drawings were annotated, we only examined drawings that were annotated by at least three distinct participants. 
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
-For example, in the case of chair sketches, strokes that represented legs were sometimes labeled as 'leg support', 'foot', and 'strut'. 
-In order to characterize the semantic structure of drawings at a consistent granularity, we also manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels, where appropriate. 
-In the case of the above examples, the participant generated labels were mapped to the label 'chair'.
-After applying these inclusion criteria, our annotated dataset consisted of 864 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
+For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut'. 
+In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels. 
+After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
 % After collecting annotations, we filtered out any sketches that didn't have all of its constituent splines labeled. 
 % This left us with 3319 annotations of 1190 unique sketches.
@@ -231,14 +225,12 @@ After applying these inclusion criteria, our annotated dataset consisted of 864 
 
 \subsection{How well do different people agree on what strokes represent?}
 
-Given that our goal was to created an annotated dataset of sketches created under different contexts, we required that the annotations we collected through our interface be reliable. 
-In order to assess reliability, we looked at whether different annotators consistently saw the same parts in these abstract sketches of objects. 
-Specifically, we looked at inter-annotator reliability in spline labels between participants for each spline in our dataset. 
-Reliability was measured in terms of 'agreement' on spline labels. 
-For example, a 3/3 agreement score for a given spline meant that each of the 3 annotators applied the same label to that spline. 
-We found that 67.85\% of splines in our dataset had 3/3 inter-annotator agreement, 27.77\% of splines had 2/3 agreement, and 4.38\% of splines had no agreement, which means that each participant applied a different label for each of those splines.
-
-Since over 94\% of the splines in our dataset had at least 2 people agree on what part a given spline represented, for the purposes of analysis, we set the modal label for each spline as its 'true' label.
+Perhaps one of the most basic questions our dataset is poised to answer is how often different viewers agreed on what each stroke element in a drawing represented. 
+We found that 95.62\% of all splines in our dataset were given the same label by at least two of the three annotators, with 67.85\% of all splines exhibiting complete agreement among all three annotators. 
+% The remaining 4.38\% of splines were given different labels by all three annotators. 
+This suggests that there is a relatively high degree of consistency in how people decompose drawings into semantically meaningful parts. 
+In subsequent analyses, we collapsed over any inter-annotator variability: to splines to which at least two annotators had given the same label, we assigned the modal label; 
+For the remaining 4.38\% of splines, we sampled one of the three labels provided.
 
 \subsection{What is the relationship between the parts of an object and the strokes in a drawing?}
 
