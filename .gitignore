@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+semantic_parts.pdf
 *.fls
 # C extensions
 *.so
