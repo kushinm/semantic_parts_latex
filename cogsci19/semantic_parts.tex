@@ -190,7 +190,7 @@ After applying these preprocessing steps, our annotated dataset consisted of 864
 \hline
 \textbf{category} & \textbf{part labels} \\ \hline
 bird & eye, beak, head, body, wing, leg, feet, tail \\ \hline
-car & \begin{tabular}[c]{@{}l@{}}bumper, headlight, hood, windshield, \\ window,body, door, trunk, wheel\end{tabular} \\ \hline
+car & \begin{tabular}[c]{@{}l@{}}bumper, headlight, hood, windshield, \\ window, body, door, trunk, wheel\end{tabular} \\ \hline
 chair & backrest, armrest, seat, leg \\ \hline
 dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \end{tabular}
@@ -265,13 +265,29 @@ This reflects the extent to which same-part strokes were clustered in time relat
 We found that the empirical streak length was reliably higher for all objects (\jefan{we need a stat for this, like a p-value reflecting the number of times the permuted streak length exceeded the empirical. If this never happened, then we can say ps < 0.001.}), and higher for the close sketches (z-score: 2.58; 95\% CI: [2.26, 2.90]) than far sketches (z-score: 1.56; 95\% CI: [1.38, 1.74]).
 Taken together, our results suggest that the procedure by which people convey semantic information when sketching is compositional: frequently, they use a single stroke to convey an entire part; but when they do use multiple strokes to convey a single part, they tend to draw these in succession before moving on to a different part. 
 
-\subsection{How in different communicative contexts?}
+\subsection{How are parts emphasized in different communicative contexts?}
+
+% Our findings so far bear how the way people compose communicative sketches of objects reflects their semantic knowledge of the parts that objects are composed from. 
+
+% A key consequence of such compositionally organized semantic part knowledge is that it naturally supports flexible expression across different task contexts. 
+
+% For example, 
+
+% For example, when trying to communicate about a bird in a far context containing only objects from different basic-level categories, sketchers 
+
+% spontaneously used fewer strokes while achieving high accuracy in communicating the identity of the target. 
+
+% By the same token, when trying to communicate about that same bird (e.g., a nightingale) in a close context containing other, perceptually similar birds, sketchers used more strokes in order to distinguish the target bird from the others. 
+
+% When 
+
+
+% The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
 
 
 
-
-
-We believe that people's concepts of object-categories are structured in a manner that facilitates both flexible recognition and production through a compositional organization of the category's prototypical parts. Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
+We believe that people's concepts of object-categories are structured in a manner that facilitates both flexible recognition and production through a compositional organization of the category's prototypical parts. 
+Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
 
 We also hypothesized that while there would be variations in 'style' depending on the communicative context, the organization of parts would remain the same across detailed and sparse sketches. To create a part profile for each sketch, we represented each sketch in our dataset as a 48-dimensional feature vector. 
 24 of these components captured the number of strokes in a given sketch dedicated to each of the 24 unique part labels in our dataset. The remaining 24 components captured the total arc length of each of the 24 parts. Total arc length, here, serves as a proxy for the total amount of ink expended in drawing all instances of the given part in a sketch. Since each of the 24 parts didn't appear in every sketch, we normalized within each sketch such that the sum of the 'number of strokes' components and the sum of the total arc length components each summed to 1 for a given sketch. We then normalized across sketches such that each component in a sketch was represented as its z-score relative to the same component in all other sketches. 
