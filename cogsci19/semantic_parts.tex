@@ -112,7 +112,7 @@ This approach departs from the conventional strategy for inferring the organizat
 By contrast, visual communication tasks permit participants to include any elements they consider relevant to their goals and combine these elements freely, yielding high-dimensional information about how visual semantic knowledge is organized and deployed under a naturalistic task objective. 
 
 Our aim in probing the semantic structure of communicative sketches is to shed light on how the semantic organization of visual object representations supports their flexible expression across contexts. 
-Our approach advances recent work \cite{FanCommon2018} that has investigated the production of object drawings to communicate in two ways: first, an explicit focus on compositional semantic structure in drawings, and second, the examination of flexibility in how visual semantic knowledge is expressed in different semantic contexts. 
+Our approach advances recent work \cite{FanCommon2018} that has investigated the production of object sketches to communicate in two ways: first, an explicit focus on compositional semantic structure in sketches, and second, the examination of flexibility in how visual semantic knowledge is expressed in different semantic contexts. 
 
 Towards this end, we developed a web-based platform to densely annotate sketches of real-world objects produced in different semantic contexts, including detailed and simpler sketches of each object. 
 Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time; and (4) detailed and sparse sketches of the same object emphasized similar part information, although (5) detailed sketches of different objects tend to be more distinct from one another than simpler ones. 
@@ -133,33 +133,34 @@ Objects belonged to one of four basic-level categories (i.e., bird, car, chair, 
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
 One participant (i.e., the sketcher) aimed to draw one of these objects -- the target -- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of semantic context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
-This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C. %, Fig.~\ref{refgame_gallery}B\&C). 
+This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
  
-Prior work analyzing the semantic properties of such drawing data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
-However, a key limitation of representing sketch only as an image is that one loses information about the inherently sequential and contour-based nature of drawing production. 
-Because our goal was to characterize the fine-grained semantic organization of drawings, it was thus crucial for our purposes to represent each drawing instead using a vector image format (i.e., \texttt{*.svg}). 
+\begin{figure*}
+\centering
+\includegraphics[width=0.95\textwidth]{figures/refgame_gallery.pdf}
+\caption{(A) Target objects. (B) Example object sketches produced in a close context. (C) Example sketches produced in a far context.}
+\label{refgame_gallery}
+\end{figure*}
 
-Each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements, known as splines. 
+
+Prior work analyzing the semantic properties of such sketch data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
+However, a key limitation of representing sketch only as an image is that one loses information about the inherently sequential and contour-based nature of sketch production. 
+Because our goal was to characterize the fine-grained semantic organization of sketch, it was thus crucial for our purposes to represent each sketch instead using a vector image format (i.e., \texttt{*.svg}). 
+
+Each sketch in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements, known as splines. 
 These splines are parameterized as cubic Bezier curve segments, which are uniquely defined by four points: the initial point, the final point, and two control points that control the spline's curvature.
-This data format provides a relatively compact representation of each drawing compared with a rasterized image, while still providing sufficient expressivity to provide an accurate representation. 
-
-% \begin{SCfigure*}
-% \centering
-% \includegraphics[width=0.8\textwidth]{figures/refgame_gallery.pdf}
-% \caption{(A) Target objects. (B) Example object drawings produced in a close context. (C) Example drawings produced in a far context.}
-% \label{refgame_gallery}
-% \end{SCfigure*}
+This data format provides a relatively compact representation of each sketch compared with a rasterized image, while still providing sufficient expressivity to provide an accurate representation. 
 
 \subsection{Semantic part annotation}
 
-Here we developed a novel web-based platform to crowdsource semantic annotations for every spline of every stroke of communicative drawings in our dataset. 
+Here we developed a novel web-based platform to crowdsource semantic annotations for every spline of every stroke of communicative sketches in our dataset. 
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every sub-stroke element they annotated and \$0.02 for every sketch they annotated completely. 
 
 \subsubsection{Task}
-Participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
+Participants were presented with 10 sketches that were randomly sampled from the reference-game dataset. 
 Each trial, one of these sketches appeared in the center of the display, above the same array of four objects that the original sketcher had viewed, with one of these objects highlighted as the target (Fig.~\ref{annotation_interface}). 
 Thus the participant had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
@@ -177,12 +178,12 @@ In total, we collected 3608 annotation trials of 1195 unique sketches.
 
 \subsubsection{Data preprocessing}
 
-To avoid bias when analyzing the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged). 
-Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by at least three distinct participants. 
+To avoid bias when analyzing the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
+Moreover, to evaluate inter-annotator reliability, we only examined sketches that were annotated by at least three distinct participants. 
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
 For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
-In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels. 
-After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
+In order to ensure that parts of sketches were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels. 
+After applying these preprocessing steps, our annotated dataset consisted of 864 sketches that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
 \begin{table}[]
 \begin{tabular}{ll}
@@ -201,9 +202,9 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 
 \subsection{How well do different people agree on what strokes represent?}
 
-Perhaps one of the most basic questions our dataset is poised to answer is how often different viewers agreed on what each stroke element in a drawing represented. 
+Perhaps one of the most basic questions our dataset is poised to answer is how often different viewers agreed on what each stroke element in a sketch represented. 
 We found that 95.6\% of all splines in our dataset were given the same label by at least two of the three annotators, with 67.8\% of all splines exhibiting complete agreement among all three annotators. 
-This suggests that there is a high degree of consistency in how people decompose drawings into semantically meaningful parts. 
+This suggests that there is a high degree of consistency in how people decompose sketches into semantically meaningful parts. 
 In subsequent analyses, we collapsed over inter-annotator variation: we assigned the modal label to splines to which at least two annotators had given the same label; for the remaining 4.4\% of splines, we sampled one of the three labels provided.
 
 \begin{figure}[htbp]
@@ -213,7 +214,7 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 \label{stroke_to_part}
 \end{figure}
 
-\subsection{How well do strokes in a drawing correspond to parts of objects?}
+\subsection{How strongly do strokes correspond to parts of objects?}
 
 When composing a recognizable sketch of a real-world object, how do people decide what information to convey with each stroke? 
 A natural possibility is that there exists a close correspondence between the actions they perform and what parts they know the object possesses. 
@@ -221,15 +222,45 @@ Concretely, we hypothesized that for most strokes in our dataset, that all sub-s
 However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent that part in a single sketch.
 
 To evaluate the first prediction, we determined how many unique part labels were represented across all sub-stroke elements comprising each stroke (Fig.~\ref{stroke_to_part}B). 
-We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that when participants produced a stroke, most of the time it represented no more than one part of that object . 
+We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that when participants produced a stroke, most of the time it represented no more than one part of that object. 
 There were 18.4\% of strokes were associated with two or more, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
-This was slightly more common in sketches produced in far contexts than close contexts (19.4\% vs. 17.6\%).
+This was slightly more common in sketches produced in far contexts than close contexts (19.4\% vs. 17.6\%). \jefan{This needs additional analysis, i.e., bootstrapping, to evaluate statistical reliability between conditions.}
 
 To evaluate the second prediction, we determined how many strokes were used to represent each part of an object (Fig.~\ref{stroke_to_part}B). 
 We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% using exactly two strokes, 11.3\% using exactly three strokes, 16.6\% using four or more strokes. 
 This shows that nearly half the time, a single action was required to depict an entire object part. 
 However, the remaining 53.9\% of parts required more than one stroke to depict, owing to those parts that consisted of multiple disconnected subparts within an object (e.g., wheels of a car, paws of a dog).
 \jefan{This should be verified in some way by subsetting on those feature columns that actually are likely to contain multiple instances per object.}
+The proportion of parts requiring more than one stroke was slightly higher for close sketches (55.8\%) than far sketches (52.0\%), perhaps reflecting the tendency to include more object-diagnostic detail when depicting each part. 
+\jefan{This needs additional analysis, i.e., bootstrapping, to evaluate statistical reliability between conditions.}
+
+% Closer:
+
+% Parts per stroke
+% 1     0.824448
+% 2     0.115034
+% 3     0.038425
+% >3    0.022094
+
+% Strokes per part
+% 1     0.442208
+% 2     0.252444
+% 3     0.126509
+% >3    0.178838
+
+% Further:
+
+% Parts per stroke
+% 1     0.806854
+% 2     0.112150
+% 3     0.040498
+% >3    0.040498
+
+% Strokes per part
+% 1     0.480410
+% 2     0.268234
+% 3     0.099458
+% >3    0.151899
 
 Overall, these findings suggest that when people have the goal of communicating the identity of an object in a drawing, the information they choose to convey with each stroke is far from arbitrary, but rather is tightly coupled to the compositional part structure of objects. 
 
@@ -238,20 +269,30 @@ Overall, these findings suggest that when people have the goal of communicating 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/part_sequence.pdf}
-\caption{\kushin{todo: update caption} (A) Analysis of sequence in which strokes depicting each part were drawn. (B) Comparison of mean length of streaks consisting of strokes that depict the same part with null distribution of permuted stroke sequences.}
+\caption{(A) Analysis of sequence in which strokes depicting each part were drawn. (B) Comparison of mean length of streaks consisting of strokes that depict the same part with null distribution of permuted stroke sequences.}
 \label{stroke_sequence_fig}
 \end{figure}
 
-% We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambgled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.
+%%% We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambgled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.
+
+In the previous section we discovered that for slightly more than half of the parts in each object, more than one stroke was used to depict it. 
+This raised the question: to what extent are these multiple strokes corresponding to the same part being drawn in succession versus interleaved among strokes corresponding to other parts?
 
 
-Since individual strokes seemed to mostly correspond to singular part labels, we can view strokes as the building blocks for sketches much like words are the building blocks for sentences. Under this view of stroke organization, we looked at whether there was any meaningful temporal organization of strokes in terms of their part labels. If there was any such organization, any variation between the context conditions would also highlight a difference in how parts are mapped onto strokes under different communicative needs. This investigation was done through a permutation test approach where we created distributions of scrambled stroke sequences to test whether in the true sequence strokes of the same part were preferentially grouped together. Figure \ref{stroke_sequence_fig} outlines the procedure we undertook for this analysis.
+To investigate this, 
+
+
+Since individual strokes seemed to mostly correspond to singular part labels, we can view strokes as the building blocks for sketches much like words are the building blocks for sentences. 
+Under this view of stroke organization, we looked at whether there was any meaningful temporal organization of strokes in terms of their part labels. 
+If there was any such organization, any variation between the context conditions would also highlight a difference in how parts are mapped onto strokes under different communicative needs. 
+
+This investigation was done through a permutation test approach where we created distributions of scrambled stroke sequences to test whether in the true sequence strokes of the same part were preferentially grouped together. 
+Figure \ref{stroke_sequence_fig} outlines the procedure we undertook for this analysis.
 78 sketches were excluded from this analysis because a) they consisted of only a single stroke, b) all the constituent strokes shared the same part label, or c) each stroke in the sketch had a unique label, making the permutation procedure not feasible.
-We calculated the z-score of the true sequence of every sketch relative to their scrambled distributions. The higher this statistic was, the greater the amount of grouping of similar parts was relative to if the strokes were organized in a random fashion.
+We calculated the z-score of the true sequence of every sketch relative to their scrambled distributions. 
+The higher this statistic was, the greater the amount of grouping of similar parts was relative to if the strokes were organized in a random fashion.
 
- The mean z-score for sketches in the close condition was 2.58 (95 CI: 2.26, 2.90) and 1.56 (95 CI: 1.38, 1.74) for the far condition.
-
-
+The mean z-score for sketches in the close condition was 2.58 (95 CI: 2.26, 2.90) and 1.56 (95 CI: 1.38, 1.74) for the far condition.
 
 
 \subsection{Modulation between communicative contexts}
