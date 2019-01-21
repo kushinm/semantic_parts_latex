@@ -271,34 +271,26 @@ Our findings so far bear on how the way people compose communicative sketches of
 A key consequence of such semantically organized part knowledge is that it naturally supports flexible expression across different communicative contexts. 
 
 For example, when communicating about a chair in a (close) context containing objects from other basic-level categories, sketchers may include only the essential information to indicate the presence of certain parts that distinguish it at the category level. 
-On the other hand, when communicating about that same chair in a (far) context containing other, perceptually similar chairs, sketchers may emphasize certain distinctive parts (e.g., the number of back slats) that distinguish it at the object level, by applying more strokes and/or more detail in each stroke.
+On the other hand, when communicating about that same chair in a (far) context containing other, perceptually similar chairs, sketchers may emphasize certain distinctive parts (e.g., the number of back slats) that distinguish it at the object level, by applying more strokes and/or more ink in each stroke.
 
 We hypothesized that sketchers emphasize part information across such communicative contexts in such a way that it preserves these relevant distinctions. 
 To explore this possibility, we asked the following questions: 
 (1) how similarly is object-specific part information emphasized in both close and far contexts? 
-(2) to the extent close and far sketches of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or smaller differences in emphasis across many parts? 
+(2) to the extent close and far sketches of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
 (3) what are the consequences of the way sketchers modulate their emphasis across parts on the overall distinctiveness of close and far sketches? 
 
+To investigate these questions, we represented each sketch by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
+In order to represent all sketches in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
+Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes representing each part. 
+Before further analysis, we z-scored values within each feature dimension in order to map stroke count and arc length measurements to the same unit-variance scale. 
+Because our primary goal was to understand differences between objects and contexts, we then collapsed across sketches within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
+
+\subsubsection{Similar object-specific part information emphasized in different communicative contexts}
 
 
+\subsubsection{Greater emphasis on a few parts when producing object-diagnostic sketches}
 
-
-
-
-% We believe that people's concepts of object-categories are structured in a manner that facilitates both flexible recognition and production through a compositional organization of the category's prototypical parts. 
-% Our annotated reference game sketches, made in different communicative contexts, serve as a good dataset to test this hypothesis.
-
-% We also hypothesized that while there would be variations in 'style' depending on the communicative context, the organization of parts would remain the same across detailed and sparse sketches. To create a part profile for each sketch, we represented each sketch in our dataset as a 48-dimensional feature vector. 
-% 24 of these components captured the number of strokes in a given sketch dedicated to each of the 24 unique part labels in our dataset. 
-% The remaining 24 components captured the total arc length of each of the 24 parts. Total arc length, here, serves as a proxy for the total amount of ink expended in drawing all instances of the given part in a sketch. 
-
-
-
-% We z-scored each feature dimension to map these values to the same scale.
-
-%  across sketches such that each component in a sketch was represented as its z-score relative to the same component in all other sketches. 
-% In order to compare differences between sketches of the same target across contexts, we averaged feature vectors for sketches of each target by context condition to create 64 (32 objects * 2 conditions) averaged object vectors.
-% We compared sparse and detailed sketches of the same object using these feature representations. 
+\subsubsection{Object-diagnostic sketches are more distinct from each other than category-diagnostic ones}
 
 
 
@@ -310,10 +302,6 @@ To explore this possibility, we asked the following questions:
 % These results show that sparse sketches within a category are more similar to each other than detailed sketches are to each other. 
 % The exaggeration in features in detailed sketches appear to make them not only distinct from sparse sketches, but from other detailed sketches of the same category as well.
  
-
-
-
-
 
 \section{Discussion}
 
