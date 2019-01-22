@@ -135,12 +135,12 @@ One participant (i.e., the sketcher) aimed to draw one of these objects -- the t
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of semantic context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
 This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
  
-\begin{figure*}
-\centering
-\includegraphics[width=0.95\textwidth]{figures/3_refgame_gallery.pdf}
-\caption{(A) Target objects. (B) Example object sketches produced in a close context. (C) Example sketches produced in a far context.}
-\label{refgame_gallery}
-\end{figure*}
+% \begin{figure*}
+% \centering
+% \includegraphics[width=0.95\textwidth]{figures/3_refgame_gallery.pdf}
+% \caption{(A) Target objects. (B) Example object sketches produced in a close context. (C) Example sketches produced in a far context.}
+% \label{refgame_gallery}
+% \end{figure*}
 
 
 Prior work analyzing the semantic properties of such sketch data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
@@ -178,6 +178,13 @@ For example, sometimes strokes that represented subparts of the leg of a chair w
 In order to ensure that parts of sketches were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels. 
 After applying these preprocessing steps, our annotated dataset consisted of 864 sketches that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/4_annotation_interface.pdf}
+\caption{Sketch annotation interface. Participants selected sub-stroke elements of the sketch and tagged them with category-congruent part labels from the menu. The original communicative context in which the sketch was generated was also provided: the target object (highlighted in red) and three distractors were displayed in an array below the sketch.}
+\label{annotation_interface}
+\end{figure}
+
 \begin{table}[]
 \begin{tabular}{ll}
 \hline
@@ -190,12 +197,6 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \caption{Part labels provided to annotators for objects in each category.}
 \end{table}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.48\textwidth]{figures/4_annotation_interface.pdf}
-\caption{Sketch annotation interface. Participants selected sub-stroke elements of the sketch and tagged them with category-congruent part labels from the menu. The original communicative context in which the sketch was generated was also provided: the target object (highlighted in red) and three distractors were displayed in an array below the sketch.}
-\label{annotation_interface}
-\end{figure}
 
 \section{Results}
 
@@ -205,13 +206,6 @@ Perhaps one of the most basic questions our dataset is poised to answer is how o
 We found that 95.6\% of all splines in our dataset were given the same label by at least two of the three annotators, with 67.8\% of all splines exhibiting complete agreement among all three annotators. 
 This suggests that there is a high degree of consistency in how people decompose sketches into semantically meaningful parts. 
 In subsequent analyses, we collapsed over inter-annotator variation: we assigned the modal label to splines to which at least two annotators had given the same label; for the remaining 4.4\% of splines, we sampled one of the three labels provided.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.48\textwidth]{figures/5_stroke_part_relationship.pdf}
-\caption{Correspondence between strokes and part labels.}
-\label{stroke_to_part}
-\end{figure}
 
 \subsection{How strongly do strokes correspond to parts of objects?}
 
@@ -225,6 +219,13 @@ We found that there was only one part label associated with 81.6\% of the stroke
 There were 18.4\% of strokes were associated with two or more, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
 This was slightly more common in sketches produced in far contexts than close contexts (19.4\% vs. 17.6\%). \jefan{This needs additional analysis, i.e., bootstrapping, to evaluate statistical reliability between conditions.}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/5_stroke_part_relationship.pdf}
+\caption{Correspondence between strokes and part labels.}
+\label{stroke_to_part}
+\end{figure}
+
 To evaluate the second prediction, we determined how many strokes were used to represent each part of an object (Fig.~\ref{stroke_to_part}B). 
 We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% using exactly two strokes, 11.3\% using exactly three strokes, 16.6\% using four or more strokes. 
 This shows that nearly half the time, a single action was required to depict an entire object part. 
@@ -236,13 +237,6 @@ The proportion of parts requiring more than one stroke was slightly higher for c
 Overall, these findings suggest that when people have the goal of communicating the identity of an object in a drawing, the information they choose to convey with each stroke is far from arbitrary, but rather is tightly coupled to the compositional part structure of objects. 
 
 \subsection{How often are strokes representing the same part produced in succession?}
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{figures/6_part_sequence.pdf}
-\caption{\jefan{Panel B is missing a y-axis label.}(A) Analysis of sequence in which strokes depicting each part were drawn. (B) Comparison of mean length of streaks consisting of strokes that depict the same part with null distribution of permuted stroke sequences.}
-\label{stroke_sequence_fig}
-\end{figure}
 
 In the previous section we discovered that for slightly more than half of the parts in each object, more than one stroke was used to depict it. 
 This raised the question: to what extent are these multiple strokes depicting the same part being drawn in succession, or being interleaved among strokes corresponding to other parts?
@@ -256,6 +250,14 @@ If it was immediately followed by a stroke depicting a different part, the strea
 If it was immediately followed by two strokes depicting the same part, before switching to a stroke of a different part, the streak length would be 3. 
 We then averaged these streak length values over the entire sequence. 
 To evaluate to what extent these mean streak lengths exceeded that expected under a null model in which there was no tendency for same-part strokes to be clustered in time, we compared our empirical estimates of streak length to a null distribution of streak lengths generated by permuting each stroke sequence 1000 times (Fig.~\ref{stroke_sequence_fig}A). 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/6_part_sequence.pdf}
+\caption{\jefan{Panel B is missing a y-axis label.}(A) Analysis of sequence in which strokes depicting each part were drawn. (B) Comparison of mean length of streaks consisting of strokes that depict the same part with null distribution of permuted stroke sequences.}
+\label{stroke_sequence_fig}
+\end{figure}
+
 
 To evaluate statistical reliability, we computed the z-score of the empirical streak length relative to the permuted streak length distribution for each sketch. 
 This reflects the extent to which same-part strokes were clustered in time relative to a sequence with exactly the same distribution of strokes over parts, but in which strokes were produced in random order. 
@@ -281,6 +283,15 @@ In order to represent all sketches in our dataset using a common feature represe
 Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes allocated to each part. 
 Before further analysis, we z-scored values within each feature dimension in order to map stroke count and arc length measurements to the same unit-variance scale. 
 Because our primary goal was to understand differences between objects and contexts, we then collapsed across sketches within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.47\textwidth]{figures/7_part_emphasis.pdf}
+\caption{(A) MDS (B) within vs. between (C) sparsity (D) close vs. far dispersion.}
+\label{part_emphasis}
+\end{figure}
+
+
 
 \subsubsection{Similar part information emphasized in different communicative contexts}
 
@@ -308,16 +319,6 @@ Given the above findings that close sketches exhibited similar patterns of empha
 We hypothesized that such modulation enhances the overall discriminability of close sketches, relative to far ones, by increasing the feature distance between objects that otherwise share many perceptual properties. 
 To evaluate this possibility, we compared the mean correlation distance (i.e., $1 - r$) between the part-feature vectors of close sketches of objects in a given category with that between far sketches of exactly the same objects. 
 We found that close sketches were indeed reliably more distant from one another than far sketches were (close similarity: $r = 0.666$, 95\% CI: [0.652,685]; far similarity: $r = 0.729$, 95\% CI: [0.719,0.746]), suggesting that sketchers discern which part information is most diagnostic of the target object among highly similar distractors, and emphasize this distinctive information accordingly (Fig.~\ref{part_emphasis}A \& D).
-
-Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.47\textwidth]{figures/7_part_emphasis.pdf}
-\caption{(A) MDS (B) within vs. between (C) sparsity (D) close vs. far dispersion.}
-\label{part_emphasis}
-\end{figure}
-
 
 \section{Discussion}
 
