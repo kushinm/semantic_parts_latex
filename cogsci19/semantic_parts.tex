@@ -244,9 +244,6 @@ Overall, these findings suggest that when people have the goal of communicating 
 \label{stroke_sequence_fig}
 \end{figure}
 
-
-%%% We first coded each stroke in our dataset in terms of its part label. Whenever multiple consecutive strokes that the sketcher had made shared a part-label, we counted the number of such strokes and termed it as a streak length for that part. This process was repeated for every stroke in a given sketch, after which we averaged over all the streak lengths for every part to obtain a single mean streak length value for every sketch in our dataset. To test whether strokes of the same part were reliably being drawn in bunches we scrambgled the order of strokes in each sketch and calculating a 'scrambled' mean streak length. We repeated this scrambling process 1000 times to get a distribution of scrambled mean streak lengths for every sketch.
-
 In the previous section we discovered that for slightly more than half of the parts in each object, more than one stroke was used to depict it. 
 This raised the question: to what extent are these multiple strokes depicting the same part being drawn in succession, or being interleaved among strokes corresponding to other parts?
 
@@ -270,22 +267,14 @@ Taken together, our results suggest that the procedure by which people convey se
 
 Our findings so far bear on how the way people compose communicative sketches of objects reflects their semantic knowledge of which parts objects are composed of. 
 A key consequence of such semantically organized part knowledge is that it naturally supports flexible expression across different communicative contexts. 
-
 For example, when communicating about a chair in a (close) context containing objects from other basic-level categories, sketchers may include only the essential information to indicate the presence of certain parts that distinguish it at the category level. 
 On the other hand, when communicating about that same chair in a (far) context containing other, perceptually similar chairs, sketchers may emphasize certain distinctive parts (e.g., the number of back slats) that distinguish it at the object level, by applying more strokes and/or more ink in each stroke.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.47\textwidth]{figures/7_part_emphasis.pdf}
-\caption{(A) MDS (B) within vs. between (C) sparsity (D) close vs. far dispersion.}
-\label{part_emphasis_fig}
-\end{figure}
-
 We hypothesized that sketchers emphasize part information across such communicative contexts in such a way that it preserves these relevant distinctions. 
 To explore this possibility, we asked the following questions: 
-(1) how similarly is object-specific part information emphasized in both close and far communicative contexts? 
-(2) to the extent close and far sketches of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
-(3) what are the consequences of the way sketchers modulate their emphasis across parts on the overall distinctiveness of close and far sketches? 
+(1) How similarly is object-specific part information emphasized in both close and far communicative contexts? 
+(2) To the extent close and far sketches of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
+(3) What are the consequences of the way sketchers modulate their emphasis across parts on the overall distinctiveness of close and far sketches? 
 
 To investigate these questions, we represented each sketch by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
 In order to represent all sketches in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
@@ -293,44 +282,52 @@ Each part-feature vector thus consisted of 48 elements: 24 of these represented 
 Before further analysis, we z-scored values within each feature dimension in order to map stroke count and arc length measurements to the same unit-variance scale. 
 Because our primary goal was to understand differences between objects and contexts, we then collapsed across sketches within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
 
-\subsubsection{Similar object-specific part information emphasized in different communicative contexts}
+\subsubsection{Similar part information emphasized in different communicative contexts}
 
-In order to investigate to what extent similar part information is emphasized in different communicative contexts, we computed the matrix of Pearson correlations between part-feature vectors. 
+In order to investigate to what extent similar object-specific part information is emphasized in different communicative contexts, we computed the matrix of Pearson correlations between part-feature vectors. 
 Formally, this entailed computing: $(R)_{ij} = 1 - \frac{cov(\vec{r}_{i}, \vec{r}_{j})}{\sqrt{var(\vec{r}_{i}) \cdot var(\vec{r}_{j})}}$, where $\vec{r}_{i}$ and $\vec{r}_{j}$ are the mean part-feature vectors for the $i$th and $j$th object-context combinations, respectively.
 If similar object-specific part information is emphasized in both contexts, this would yield higher correlations between close and far part-feature vectors for the \textit{same} object than for close and far part-feature vectors of \textit{different} objects. 
+Consistent with this, we found that close and far sketches of the same object emphasized similar part information (within-object: $r = 0.740$, 95\% CI: [0.726, 0.753]), and to a greater degree than did close and far sketches of different objects (between-object: $r = 0.653$, 95\% CI: [0.646, 0.659]), suggesting that these patterns of emphasis were to some extent object-specific (Fig.~\ref{part_emphasis}B). 
 
-Consistent with this, we found that close and far sketches of the same object emphasized similar part information (within-object: $r = 0.740$, 95\% CI: [0.726, 0.753]), and to a greater degree than did close and far sketches of different objects (between-object: $r = 0.653$, 95\% CI: [0.646, 0.659]), suggesting that these patterns of emphasis were to some extent object-specific. 
+\subsubsection{Greater emphasis on a few parts when producing detailed sketches}
 
-\subsubsection{Greater emphasis on a few parts when producing object-diagnostic sketches}
-
-Although the patterns of emphasis on different parts were highly similar between close and far sketches, close sketches expressed more part information overall? 
+Although the patterns of emphasis on different parts were similar between close and far sketches, close sketches expressed more part information overall.
 To what extent do close sketches accomplish this by placing a lot more emphasis on a few parts, or placing a little extra emphasis on many parts?
-
 To address this question, we first calculated the vector difference between the close and far part-feature vectors for each object.
-To provide a geometric intuition, each difference vector represents the direction and distance to move in this 48-dimensional feature space to get from the centroid of the far sketches of an object to the centroid of its close sketches. 
-If close sketches place a lot more emphasis on a few parts relative to far sketches, this difference vector will be sparse, containing a few large non-zero values and many zero values. 
-On the other hand, if close sketches tend to place a little extra emphasis on many parts, this difference vector will not be sparse, containing many similar non-zero values, and fewer zero values. 
+% To provide a geometric intuition, each difference vector represents the direction and distance to move in this 48-dimensional feature space to get from the centroid of the far sketches of an object to the centroid of its close sketches. 
+If close sketches place a lot more emphasis on a few parts, this difference vector will be sparse, containing a few large non-zero values and many zero values. 
+On the other hand, if close sketches tend to place a little extra emphasis on many parts, this difference vector will not be non-sparse, containing many similar non-zero values and few zero values. 
 We used the following metric to compute the sparsity of each difference vector:
 $\texttt{s}= \frac{\sqrt{k} - \frac{\norm{v}_1}{\norm{v}_2}}{\sqrt{k}-1}$, where $k=48$(the dimensionality of the vector), $v$ is the difference vector, $\norm{v}_1$ is the L1-norm and $\norm{v}_2$ is the L2-norm. 
 Here, $s=1$ for maximally sparse vectors (i.e., single non-zero value) $s=0$ for minimally sparse vectors (i.e., all values identical).
+We found that difference vectors were moderately sparse ($s=0.675$, 95\% CI: [0.653, 0.686]), suggesting that close sketches place more emphasis on a few different parts relative to far sketches, but not to the same extent for all parts (Fig.~\ref{part_emphasis}C).
 
-We found that in general, difference vectors were moderately sparse ($s=0.675$, 95\% CI: [0.653, 0.686]), suggesting that relative to far sketches, close sketches place somewhat more emphasis on a few different parts, and usually not only one.
+\subsubsection{More detailed sketches are more distinct from each other than sparser ones}
 
-\subsubsection{Object-diagnostic sketches are more distinct from each other than category-diagnostic ones}
+Given the above findings that close sketches exhibited similar patterns of emphasis on different parts as their far counterparts, but with greater emphasis on a few of these in particular, a natural question arises concerning the functional significance of this form of contextual modulation. 
+We hypothesized that such modulation enhances the overall discriminability of close sketches, relative to far ones, by increasing the feature distance between objects that otherwise share many perceptual properties. 
+To evaluate this possibility, we compared the mean correlation distance (i.e., $1 - r$) between the part-feature vectors of close sketches of objects in a given category with that between far sketches of exactly the same objects. 
+We found that close sketches were indeed reliably more distant from one another than far sketches were (close similarity: $r = 0.666$, 95\% CI: [0.652,685]; far similarity: $r = 0.729$, 95\% CI: [0.719,0.746]), suggesting that sketchers discern which part information is most diagnostic of the target object among highly similar distractors, and emphasize this distinctive information accordingly (Fig.~\ref{part_emphasis}A \& D).
 
 Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.47\textwidth]{figures/7_part_emphasis.pdf}
+\caption{(A) MDS (B) within vs. between (C) sparsity (D) close vs. far dispersion.}
+\label{part_emphasis}
+\end{figure}
 
-% We once again applied a softmax function across object vectors, standardizing features to the same scale for meaningful comparison.
-% we calculated the Euclidean norm of each object vector. The difference in mean Euclidean norms between close and far sketches was 0.072, and 28 out of 32 of the object vectors had higher Euclidean norms for detailed sketches relative to sparse sketches. We predicted that the rank ordering of feature weights might be preserved between detailed and sparse sketches. The Spearman Rank-Order correlation coefficient between detailed and sparse object features for all objects was statistically significantly positive. This indicated that the feature weight rank orderings was preserved between detailed and sparse sketches. The higher norms for detailed sketches indicates that while the part-specific profile may be preserved between context conditions, detailed sketches tend to be exaggerated in our feature space relative to sparse sketches.
-
-% For each category of objects and context condition, we calculated the Euclidean norm of the object vectors and Euclidean pairwise distances between object vectors. 
-% Using the mean of the norm and the standard deviation of pairwise distances, we calculated the coefficient of variation for detailed and sparse sketches by category. Detailed sketches had higher coefficients of variation for all categories \kushin{would report CV difference between close and far maybe?}.
-% These results show that sparse sketches within a category are more similar to each other than detailed sketches are to each other. 
-% The exaggeration in features in detailed sketches appear to make them not only distinct from sparse sketches, but from other detailed sketches of the same category as well.
- 
 
 \section{Discussion}
+
+Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
+Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
+Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
+Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
 
 \section{Acknowledgments}
 
