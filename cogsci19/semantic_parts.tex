@@ -217,7 +217,7 @@ However, because the part labels we considered could reasonably apply to multipl
 To evaluate the first prediction, we determined how many unique part labels were represented across all sub-stroke elements comprising each stroke (Fig.~\ref{stroke_to_part}B). 
 We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that when participants produced a stroke, most of the time it represented no more than one part of that object. 
 There were 18.4\% of strokes were associated with two or more, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
-This was slightly more common in sketches produced in far contexts (19.4\%, 95 \%CI = 17.9\%, 20.9 \%) than close contexts (17.6\%, 95\% CI = 16.1\%, 18.8\%). 
+This was slightly more common in sketches produced in far contexts (19.4\%, 95 \%CI = 17.9\%, 20.9 \%) than close contexts (17.6\%, 95\% CI : [16.1\%, 18.8\%]). 
 
 \begin{figure}[htbp]
 \centering
@@ -231,7 +231,7 @@ We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% usi
 This shows that nearly half the time, a single action was required to depict an entire object part. 
 However, the remaining 53.9\% of parts required more than one stroke to depict, owing to those parts that consisted of multiple disconnected subparts within an object (e.g., wheels of a car, paws of a dog).
 \jefan{This should be verified in some way by subsetting on those feature columns that actually are likely to contain multiple instances per object.}
-The proportion of parts requiring more than one stroke was slightly higher for close sketches (55.8\%, 95\% CI = 53.7\%, 58.6\%) than far sketches (52.0\%, 95\% CI = 49.9\%, 54.6\%), perhaps reflecting the tendency to include more object-diagnostic detail when depicting each part. 
+The proportion of parts requiring more than one stroke was slightly higher for close sketches (55.8\%, 95\% CI: [53.7\%, 58.6\%]) than far sketches (52.0\%, 95\% CI: [49.9\%, 54.6\%]), perhaps reflecting the tendency to include more object-diagnostic detail when depicting each part. 
 
 Overall, these findings suggest that when people have the goal of communicating the identity of an object in a drawing, the information they choose to convey with each stroke is far from arbitrary, but rather is tightly coupled to the compositional part structure of objects. 
 
@@ -260,7 +260,8 @@ To evaluate to what extent these mean streak lengths exceeded that expected unde
 
 To evaluate statistical reliability, we computed the z-score of the empirical streak length relative to the permuted streak length distribution for each sketch. 
 This reflects the extent to which same-part strokes were clustered in time relative to a sequence with exactly the same distribution of strokes over parts, but in which strokes were produced in random order. 
-We found that the empirical streak length was reliably higher for all objects (\jefan{we need a stat for this, like a p-value reflecting the number of times the permuted streak length exceeded the empirical. If this never happened, then we can say ps < 0.001.}), and higher for the close sketches (z-score: 2.58; 95\% CI: [2.26, 2.90]) than far sketches (z-score: 1.56; 95\% CI: [1.38, 1.74]).  
+We found that the empirical streak length was reliably higher for all objects (z-score: 2.07, 95\% CI: [1.90, 2.23]).
+ (\jefan{we need a stat for this, like a p-value reflecting the number of times the permuted streak length exceeded the empirical. If this never happened, then we can say ps < 0.001.}), and higher for the close sketches (z-score: 2.58; 95\% CI: [2.26, 2.90]) than far sketches (z-score: 1.56; 95\% CI: [1.38, 1.74]).  
 All confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of sketches within object-context combinations.
 Taken together, our results suggest that the procedure by which people convey semantic information when sketching is compositional: frequently, they use a single stroke to convey an entire part; but when they do use multiple strokes to convey a single part, they tend to draw these in succession before moving on to a different part. 
 
