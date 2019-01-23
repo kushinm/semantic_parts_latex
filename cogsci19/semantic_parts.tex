@@ -37,6 +37,7 @@
 \usepackage{caption}
 \usepackage{sidecap}
 \usepackage{capt-of}
+\usepackage{nicefrac}
 \usepackage[export]{adjustbox}
 \usepackage{makecell}
 \hyphenpenalty=100000
@@ -194,7 +195,7 @@ car & \begin{tabular}[c]{@{}l@{}}bumper, headlight, hood, windshield, \\ window,
 chair & backrest, armrest, seat, leg \\ \hline
 dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \end{tabular}
-\caption{Part labels provided to annotators for objects in each category.}
+\caption{Part labels provided to annotators.}
 \end{table}
 
 
@@ -290,8 +291,6 @@ Because our primary goal was to understand differences between objects and conte
 \label{part_emphasis}
 \end{figure}
 
-
-
 \subsubsection{Similar part information emphasized in different communicative contexts}
 
 In order to investigate to what extent similar object-specific part information is emphasized in different communicative contexts, we computed the matrix of Pearson correlations between part-feature vectors. 
@@ -308,7 +307,7 @@ To address this question, we first calculated the vector difference between the 
 If close sketches place a lot more emphasis on a few parts, this difference vector will be sparse, containing a few large non-zero values and many zero values. 
 On the other hand, if close sketches tend to place a little extra emphasis on many parts, this difference vector will not be non-sparse, containing many similar non-zero values and few zero values. 
 We used the following metric to compute the sparsity of each difference vector:
-$\texttt{s}= \frac{\sqrt{k} - \frac{\norm{v}_1}{\norm{v}_2}}{\sqrt{k}-1}$, where $k=48$(the dimensionality of the vector), $v$ is the difference vector, $\norm{v}_1$ is the L1-norm and $\norm{v}_2$ is the L2-norm. 
+$\texttt{s}= \nicefrac{(\sqrt{k} - \frac{\norm{v}_1}{\norm{v}_2})}{(\sqrt{k}-1)}$, where $k=48$ (the dimensionality of the vector), $v$ is the difference vector, $\norm{v}_1$ is the L1-norm and $\norm{v}_2$ is the L2-norm. 
 Here, $s=1$ for maximally sparse vectors (i.e., single non-zero value) $s=0$ for minimally sparse vectors (i.e., all values identical).
 We found that difference vectors were moderately sparse ($s=0.675$, 95\% CI: [0.653, 0.686]), suggesting that close sketches place more emphasis on a few different parts relative to far sketches, but not to the same extent for all parts (Fig.~\ref{part_emphasis}C).
 
