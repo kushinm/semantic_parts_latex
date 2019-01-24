@@ -212,13 +212,13 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 
 When composing a recognizable sketch of a real-world object, how do people decide what information to convey with each stroke? 
 A natural possibility is that there exists a close correspondence between the actions they perform and what parts they know the object possesses. 
-Concretely, we hypothesized that for most strokes in our dataset, that all sub-stroke elements would be assigned the same part label. 
-However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent that part in a single sketch.
+Concretely, we hypothesized that for most strokes in our dataset, that all sub-stroke elements (splines) would be assigned the same part label. 
+However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
 
-To evaluate the first prediction, we determined how many unique part labels were represented across all sub-stroke elements comprising each stroke (Fig.~\ref{stroke_to_part}B). 
+To evaluate the first prediction, we determined how many unique part labels were represented across all sub-stroke elements within each stroke (Fig.~\ref{stroke_to_part}B). 
 We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that when participants produced a stroke, most of the time it represented no more than one part of that object. 
-There were 18.4\% of strokes were associated with two or more, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
-This was slightly more common in sketches produced in far contexts (19.4\%, 95 \%CI = 17.9\%, 20.9 \%) than close contexts (17.6\%, 95\% CI : [16.1\%, 18.8\%]). 
+18.4\% of strokes were associated with two or more labels, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
+This was slightly more common in sketches produced in far contexts (19.4\%, 95 \%CI = 17.9\%, 20.9 \%) than close contexts (17.6\%, 95\% CI : [16.1\%, 18.8\%]).  This indicates that a candidate strategy for creating sparser abstract sketches may be to utilize individual strokes to represent multiple spatially contiguous parts. 
 
 \begin{figure}[htbp]
 \centering
@@ -241,10 +241,11 @@ Overall, these findings suggest that when people have the goal of communicating 
 In the previous section we discovered that for slightly more than half of the parts in each object, more than one stroke was used to depict it. 
 This raised the question: to what extent are these multiple strokes depicting the same part being drawn in succession, or being interleaved among strokes corresponding to other parts?
 
-To investigate this, we estimated the mean length of streaks consisting of strokes depicting the same part, and compared this to the mean streak length for permuted stroke sequences. 
-We used mean streak length as a proxy for the prevalence of same-part strokes drawn in succession. 
+%To investigate this, we estimated the mean length of part streaks consisting of strokes depicting the same part, and compared this to the mean streak length for permuted stroke sequences. 
+%We used mean streak length as a proxy for the prevalence of same-part strokes drawn in succession. 
+To investigate this, we computed for each sketch its part streak lengths — counts of the number of successive strokes depicting the same part drawn in succession — and compared the mean of these streak lengths to the mean streak length for permuted stroke sequences. 
 To compute the mean steak length, we encoded each sketch as a sequence of strokes, where each stroke was represented by the modal part label assigned to its sub-stroke elements. 
-We restricted this analysis to sketches that consisted of more than one stroke, consisted of more than one part, and contained at least two strokes sharing the same part label (78 out of 864 sketches excluded). 
+We restricted this analysis to sketches that consisted of more than one stroke, consisted of more than one part label, and contained at least two strokes sharing the same part label (78 out of 864 sketches excluded). 
 For every element of the stroke sequence, we recorded the length of the part streak it belonged to. 
 If it was immediately followed by a stroke depicting a different part, the streak length would be 1. 
 If it was immediately followed by two strokes depicting the same part, before switching to a stroke of a different part, the streak length would be 3. 
@@ -260,8 +261,10 @@ To evaluate to what extent these mean streak lengths exceeded that expected unde
 
 
 To evaluate statistical reliability, we computed the z-score of the empirical streak length relative to the permuted streak length distribution for each sketch. 
-This reflects the extent to which same-part strokes were clustered in time relative to a sequence with exactly the same distribution of strokes over parts, but in which strokes were produced in random order. 
-We found that the empirical streak length was reliably higher for all objects (z-score: 2.07, 95\% CI: [1.90, 2.23]), and higher for the close sketches (z-score: 2.58; 95\% CI: [2.26, 2.90]) than far sketches (z-score: 1.56; 95\% CI: [1.38, 1.74]), suggesting that XXX \jefan{need to provide interpretation here for close vs. far result}.  
+This reflects the extent to which same-part strokes were clustered in time relative to a sequence with exactly the same distribution of strokes over parts, but in which strokes were produced in random order. If the empirical streak lengths were to be higher than the permuted streak lengths, it would indicate that not only do people's strokes tend to correspond to semantically meaningful parts, but that the sequence in which they make strokes to create sketches also reflects their knowledge of object-specific part structure. 
+We found that the empirical streak length was reliably higher for all objects (z-score: 2.07, 95\% CI: [1.90, 2.23]), and higher for the close sketches (z-score: 2.58; 95\% CI: [2.26, 2.90]) than far sketches (z-score: 1.56; 95\% CI: [1.38, 1.74]).
+Since close sketches tend to comprise of more strokes than far sketches, it is possible that these additional strokes serve to provide additional detail to parts in the sketch. If so, then parts are constructed at a finer compositional grain in close sketches \kushin{might work on wording here; feel like there's a missing link}
+leading to a larger number of successive strokes of the same part. Our results support this idea.
 All confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of sketches within object-context combinations.
 Taken together, our results suggest that the procedure by which people convey semantic information when sketching is compositional: frequently, they use a single stroke to convey an entire part; but when they do use multiple strokes to convey a single part, they tend to draw these in succession before moving on to a different part. 
 
@@ -308,7 +311,7 @@ If close sketches place a lot more emphasis on a few parts, this difference vect
 On the other hand, if close sketches tend to place a little extra emphasis on many parts, this difference vector will not be non-sparse, containing many similar non-zero values and few zero values. 
 We used the following metric to compute the sparsity of each difference vector:
 $\texttt{s}= \nicefrac{(\sqrt{k} - \frac{\norm{v}_1}{\norm{v}_2})}{(\sqrt{k}-1)}$, where $k=48$ (the dimensionality of the vector), $v$ is the difference vector, $\norm{v}_1$ is the L1-norm and $\norm{v}_2$ is the L2-norm. 
-Here, $s=1$ for maximally sparse vectors (i.e., single non-zero value) $s=0$ for minimally sparse vectors (i.e., all values identical).
+Here, $s=1$ for maximally sparse vectors (i.e., single non-zero value) $s=0$ for minimally sparse vectors (i.e., all values identical and non-zero).
 We found that difference vectors were moderately sparse ($s=0.675$, 95\% CI: [0.653, 0.686]), suggesting that close sketches place more emphasis on a few different parts relative to far sketches, but not to the same extent for all parts (Fig.~\ref{part_emphasis}C).
 
 \subsubsection{More detailed sketches are more distinct from each other than sparser ones}
@@ -324,10 +327,10 @@ Humans are capable of leveraging their abstract understanding of objects to reco
 This notion is supported by our findings, which indicate sparse and detailed sketches exhibit similar part information with detailed sketches emphasizing certain parts over others. This flexibility of expression is a powerful aspect of part-based representations, 
 
 \section{Acknowledgments}
+%Hide for now since blinded
 
-KM was supported by the Department of Cognitive Science at Vassar College through its Humanities in Cognitive Science program.
-
-RXDH was supported by the National Science Foundation Graduate Research Fellowship (DGE-114747). 
+%KM was supported by the Department of Cognitive Science at Vassar College through its Humanities in Cognitive Science program.
+%RXDH was supported by the National Science Foundation Graduate Research Fellowship (DGE-114747). 
 
 %\section{References}
 
