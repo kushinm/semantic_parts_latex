@@ -223,7 +223,7 @@ This was slightly more common in sketches produced in far contexts (19.4\%, 95 \
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/5_stroke_part_relationship.pdf}
-\caption{Correspondence between strokes and part labels. \jefan{Horizontal axis labels here should be aligned.}}
+\caption{Correspondence between strokes and part labels. (A) We examined the number of unique labels assigned to the constituent splines of every stroke in our dataset. We also counted how many strokes shared a given part label in every sketch. (B) The majority of strokes contained only a single part label. (C) Almost half the parts across all sketches required only a single stroke to be represented. The remaining parts required at least 2 strokes to be fully represented. }
 \label{stroke_to_part}
 \end{figure}
 
@@ -279,18 +279,16 @@ We hypothesized that sketchers emphasize part information across such communicat
 To explore this possibility, we asked the following questions: 
 (1) How similarly is object-specific part information emphasized in both close and far communicative contexts? 
 (2) To the extent close and far sketches of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
-(3) What are the consequences of the way sketchers modulate their emphasis across parts on the overall distinctiveness of close and far sketches? 
-
-To investigate these questions, we represented each sketch by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
+(3) What are the consequences of the way sketchers modulate their emphasis across parts on the overall distinctiveness of close and far sketches?  To investigate these questions, we represented each sketch by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
 In order to represent all sketches in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
 Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes allocated to each part. 
 Before further analysis, we z-scored values within each feature dimension in order to map stroke count and arc length measurements to the same unit-variance scale. 
 Because our primary goal was to understand differences between objects and contexts, we then collapsed across sketches within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.47\textwidth]{figures/7_part_emphasis.pdf}
-\caption{(A) MDS (B) within vs. between (C) sparsity (D) close vs. far dispersion. \jefan{These captions need to be filled in properly -- brief, one sentence or fragment each.}}
+\caption{(A) Multidimensional scaling of the correlation distance between objects. Generally, objects belonging to the same category-condition block appear to cluster closer together.  (B) Part profiles of close and far sketches of the same object were more similar to each other than those of close and far sketches of different objects within a category.  (C) Moderate vector sparsity between context conditions indicating that all parts are not equally emphasized in close sketches relative to their far counterparts.(D) Far sketches were more similar to each other than close sketches were to each other in terms of part features. }
 \label{part_emphasis}
 \end{figure}
 
@@ -323,8 +321,16 @@ We found that close sketches were indeed reliably more distant from one another 
 
 \section{Discussion}
 
-Humans are capable of leveraging their abstract understanding of objects to recognize even extremely sparse sketches, such as those that appear in our reference game dataset. Our results support the idea that this abstract knowledge is structured based on the compositional nature of category-specific parts. The prevalent one-to-one correspondence between strokes made by the sketcher and part-labels assigned to those strokes by annotators indicates that this abstract knowledge may be used for graphical production much like it is used for recognition.
-This notion is supported by our findings, which indicate sparse and detailed sketches exhibit similar part information with detailed sketches emphasizing certain parts over others. This flexibility of expression is a powerful aspect of part-based representations, 
+
+Humans are capable of leveraging their abstract understanding of objects to equivalently identify them across a variety of modalities — photographs, drawings, 3D renders, sculptures, and real world instances. 
+A testament to the flexibility this ability of ours is that even with limited information, as is provided by the sparse sketches that appear in our reference game dataset, we are nevertheless able to perform this task of recognition. This abstract understanding even extends to the realm of graphical production, allowing people to effectively communicate with each other using only a limited number of strokes.
+
+Our results support the idea that this understanding is, in part, facilitated by people's semantic knowledge, namely their knowledge of the compositional nature of category-specific parts. The prevalent one-to-one correspondence between strokes made by the sketcher and part-labels assigned to those strokes by annotators indicates that this abstract knowledge is deployed for graphical production much like it is used for recognition.
+This notion is also supported by the fact that sparse and detailed sketches exhibit similar part information with detailed sketches emphasizing certain parts over others. This flexibility of expression across varied communicative contexts is a powerful aspect of part-based representations,
+
+While our findings show that people's semantic knowledge of parts may influence how they recognize and produce sketches,\kushin{TBC..}
+
+ 
 
 \section{Acknowledgments}
 %Hide for now since blinded
