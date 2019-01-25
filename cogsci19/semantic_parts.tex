@@ -105,7 +105,7 @@ Here we explore the hypothesis that this is in part because we readily decompose
 
 Recent advances in computational neuroscience and artificial intelligence have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, exemplified by modern deep learning approaches \cite{yamins2014performance}.
 Nevertheless, a major gap remains in elucidating how the feature representations learned by deep learning models can be adapted to emulate the structure and flexibility of human visual semantic knowledge \cite{lake2017building}.
-A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the human mind \cite{battaglia2018relational}. 
+A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the mind \cite{battaglia2018relational}. 
 However, pursuing this strategy relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
 
 The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
@@ -129,11 +129,12 @@ Taken together, our results support the notion that people deploy their abstract
 \end{figure}
 
 \subsection{Communicative sketch dataset}
-We obtained 1195 sketches of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.\footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
+We obtained 1195 sketches of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.\footnote{All materials and data will be made available following the completion of the review process.}
+% \footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
 One participant (i.e., the sketcher) aimed to draw one of these objects -- the target -- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
-Across trials, the similarity of the distractors to the target was manipulated, yielding two types of semantic context: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
+Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
 This context manipulation led sketchers to produce simpler sketches containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
  
 % \begin{figure*}
@@ -145,8 +146,8 @@ This context manipulation led sketchers to produce simpler sketches containing f
 
 
 Prior work analyzing the semantic properties of such sketch data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
-However, a key limitation of representing sketch only as an image is that one loses information about the inherently sequential and contour-based nature of sketch production. 
-Because our goal was to characterize the fine-grained semantic organization of sketch, it was thus crucial for our purposes to represent each sketch instead using a vector image format (i.e., \texttt{*.svg}). 
+However, a key limitation of representing a sketch only as an image is loss of information about the inherently sequential and contour-based nature of sketch production. 
+Because our goal was to characterize how semantic structure manifests during sketch production, it was important to encode each sketch instead using a vector image format that preerves this sequential and contour information (i.e., \texttt{*.svg}). 
 
 Each sketch in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements, known as splines. 
 These splines are parameterized as cubic Bezier curve segments, which are uniquely defined by four points: the initial point, the final point, and two control points that control the spline's curvature.
@@ -330,6 +331,8 @@ This notion is also supported by the fact that sparse and detailed sketches exhi
 
 While our findings show that people's semantic knowledge of parts may influence how they recognize and produce sketches, we believe our current part-feature characterization to be an overly explicit instantiation of semantics in communicative sketches. Though we believe such approximations are beneficial to showing how semantically meaningful information is expressed by sequences of strokes and perceived by humans in a flexible manner, we are still shy of being able to translate the high dimensional feature spaces in modern vision models to more human-like perceptual representations through this approach alone. Future work will seek to integrate these two approaches.
 
+
+\jefan{a thought to be fleshed out more: all the more remarkable we can extract these things based purely on considering something like effort cost // number of actions across categories. Future work should focus on extending this approach to consider the \textit{content} allocated to each part category, over and above \textit{quantity.}}
  
 
 \section{Acknowledgments}
