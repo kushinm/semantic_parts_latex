@@ -84,7 +84,7 @@ The ability to represent semantically meaningful structure in our environment is
 As a testament to this ability, we effortlessly grasp the correspondence between a drawing of an object and that physical object in the world, even if the sketch is far from realistic. 
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we consider the possibility that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts. 
-To evaluate this, we developed a web-based platform to densely annotate the object parts represented in drawings of real-world objects that varied in how detailed they were.  
+To evaluate this, we developed a web-based platform to densely annotate the parts represented in drawings of real-world objects that varied in how detailed they were.  
 We found that: \textit{1}, people are highly consistent in how they interpret what individual strokes represent; \textit{2}, single strokes tend to correspond to single parts; \textit{3}, strokes representing the same part tend to be clustered in time during production; and \textit{4}, both more detailed and sparser drawings of the same object emphasized similar part information, although \textit{5}, detailed drawings of different objects tend to be more distinct from one another than sparser ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
@@ -212,14 +212,14 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 \subsection{How strongly do strokes correspond to parts of objects?}
 
 When composing a recognizable sketch of a real-world object, how do people decide what information to convey with each stroke? 
-A natural possibility is that there exists a close correspondence between the actions they perform and what parts they know the object possesses. 
+A natural possibility is that there exists a close correspondence between the actions they perform and their knowledge of what parts that object possesses and how these parts are related to each other.
 Concretely, we hypothesized that for most strokes in our dataset, that all sub-stroke elements (splines) would be assigned the same part label. 
 However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
 
 To evaluate the first prediction, we determined how many unique part labels were represented across all sub-stroke elements within each stroke (Fig.~\ref{stroke_to_part}B). 
-We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that when participants produced a stroke, most of the time it represented no more than one part of that object. 
+We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that when participants decided to  ss. produced a stroke, most of the time it represented no more than one part of that object. 
 18.4\% of strokes were associated with two or more labels, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
-This was slightly more common in drawings produced in far contexts (19.4\%, 95 \%CI = 17.9\%, 20.9 \%) than close contexts (17.6\%, 95\% CI : [16.1\%, 18.8\%]).  This indicates that a candidate strategy for creating sparser abstract drawings may be to utilize individual strokes to represent multiple spatially contiguous parts. 
+This was slightly more common in drawings produced in far contexts (19.4\%, 95 \%CI = 17.9\%, 20.9 \%) than close contexts (17.6\%, 95\% CI : [16.1\%, 18.8\%]).  This might indicate that a candidate strategy for creating sparser abstract drawings may be to utilize individual strokes to represent multiple spatially contiguous parts. 
 
 \begin{figure}[htbp]
 \centering
@@ -244,7 +244,7 @@ This raised the question: to what extent are these multiple strokes depicting th
 
 %To investigate this, we estimated the mean length of part streaks consisting of strokes depicting the same part, and compared this to the mean streak length for permuted stroke sequences. 
 %We used mean streak length as a proxy for the prevalence of same-part strokes drawn in succession. 
-To investigate this, we computed for each sketch its part streak lengths — counts of the number of successive strokes depicting the same part drawn in succession — and compared the mean of these streak lengths to the mean streak length for permuted stroke sequences. 
+To investigate this, we computed for each sketch its part streak lengths — counts of the number of successive strokes depicting the same part drawn in succession — and compared the mean of these streak lengths to the mean streak length for permuted stroke sequences of the same sketch. 
 To compute the mean steak length, we encoded each sketch as a sequence of strokes, where each stroke was represented by the modal part label assigned to its sub-stroke elements. 
 We restricted this analysis to drawings that consisted of more than one stroke, consisted of more than one part label, and contained at least two strokes sharing the same part label (78 out of 864 drawings excluded). 
 For every element of the stroke sequence, we recorded the length of the part streak it belonged to. 
@@ -264,8 +264,7 @@ To evaluate to what extent these mean streak lengths exceeded that expected unde
 To evaluate statistical reliability, we computed the z-score of the empirical streak length relative to the permuted streak length distribution for each sketch. 
 This reflects the extent to which same-part strokes were clustered in time relative to a sequence with exactly the same distribution of strokes over parts, but in which strokes were produced in random order. If the empirical streak lengths were to be higher than the permuted streak lengths, it would indicate that not only do people's strokes tend to correspond to semantically meaningful parts, but that the sequence in which they make strokes to create drawings also reflects their knowledge of object-specific part structure. 
 We found that the empirical streak length was reliably higher for all objects (z-score: 2.07, 95\% CI: [1.90, 2.23]), and higher for the close drawings (z-score: 2.58; 95\% CI: [2.26, 2.90]) than far drawings (z-score: 1.56; 95\% CI: [1.38, 1.74]).
-Since close drawings tend to comprise of more strokes than far drawings, it is possible that these additional strokes serve to provide additional detail to parts in the sketch. If so, then parts are constructed at a finer compositional grain in close drawings \kushin{might work on wording here; feel like there's a missing link}
-leading to a larger number of successive strokes of the same part. Our results support this idea.
+Since close drawings tend to comprise of more strokes than far drawings, it is possible that these additional strokes serve to provide additional detail to parts in the sketch. If so, then parts are constructed at a finer compositional grain in close drawings, leading to a larger number of successive strokes of the same part.
 All confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within object-context combinations.
 Taken together, our results suggest that the procedure by which people convey semantic information when sketching is compositional: frequently, they use a single stroke to convey an entire part; but when they do use multiple strokes to convey a single part, they tend to draw these in succession before moving on to a different part. 
 
