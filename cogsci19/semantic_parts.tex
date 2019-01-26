@@ -70,9 +70,9 @@
 \makeatletter
 \let\@oldmaketitle\@maketitle% Store \@maketitle
 \renewcommand{\@maketitle}{\@oldmaketitle% Update \@maketitle to insert...
-  \includegraphics[width=0.9\textwidth]
+  \includegraphics[width=0.95\textwidth]
     {figures/1_banner.pdf}
-    \captionsetup{width=0.9\textwidth}
+    \captionsetup{width=0.95\textwidth}
  \captionof{figure}{\footnotesize{Objects used in communication game with example drawings of each object, where stroke color indicates different parts.}}\bigskip}% ... an image
 \makeatother
 
@@ -110,10 +110,10 @@ However, pursuing this strategy relies on a thorough understanding of this conce
 
 The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
 This approach departs from the conventional strategy for inferring the organization of visual object concepts from behavior, which relies upon tasks that elicit judgments about visual inputs, usually with respect to experimenter-defined dimensions. 
-By contrast, visual communication tasks permit participants to include any elements they consider relevant to their goals and combine these elements freely, yielding high-dimensional information about how visual semantic knowledge is organized and deployed under a natural task objective. 
+By contrast, visual communication tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how visual semantic knowledge is organized and deployed under a natural task objective. 
 
-Our aim in probing the semantic structure of communicative drawings is to shed light on how the semantic organization of visual object representations supports their flexible expression across contexts. 
-The current approach departs from recent work \cite{FanCommon2018} that has investigated the production of object drawings to communicate in three ways: 
+Our aim in probing the semantic structure of communicative drawings is to shed light on how the semantic organization of visual object concepts supports their flexible expression across contexts. 
+This paper advances recent work \cite{FanCommon2018} that has investigated the production of object drawings to communicate in three ways: 
 first, a focus on compositional semantic structure within drawings,
 second, exploration of the link between this semantic structure and the dynamics of drawing production,
 and third, examination of flexibility in how visual semantic knowledge is expressed in different semantic contexts. 
@@ -127,7 +127,7 @@ Towards this end, we developed a web-based platform to collect dense semantic an
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/2_refgame_performance.pdf}
-\caption{(A) drawings were collected in the context of a two-player drawing-based reference game in which one participant (sketcher) aimed to draw a target object so that the other participant (viewer) could distinguish it from three distractor objects. (B) In close contexts, the target and distractors all belonged to the same basic-level category; in far contexts, the target and distractors belonged to different basic-level categories. (C) sketchers used fewer strokes in the far condition, while producing drawings that were accurately recognized by the viewer in both conditions.}
+\caption{(A) Drawings were collected in the context of a two-player drawing-based reference game in which one participant (sketcher) aimed to draw a target object so that the other participant (viewer) could distinguish it from three distractor objects. (B) In close contexts, the target and distractors all belonged to the same basic-level category; in far contexts, the target and distractors belonged to different basic-level categories. (C) sketchers used fewer strokes in the far condition, while producing drawings that were accurately recognized by the viewer in both conditions.}
 \label{refgame_performance}
 \end{figure}
 
@@ -152,9 +152,9 @@ Prior work analyzing the semantic properties of such drawing data have represent
 However, a key limitation of representing a drawing only as an image is loss of information about the inherently sequential and contour-based nature of drawing production. 
 Because our goal was to characterize how semantic structure manifests during drawing production, it was important to encode each drawing instead using a vector image format that preerves this sequential and contour information (i.e., \texttt{*.svg}). 
 
-Each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements, known as splines. 
-These splines are parameterized as cubic Bezier curve segments, which are uniquely defined by four points: the initial point, the final point, and two control points that control the spline's curvature.
-This data format provides a relatively compact representation of each drawing compared with a rasterized image, while still providing sufficient expressivity to provide an accurate representation. 
+Each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
+These sub-stroke elements are parameterized as cubic Bezier splines.
+This data format provides a relatively compact representation of each drawing compared with a rasterized image, and preserves the sequence in which each element was produced. 
 
 \subsection{Semantic part annotation}
 
@@ -170,22 +170,22 @@ Each trial, one of these drawings appeared in the center of the display, above t
 Thus the participant had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
 To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category represented in our dataset. 
-Once a spline was successfully tagged, it was rendered in the color that the part label was associated with in the part menu. 
+% Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
 However, participants could also generate their own part label if none of the common labels applied.
 In total, we collected 3608 annotation trials of 1195 unique drawings.
 
 \subsubsection{Data preprocessing}
 
-To avoid bias when analyzing the relative emphasis that sketchers placed on different part information, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
-Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by at least three distinct participants. 
+To mitigate bias when analyzing the relative emphasis that sketchers placed on different part information due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
+Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by three distinct participants. 
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
 For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
-In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these overly fine-grained part labels to one of the common part labels. 
-After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly 3 times each, using a set of 24 unique part labels. 
+In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
+After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/4_annotation_interface.pdf}
+\includegraphics[width=0.4\textwidth]{figures/4_annotation_interface.pdf}
 \caption{Sketch annotation interface. Participants selected sub-stroke elements of the sketch and tagged them with category-congruent part labels from the menu. The original communicative context in which the sketch was generated was also provided: the target object (highlighted in red) and three distractors were displayed in an array below the sketch.}
 \label{annotation_interface}
 \end{figure}
@@ -207,15 +207,15 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 
 \subsection{How well do different people agree on what strokes represent?}
 
-Perhaps one of the most basic questions our dataset is poised to answer is how often different viewers agreed on what each stroke element in a sketch represented. 
-We found that 95.6\% of all splines in our dataset were given the same label by at least two of the three annotators, with 67.8\% of all splines exhibiting complete agreement among all three annotators. 
+Perhaps one of the most basic questions our dataset is positioned to answer is how consistently different viewers agreed on what each sub-stroke element in a sketch represented. 
+We found that 95.6\% of all splines received same label by at least two of the three annotators, and 67.8\% of all splines receiving the same label by all three annotators. 
 This suggests that there is a high degree of consistency in how people decompose drawings into semantically meaningful parts. 
 In subsequent analyses, we collapsed over inter-annotator variation: we assigned the modal label to splines to which at least two annotators had given the same label; for the remaining 4.4\% of splines, we sampled one of the three labels provided.
 
 \subsection{How strongly do strokes correspond to parts of objects?}
 
 When composing a recognizable sketch of a real-world object, how do people decide what information to convey with each stroke? 
-A natural possibility is that there exists a close correspondence between the actions they perform and their knowledge of what parts that object possesses and how these parts are related to each other.
+A natural possibility is that there exists a close correspondence between the actions they perform and their knowledge of what parts that object possesses. % and how these parts are related to each other.
 Concretely, we hypothesized that for most strokes in our dataset, that all sub-stroke elements (splines) would be assigned the same part label. 
 However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
 
