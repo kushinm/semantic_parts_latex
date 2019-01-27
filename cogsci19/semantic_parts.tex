@@ -85,7 +85,7 @@ As a testament to this ability, we effortlessly grasp the correspondence between
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we explore the possibility that this is because we readily decompose both objects and drawings into a common set of semantically meaningful parts. 
 To evaluate this, we developed a web-based platform to densely annotate the parts represented in drawings of real-world objects that varied in how detailed they were.  
-We found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time during production; and (4) both more detailed and sparser drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than sparser ones. 
+We found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time during production; and (4) both more detailed and sparser drawings of the same object emphasized similar part information, although (5) More detailed drawings of different objects tend to be more distinct from one another than sparser ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
 
@@ -150,7 +150,7 @@ This context manipulation led sketchers to produce simpler drawings containing f
 
 Prior work analyzing the semantic properties of such drawing data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, a key limitation of representing a drawing only as an image is loss of information about the inherently sequential and contour-based nature of drawing production. 
-Because our goal was to characterize how semantic structure manifests during drawing production, it was important to encode each drawing instead using a vector image format that preerves this sequential and contour information (i.e., \texttt{*.svg}). 
+Because our goal was to characterize how semantic structure manifests during drawing production, it was important to encode each drawing instead using a vector image format that preserves this sequential and contour information (i.e., \texttt{*.svg}). 
 
 Each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
 These sub-stroke elements are parameterized as cubic Bezier splines.
