@@ -150,10 +150,10 @@ This context manipulation led sketchers to produce simpler drawings containing f
 
 Prior work analyzing the semantic properties of such drawing data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, a key limitation of representing a drawing only as an image is loss of information about the inherently sequential and contour-based nature of drawing production. 
-Because our goal was to characterize how semantic structure manifests during drawing production, it was important to encode each drawing instead using a vector image format that preserves this sequential and contour information (i.e., \texttt{*.svg}). 
+Because our goal was to characterize how semantic structure manifests during drawing production, it was important to encode each drawing using a vector image format that preserves this sequential and contour information (i.e., \texttt{*.svg}). 
 
-Each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
-These sub-stroke elements are parameterized as cubic Bezier splines.
+Thus, each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
+These sub-stroke elements are parameterized as cubic Bézier splines.
 This data format provides a relatively compact representation of each drawing compared with a rasterized image, and preserves the sequence in which each element was produced. 
 
 \subsection{Semantic part annotation}
@@ -162,12 +162,12 @@ Here we developed a novel web-based platform to crowdsource semantic annotations
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the Stanford University IRB. 
-Participants were provided with a base compensation of \$0.35, plus \$0.002 for every spline they annotated and \$0.02 for every sketch they annotated completely. 
+Participants were provided with a base compensation of \$0.35, plus \$0.002 for every spline they annotated and \$0.02 for every drawing they annotated completely. 
 
 \subsubsection{Task}
 Participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
 Each trial, one of these drawings appeared in the center of the display, above the same array of four objects that the original sketcher had viewed, with one of these objects highlighted as the target (Fig.~\ref{annotation_interface}). 
-Thus the participant had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
+Thus the participant had full contextual information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
 To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category represented in our dataset. 
 % Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
