@@ -164,31 +164,11 @@ This data format provides a relatively compact representation of each drawing co
 
 \subsection{Semantic part annotation}
 
-We then crowdsourced semantic annotations for every spline comprising every stroke of a large number of communicative drawings in our dataset. 
+We then crowdsourced semantic annotations for every spline in every stroke of 1195 communicative drawings from this dataset. 
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every spline they annotated and \$0.02 for every drawing they annotated completely. 
-
-
-\subsubsection{Task}
-Participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
-Each trial, one of these drawings appeared in the center of the display, above the same array of four objects that the original sketcher had viewed, with one of these objects highlighted as the target (Fig.~\ref{annotation_interface}). 
-Thus the participant had full contextual information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
-Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
-To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category represented in our dataset. 
-% Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
-However, participants could also generate their own part label if none of the common labels applied.
-In total, we collected 3608 annotation trials of 1195 unique drawings. \kushin{Is there a better way we can say this? '3608 trials of 1195 drawings' sounds clumsy}
-
-\subsubsection{Data preprocessing}
-
-To mitigate bias when analyzing the relative emphasis that sketchers placed on different part information due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
-Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by at least three distinct participants. For drawings annotated more than three times, we included the first 3 annotated records.
-Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
-For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
-In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
-After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
 
 \begin{figure}[htbp]
@@ -202,10 +182,19 @@ After applying these preprocessing steps, our annotated dataset consisted of 864
 Each participant was presented with 10 drawings that were randomly sampled from the communicative drawing dataset. 
 Each trial, one of these drawings appeared with the same array of four objects that the original sketcher had viewed, with one of these objects highlighted as the target (Fig.~\ref{annotation_interface}). 
 Thus the participant had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
-Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
-To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category represented in our dataset. 
+Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair).  
+To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category.
 % Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
 However, participants could generate their own part label if none of the common labels applied.
+
+\subsubsection{Data preprocessing}
+
+To mitigate bias when analyzing the relative emphasis that sketchers placed on different part information due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
+Moreover, to ensure the reliability of our annotations, we only examined drawings that were annotated by at least three distinct participants. For drawings annotated more than three times, we included the first 3 annotated records.
+Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
+For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
+In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
+After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
 \begin{table}[]
 \begin{tabular}{ll}
@@ -221,14 +210,12 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 
 \subsubsection{Data preprocessing}
 
-In total, we collected 3608 annotation trials of 1195 unique drawings.
 To mitigate bias when analyzing the relative emphasis that sketchers placed on different part information due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
 Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by three distinct participants. 
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
 For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
 In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
 After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
-
 
 \section{Results}
 
@@ -251,7 +238,7 @@ However, because the part labels we considered could reasonably apply to multipl
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/5_stroke_part_relationship.pdf}
-\caption{(A) Correspondence between strokes and part labels: we estimated number of unique part labels assigned to different splines within the same stroke, as well as number of different strokes used to draw each part. (B) Distribution over number of unique part labels within a stroke. (C) Distribution over number of strokes used to draw a part.}
+\caption{(A) To investigate correspondence between strokes and part labels, we estimated number of unique part labels assigned to different splines within the same stroke, as well as number of different strokes used to draw each part. (B) Distribution over number of unique part labels within a stroke. (C) Distribution over number of strokes used to draw a part.}
 \label{stroke_to_part}
 \end{figure}
 
