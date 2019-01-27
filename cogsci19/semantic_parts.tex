@@ -70,9 +70,9 @@
 \makeatletter
 \let\@oldmaketitle\@maketitle% Store \@maketitle
 \renewcommand{\@maketitle}{\@oldmaketitle% Update \@maketitle to insert...
-  \includegraphics[width=0.95\textwidth]
+  \includegraphics[width=0.92\textwidth]
     {figures/1_banner.pdf}
-    \captionsetup{width=0.95\textwidth}
+    \captionsetup{width=0.92\textwidth}
  \captionof{figure}{\footnotesize{Objects used in communication game with example drawings of each object, where stroke color indicates different parts.}}\bigskip}% ... an image
 \makeatother
 
@@ -103,26 +103,30 @@ As a testament to this ability, we effortlessly grasp the correspondence between
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we explore the hypothesis that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts \cite{biederman1988surface}. 
 
-Recent advances in computational neuroscience and artificial intelligence have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, exemplified by modern deep learning approaches \cite{yamins2014performance}.
+Recent advances in computational neuroscience have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, exemplified by modern deep learning approaches \cite{yamins2014performance}.
 Nevertheless, a major gap remains in elucidating how the feature representations learned by deep learning models can be adapted to emulate the structure and flexibility of human visual semantic knowledge \cite{lake2017building}.
 A promising approach to closing this gap may be to combine the learning capacity of deep neural networks with the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the mind \cite{battaglia2018relational}. 
 However, pursuing this strategy relies on a thorough understanding of this conceptual organization and how this organization enables behavioral flexibility.  
 
-The goal of this paper is to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
+We aim to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
 This approach departs from the conventional strategy for inferring the organization of visual object concepts from behavior, which relies upon tasks that elicit judgments about visual inputs, usually with respect to experimenter-defined dimensions. 
 By contrast, visual communication tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how visual semantic knowledge is organized and deployed under a natural task objective. 
 
-Our aim in probing the semantic structure of communicative drawings is to shed light on how the semantic organization of visual object concepts supports their flexible expression across contexts. 
-This paper advances recent work \cite{FanCommon2018} that has investigated the production of object drawings to communicate in three ways: 
-first, a focus on compositional semantic structure within drawings,
-second, exploration of the link between this semantic structure and the dynamics of drawing production,
-and third, examination of flexibility in how visual semantic knowledge is expressed in different semantic contexts. 
-Towards this end, we developed a web-based platform to collect dense semantic annotations of the stroke elements in drawings of real-world objects produced in different communicative contexts, including detailed and simpler drawings of each object. 
+% By interrogating the semantic structure of communicative drawings, the goal of this paper is to shed light on how the semantic organization of visual object concepts supports their flexible expression across contexts. 
+% The goal of this paper is to interrogate the semantic structure of communicative drawings in order to shed light on how the semantic organization of visual object concepts 
+
+The goal of this paper is to shed light on the correspondence between visual semantic knowledge and the procedure by which people robustly convey this knowledge in their drawings.
+This paper advances recent work \cite{FanCommon2018} that has investigated how drawings convey semantic information in three ways: 
+\textit{first}, a focus on their compositional part structure,
+\textit{second}, exploration of the link between this structure and the dynamics of drawing production,
+and \textit{third}, examination of how visual semantic knowledge is expressed in different contexts. 
 
 % Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time; and (4) detailed and sparse drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
 % Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context. 
 
 \section{Methods}
+
+Towards achieving this goal, we developed a web-based platform to collect dense semantic annotations of the stroke elements in drawings of real-world objects produced in different communicative contexts, including detailed and simpler drawings of each object. 
 
 \begin{figure}[htbp]
 \centering
@@ -132,12 +136,12 @@ Towards this end, we developed a web-based platform to collect dense semantic an
 \end{figure}
 
 \subsection{Communicative drawing dataset}
-We obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which participants were paired in an online environment to play a drawing-based reference game \cite{fan2018modeling}.\footnote{All materials and data will be made available following the completion of the review process.}
+We obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which pairs of participants played a drawing-based reference game \cite{fan2018modeling}.\footnote{All materials and data will be made available following the completion of the review process.}
 % \footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 Objects belonged to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
 On each trial of this reference-game experiment, both participants were presented with a shared context containing an array of photorealistic 3D renderings of four objects.   
 One participant (i.e., the sketcher) aimed to draw one of these objects -- the target -- so that the other participant (i.e., the viewer) could pick it out from a set of distractor objects (Fig.~\ref{refgame_performance}A). 
-Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: close contexts, where the target and distractors all belonged to the same basic-level category, and far contexts, where the target and distractors belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
+Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: \textit{close contexts}, in which all four objects belonged to the same basic-level category, and \textit{far contexts}, in which objects belonged to different basic-level categories (Fig.~\ref{refgame_performance}B). 
 This context manipulation led sketchers to produce simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
  
 % \begin{figure*}
@@ -149,8 +153,10 @@ This context manipulation led sketchers to produce simpler drawings containing f
 
 
 Prior work analyzing the semantic properties of such drawing data have represented them as raster images (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \cite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
+
 However, a key limitation of representing a drawing only as an image is loss of information about the inherently sequential and contour-based nature of drawing production. 
 Because our goal was to characterize how semantic structure manifests during drawing production, it was important to encode each drawing using a vector image format that preserves this sequential and contour information (i.e., \texttt{*.svg}). 
+
 
 Thus, each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
 These sub-stroke elements are parameterized as cubic Bézier splines.
@@ -158,11 +164,12 @@ This data format provides a relatively compact representation of each drawing co
 
 \subsection{Semantic part annotation}
 
-Here we developed a novel web-based platform to crowdsource semantic annotations for every spline of every stroke of communicative drawings in our dataset. 
+We then crowdsourced semantic annotations for every spline comprising every stroke of a large number of communicative drawings in our dataset. 
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the Stanford University IRB. 
 Participants were provided with a base compensation of \$0.35, plus \$0.002 for every spline they annotated and \$0.02 for every drawing they annotated completely. 
+
 
 \subsubsection{Task}
 Participants were presented with 10 drawings that were randomly sampled from the reference-game dataset. 
@@ -183,12 +190,22 @@ For example, sometimes strokes that represented subparts of the leg of a chair w
 In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
 After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.4\textwidth]{figures/4_annotation_interface.pdf}
 \caption{Sketch annotation interface. Participants selected sub-stroke elements of the sketch and tagged them with category-congruent part labels from the menu. The original communicative context in which the sketch was generated was also provided: the target object (highlighted in red) and three distractors were displayed in an array below the sketch.}
 \label{annotation_interface}
 \end{figure}
+
+\subsubsection{Task}
+Each participant was presented with 10 drawings that were randomly sampled from the communicative drawing dataset. 
+Each trial, one of these drawings appeared with the same array of four objects that the original sketcher had viewed, with one of these objects highlighted as the target (Fig.~\ref{annotation_interface}). 
+Thus the participant had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
+Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair). 
+To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category represented in our dataset. 
+% Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
+However, participants could generate their own part label if none of the common labels applied.
 
 \begin{table}[]
 \begin{tabular}{ll}
@@ -201,6 +218,16 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \end{tabular}
 \caption{Part labels provided to annotators. All user-generated labels were mapped to this set of labels.}
 \end{table}
+
+\subsubsection{Data preprocessing}
+
+In total, we collected 3608 annotation trials of 1195 unique drawings.
+To mitigate bias when analyzing the relative emphasis that sketchers placed on different part information due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
+Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by three distinct participants. 
+Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
+For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
+In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
+After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
 
 \section{Results}
