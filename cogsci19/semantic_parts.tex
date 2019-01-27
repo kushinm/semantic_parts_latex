@@ -172,12 +172,12 @@ Their goal was to tag each spline with a label corresponding to the part it repr
 To facilitate this, participants were provided with a menu of common part labels that were associated with each basic-level category represented in our dataset. 
 % Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
 However, participants could also generate their own part label if none of the common labels applied.
-In total, we collected 3608 annotation trials of 1195 unique drawings.
+In total, we collected 3608 annotation trials of 1195 unique drawings. \kushin{Is there a better way we can say this? '3608 trials of 1195 drawings' sounds clumsy}
 
 \subsubsection{Data preprocessing}
 
 To mitigate bias when analyzing the relative emphasis that sketchers placed on different part information due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged). 
-Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by three distinct participants. 
+Moreover, to evaluate inter-annotator reliability, we only examined drawings that were annotated by at least three distinct participants. For drawings annotated more than three times we included the first 3 annotated records.
 Some of the custom part labels provided by participants were valid, but at a finer grain than or synonymous to other more frequently occurring labels. 
 For example, sometimes strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
 In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
@@ -207,7 +207,7 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 
 \subsection{How well do different people agree on what strokes represent?}
 
-Perhaps one of the most basic questions our dataset is positioned to answer is how consistently different viewers agreed on what each sub-stroke element in a sketch represented. 
+Perhaps one of the most basic questions our dataset is positioned to answer is how consistently different viewers agreed on what each spline in a drawing represented. 
 We found that 95.6\% of all splines received same label by at least two of the three annotators, and 67.8\% of all splines receiving the same label by all three annotators. 
 This suggests that there is a high degree of consistency in how people decompose drawings into semantically meaningful parts. 
 In subsequent analyses, we collapsed over inter-annotator variation: we assigned the modal label to splines to which at least two annotators had given the same label; for the remaining 4.4\% of splines, we sampled one of the three labels provided.
