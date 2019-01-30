@@ -48,7 +48,7 @@
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
 
 
-\title{Semantic structure in communicative drawings}
+\title{Expression of semantic structure during visual production}
 
  
 % \author{\begin{tabular}[htbp]{c@{\extracolsep{1em}}c@{\extracolsep{1em}}c@{\extracolsep{1em}}c} \\
@@ -100,11 +100,11 @@ sketch understanding; perceptual organization; visual production; compositionali
 
 When we open our eyes, we do not experience a meaningless array of photons --- instead, we parse the world into people, objects, and their relationships. 
 The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition \cite{navon1977forest}. 
-As a testament to this ability, we effortlessly grasp the correspondence between a sketch of a particular object and that physical object in the world, even if the sketch is far from realistic \cite{eitz2012humans}. 
+As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic \cite{eitz2012humans}. 
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we explore the notion that this is in part because we readily decompose both objects and drawings into a common set of semantically meaningful parts \cite{biederman1988surface}. 
 
-Recent advances in computational neuroscience have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, including drawings, exemplified by modern deep learning approaches \cite{FanCommon2018}.
+Recent advances in computational neuroscience have provided an unprecedentedly clear view into the algorithms used by the brain to extract semantic information from raw visual inputs, including drawings, exemplified by modern deep learning approaches \cite{yamins2014performance}.
 Nevertheless, a major gap remains in adapting such deep learning models to emulate the structure and flexibility of human semantic knowledge \cite{lake2017building}.
 A promising approach to closing this gap may be to exploit the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the mind \cite{battaglia2018relational}.
 
@@ -161,7 +161,7 @@ This format provides a compact representation preserving the sequence in which e
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/4_annotation_interface.pdf}
-\caption{Sketch annotation interface. Participants selected sub-stroke elements of the sketch and tagged them with part labels.} %  from the menu The original communicative context in which the sketch was generated was also provided below the sketch.}% , with the target object highlighted in red and three distractors were displayed in an array below the sketch.}
+\caption{Drawing annotation interface/ Participants selected sub-stroke elements of each drawing and tagged them with part labels.} %  from the menu The original communicative context in which the sketch was generated was also provided below the sketch.}% , with the target object highlighted in red and three distractors were displayed in an array below the sketch.}
 \label{annotation_interface}
 \vspace{-1em}
 \end{figure}
@@ -197,7 +197,7 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \caption{Part labels provided to annotators.} % All user-generated labels were mapped to this set of labels.
 \label{tab:parts}
 \end{table}
-To reduce bias due to missing data, we restricted our analyses to annotation trials in which the sketch was completely annotated (i.e., all splines were tagged).  %  when analyzing the relative emphasis that sketchers placed on different part information
+To reduce bias due to missing data, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged).  %  when analyzing the relative emphasis that sketchers placed on different part information
 Moreover, to ensure the reliability of our annotations, we only examined drawings that were annotated by three distinct participants. 
 % For drawings annotated more than three times, we included the first 3 annotated records.
 Our final preprocessing step was to incorporate manual part labels provided by participants (i.e. labels not in the menu).
@@ -226,7 +226,7 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 
 \subsection{How do strokes correspond to parts of objects?}
 
-When composing a recognizable sketch of a real-world object, how do people decide what information to convey with each stroke? 
+When composing a recognizable drawing of a real-world object, how do people decide what information to convey with each stroke? 
 A natural possibility is that there exists a close correspondence between the actions they perform and their knowledge of what parts that object possesses. %\kushin{I do think stressing the importance of not only their knowledge of what parts the objects possess but also how they're related to each other (at least spatially) is important too}% and how these parts are related to each other.
 Concretely, we hypothesized that, for most strokes in our dataset, all sub-stroke elements (splines) would be assigned the same part label. 
 However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
@@ -263,7 +263,7 @@ This raised the question: to what extent are these multiple strokes depicting th
 % To investigate this, we computed for each sketch its part streak lengths — counts of the number of successive strokes depicting the same part drawn in succession — and compared the mean of these streak lengths to the mean streak length for permuted stroke sequences of the same sketch. 
 
 To investigate this, we estimated the mean length of streaks consisting of strokes depicting the same part.
-To compute the mean steak length, we encoded each sketch as a sequence of strokes, where each stroke was represented by the modal part label assigned to its sub-stroke elements. 
+To compute the mean steak length, we encoded each drawing as a sequence of strokes, where each stroke was represented by the modal part label assigned to its sub-stroke elements. 
 We restricted this analysis to drawings that consisted of more than one stroke, consisted of more than one part label, and contained at least two strokes sharing the same part label (78 out of 864 drawings excluded). 
 For every element of the stroke sequence, we recorded the length of the part streak it belonged to. 
 % If it was immediately followed by a stroke depicting a different part, the streak length would be 1. 
@@ -300,7 +300,7 @@ To explore this possibility, we asked the following questions:
 % (2) To the extent close and far drawings of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
 (2) How do differences in how part information is emphasized in different contexts affect how discriminable they are?
 
-To investigate these questions, we represented each sketch by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
+To investigate these questions, we represented each drawing by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
 In order to represent all drawings in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
 Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes allocated to each part. 
 Before further analysis, we z-scored values within each feature dimension in order to map stroke count and arc length measurements to the same unit-variance scale. 
