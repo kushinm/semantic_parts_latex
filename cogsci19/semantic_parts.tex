@@ -210,13 +210,13 @@ After applying these preprocessing steps, our annotated dataset consisted of 864
 \subsection{How well do viewers agree on what strokes mean?}
 
 Before proceeding to use our annotations to examine the semantic structure of drawing production, we conducted a basic check of inter-annotator consistency.
-How well did different annotators agreed on what each spline in a drawing represented. 
+How well did different annotators agree on what each spline in a drawing represented?
 We found that 95.6\% of all splines received the same label by at least two of the three annotators, and 67.8\% of all splines received the same label by all three annotators. 
-This shows that the way viewers interpret which part each stroke represents is highly systematic, providing critical validation for our general approach. 
+This shows that the way viewers interpret which part each stroke represents is highly systematic, providing validation for our general approach. 
 % Further these annotations present a candidate mapping that sketchers used to map elements within a drawing (strokes) to their intended meaning. 
 %% commenting out the part below and replacing it with the sentence above.
 %% jefan 1/30 1pm: I was confused by the revised version of this sentence above. What about this?
-Further, it suggests that sketchers exploit this systematicity to produce strokes they expect viewers to interpret consistently. 
+Further, it suggests that sketchers may have exploited this systematicity to produce strokes they expect viewers to interpret consistently. 
 In subsequent analyses, we collapsed over inter-annotator variation: we assigned the modal label to splines to which at least two annotators had given the same label; for the remaining 4.4\% of splines, we sampled one of the three labels provided.
 
 %%%% jefan: This is a helpful observation, but a little bit too wordy, and also subtle. please see how I incorporated this idea above.
@@ -224,10 +224,12 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 
 \subsection{How do strokes correspond to parts of objects?}
 
-When composing a recognizable drawing of a real-world object, how do people decide what information to convey with each stroke? 
-A natural possibility is that there exists a close correspondence between the actions they perform and their knowledge of what parts that object possesses. %\kushin{I do think stressing the importance of not only their knowledge of what parts the objects possess but also how they're related to each other (at least spatially) is important too}% and how these parts are related to each other.
-Concretely, we hypothesized that, for most strokes in our dataset, all sub-stroke elements (splines) would be assigned the same part label. 
-However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
+When composing a recognizable drawing of a real-world object, how do sketchers decide what information to convey with each stroke? 
+A natural possibility is that the actions they perform are guided by knowledge of that object's parts. 
+%\kushin{I do think stressing the importance of not only their knowledge of what parts the objects possess but also how they're related to each other (at least spatially) is important too}% and how these parts are related to each other.
+Concretely, we hypothesized that most strokes in our dataset would not cross part boundaries: that all splines within a given stroke would be assigned the same part label. 
+% However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
+Conversely, because depictions of parts can be arbitrarily detailed, and some parts re-occur throughout an object (e.g., multiple legs on a bird, chair, or dog), it is natural for there to be more than one stroke per part.
 
 \begin{figure}[htbp]
 \centering
