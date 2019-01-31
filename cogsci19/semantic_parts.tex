@@ -225,11 +225,11 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 \subsection{How do strokes correspond to parts of objects?}
 
 When composing a recognizable drawing of a real-world object, how do sketchers decide what information to convey with each stroke? 
-A natural possibility is that the actions they perform are guided by knowledge of that object's parts. 
+A natural possibility is that their actions closely correspond to the part structure of that object.
 %\kushin{I do think stressing the importance of not only their knowledge of what parts the objects possess but also how they're related to each other (at least spatially) is important too}% and how these parts are related to each other.
-Concretely, we hypothesized that most strokes in our dataset would not cross part boundaries: that all splines within a given stroke would be assigned the same part label. 
+Concretely, we hypothesized that most strokes in our dataset would \emph{not} cross part boundaries: that all splines within a given stroke would be assigned the same part label. 
 % However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
-Conversely, because depictions of parts can be arbitrarily detailed, and some parts re-occur throughout an object (e.g., multiple legs on a bird, chair, or dog), it is natural for there to be more than one stroke per part.
+Conversely, because depictions of parts can be arbitrarily detailed, and some parts re-occur throughout an object (e.g., multiple legs on a bird, chair, or dog), we often expected to find more than one stroke per part  (Fig.~\ref{stroke_to_part}A).
 
 \begin{figure}[htbp]
 \centering
@@ -238,20 +238,19 @@ Conversely, because depictions of parts can be arbitrarily detailed, and some pa
 \label{stroke_to_part}
 \end{figure}
 
-To evaluate the first prediction, we determined how many unique part labels were represented across all sub-stroke elements within each stroke (Fig.~\ref{stroke_to_part}B). 
-We found that there was only one part label associated with 81.6\% of the strokes in our dataset, showing that most of the time a stroke represented no more than one part of that object. 
-18.4\% of strokes were associated with two or more labels, showing that there are still cases where a single stroke may still be used to represent more than one part (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
-This was slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
-This shows that sketchers were somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing.
+To evaluate the first hypothesis, we computed the number of unique part labels across all splines within each stroke. 
+We found that for 81.6\% of the strokes in our dataset there was only one part label; the remaining 18.4\% of strokes were associated with two or more labels  (Fig.~\ref{stroke_to_part}B).
+Thus, most strokes represented exactly one part, but there are still a minority of cases where a single stroke spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
+These multi-part strokes were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
+This suggests that sketchers may have been somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing.
 
-To evaluate the second prediction, we determined how many strokes were used to represent each part of an object (Fig.~\ref{stroke_to_part}B). 
-We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% using exactly two strokes, 11.3\% using exactly three strokes, 16.6\% using four or more strokes. 
-This shows that nearly half the time, a single action was required to depict an entire object part. 
+To evaluate the second hypothesis, we computed the number of strokes that were used to represent each part of an object (Fig.~\ref{stroke_to_part}C). 
+We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% using exactly two strokes, 11.3\% using exactly three strokes, and 16.6\% using four or more strokes. 
+Thus, nearly half the time, a single action was sufficient to depict an entire object part. 
 However, the remaining 53.9\% of parts required more than one stroke to depict, which would be expected for those parts that consisted of multiple disconnected subparts within an object (e.g., wheels of a car, paws of a dog).
 % \jefan{This should be verified in some way by subsetting on those feature columns that actually are likely to contain multiple instances per object.}
 The proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), perhaps reflecting the tendency to include more detail per part to distinguish the target object from similar distractors. 
-
-Together, these findings suggest that the information people convey with each stroke is systematically related to the part structure of objects. 
+Together, these findings suggest that the information people convey with each stroke systematically corresponds to the part structure of objects. 
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
 
