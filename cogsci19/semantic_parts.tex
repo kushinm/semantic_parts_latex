@@ -294,16 +294,16 @@ These results suggest more broadly that the procedure by which people convey sem
 
 \subsection{How is part information emphasized in different communicative contexts?}
 
-Our findings so far bear on how the way people compose communicative drawings of objects reflects their semantic knowledge of which parts objects are composed of. 
+Our findings so far bear on how the composition of communicative drawings of objects reflects the sketcher's semantic knowledge of the (part) composition of those objects.
 A key consequence of such semantically organized part knowledge is that it naturally supports flexible expression across different communicative contexts. 
 For example, when communicating about a chair in a far context containing objects from other basic-level categories, sketchers may include only the essential information to indicate the presence of certain parts that distinguish it at the category level. 
 On the other hand, when communicating about that same chair in a close context containing other, perceptually similar chairs, sketchers may emphasize aspects of parts that distinguish it at the object level (e.g., the number of back slats), by applying more strokes and/or more ink in each stroke.
 
-We hypothesized that sketchers emphasize part information in such a way that it preserves the relevant distinctions in context. 
+We hypothesized that sketchers emphasize part information to preserve relevant distinctions in context. 
 To explore this possibility, we asked the following questions: 
 (1) How similarly is object-specific part information emphasized in close and far communicative contexts? 
 % (2) To the extent close and far drawings of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
-(2) How do differences in how part information is emphasized in different contexts affect how discriminable they are?
+(2) How do differences in how part information is emphasized in different contexts affect the discriminability of drawings?
 
 To investigate these questions, we represented each drawing by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
 In order to represent all drawings in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
@@ -315,9 +315,11 @@ Because our primary goal was to understand differences between objects and conte
 
 In order to investigate to what extent similar object-specific part information is emphasized in different communicative contexts, we computed the matrix of Pearson correlations between part-feature vectors. 
 Formally, this entailed computing: $R_{ij} =  \nicefrac{cov(\vec{r}_{i}, \vec{r}_{j})}{\sqrt{var(\vec{r}_{i}) \cdot var(\vec{r}_{j})}}$, where $\vec{r}_{i}$ and $\vec{r}_{j}$ are the mean part-feature vectors for the $i$th and $j$th object-context combinations, respectively.
-While close and far drawings of an object differ in overall amount of detail, we hypothesized that they would still emphasize part information in similar ways.
+
+While close and far drawings of an object differ in their overall amount of detail, we hypothesized that they would still emphasize part information in similar ways.
 Specifically, insofar as similar, object-specific part information is emphasized in both close and far drawings of the same object, we predicted higher correlations between close and far part-feature vectors for the \textit{same} object than for close and far part-feature vectors of \textit{different} objects. 
-Consistent with this, we found that close and far drawings of the same object emphasized similar part information (within-object: $r = 0.740$,  CI: [0.726, 0.753]), and to a greater degree than did close and far drawings of different objects (between-object: $r = 0.653$, CI: [0.646, 0.659]), suggesting that these patterns of emphasis were to some extent object-specific (Fig.~\ref{part_emphasis}B). 
+Consistent with this, we found strong correlations between the part vectors of close and far drawings of the same object (within-object: $r = 0.740$,  CI: [0.726, 0.753]), which were significantly stronger than close and far drawings of \emph{different} objects (between-object: $r = 0.653$, CI: [0.646, 0.659]).
+These results suggest that close and far drawings emphasize similar parts and that these patterns of emphasis were to some extent object-specific (Fig.~\ref{part_emphasis}B). 
 
 % \subsubsection{Greater emphasis on a few parts when producing detailed drawings}
 
@@ -335,13 +337,14 @@ Consistent with this, we found that close and far drawings of the same object em
 \subsubsection{Detailed drawings are more distinct from each other than sparser drawings}
 
 The above findings show that close drawings exhibited similar patterns of emphasis on different parts as their far counterparts. 
-However, given that close drawings contain greater emphasis on these parts overall than far drawings (i.e., contain more and longer strokes), a natural question affect how this influences how discriminable they are.
+However, given that close drawings contain greater emphasis on these parts overall than far drawings (i.e., contain more and longer strokes), how are these additional strokes being spent? 
 
 % \jefan{Kushin, I think we should report the basic observation that close drawings consist of more strokes and higher arclengths than far, with CIs, around here.}
 
-We hypothesized that this overall greater part information enhances the discriminability of close drawings from one another, relative to far ones, by increasing the feature distance between objects that otherwise share many perceptual properties. 
-To evaluate this possibility, we compared the mean correlation distance (i.e., $1 - r$) between the part-feature vectors of close drawings of objects in a given category with that between far drawings of exactly the same objects. 
-We found that close drawings were indeed reliably more distant from one another than far drawings were (close similarity: $r = 0.666$, CI: [0.652,685]; far similarity: $r = 0.729$, CI: [0.719,0.746]), suggesting that sketchers discern which part information is most diagnostic of the target object among highly similar distractors, and emphasize this distinctive information accordingly (Fig.~\ref{part_emphasis}A \& C).
+We hypothesized that the additional part information provided in close sketches enhances the \emph{discriminability} of close drawings from one another, relative to far ones, by increasing the feature distance between objects that otherwise share many perceptual properties. 
+To evaluate this possibility, we computed the mean correlation distance (i.e., $1 - r$) between the part-feature vectors of \emph{close} drawings of objects in a given category.
+We compared this value with the distance between \emph{far} drawings of exactly the same objects. 
+We found that close drawings were reliably more distant from one another than far drawings were (close similarity: $r = 0.67$, CI: [0.65,69]; far similarity: $r = 0.73$, CI: [0.72,0.75]), suggesting that sketchers discern which part information is most diagnostic of the target object among highly similar distractors, and emphasize this distinctive information accordingly (Fig.~\ref{part_emphasis}A \& C).
 
 \begin{figure}[htbp]
 \centering
