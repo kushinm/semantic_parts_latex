@@ -130,7 +130,7 @@ and \textit{third}, we examine how different aspects of visual semantic knowledg
 
 \section{Methods}
 
-Toward this goal, we developed a web-based platform \cite{deLeeuw2015} to collect dense semantic annotations of the stroke elements in drawings of real-world objects (Fig. 1).
+We developed a web-based platform \cite{deLeeuw2015} to collect dense semantic annotations of the stroke elements in drawings of real-world objects (Fig. 1).
 %These drawings were produced in different communicative contexts, including detailed and simpler drawings of each object.  
 
 \subsection{Communicative drawing dataset}
@@ -150,9 +150,7 @@ This context manipulation led sketchers to produce simpler drawings containing f
 % \end{figure*}
 
 Prior work analyzing the semantic properties of drawing data has used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
-However, this representation is severely limited for our goal of characterizing how semantic structure manifests during drawing production. 
-Specifically, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (i.e., \texttt{*.svg}). 
-% loss of information about 
+However, to investigate how semantic structure manifests during drawing production, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (i.e., \texttt{*.svg}). 
 Thus, each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
 These sub-stroke elements are parameterized as cubic Bézier \emph{splines}.
 This format provides a compact representation preserving the sequence in which each element was produced.%of each drawing compared with a raster image, and preserves the sequence in which each element was produced. 
