@@ -240,7 +240,7 @@ Thus, nearly half the time, a single action was sufficient to depict an entire o
 However, the remaining 53.9\% of the time, more than one stroke was required to depict an entire part, which would be expected for those parts that consisted of multiple disconnected subparts within an object (e.g., wheels of a car, paws of a dog).
 % \jefan{This should be verified in some way by subsetting on those feature columns that actually are likely to contain multiple instances per object.}
 The proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), perhaps reflecting the tendency to include more detail per part to distinguish the target object from similar distractors. 
-Together, these findings suggest that the information people convey with each stroke systematically corresponds to the part structure of objects. 
+Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
 \begin{figure}[t]
@@ -259,35 +259,29 @@ In other words, how does the \emph{temporal sequence} of stroke production relat
 %We used mean streak length as a proxy for the prevalence of same-part strokes drawn in succession. 
 % To investigate this, we computed for each sketch its part streak lengths — counts of the number of successive strokes depicting the same part drawn in succession — and compared the mean of these streak lengths to the mean streak length for permuted stroke sequences of the same sketch. 
 
-To investigate this question, we estimated the mean length of stroke ``streaks''  depicting the same part.
+To investigate this question, we estimated the mean length of ``streaks'' containing strokes depicting the same part.
 First, we collapsed across the spline annotations examined in the previous section and represented each stroke by the modal part label assigned to its splines.
-We then encoded each drawing as a sequence of strokes in the order they were produced by the sketcher, and defined a ``streak'' as a cluster of more than one stroke annotated with the same part label occurring in succession\footnote{We excluded 78 out of the 864 drawings where this measure was not well-defined, i.e. sketches that contained only one stroke or part label, or that contained fewer than two strokes sharing the same part label.}.
+We represented each drawing as the sequence of these part labels, and defined ``part streak length'' to be the number of consecutive strokes annotated with the same part label.\footnote{We excluded 78 out of the 864 drawings where this measure was not well-defined, i.e. sketches containing only one stroke or part label, or containing fewer than two strokes sharing the same part label.}
 For example, in the drawing shown in Fig.~\ref{stroke_sequence_fig}A, two `leg' strokes were placed before moving on to the `foot', giving a streak of length 2.
 Finally, we averaged these streak length values over every drawing in the dataset to obtain our statistic. 
 
-To evaluate whether the empirical stroke sequences were more structured than expected from placing strokes at random, we constructed a null model to serve as a baseline.
-For this null model, we permuted the stroke sequence such that the raw number of strokes in each part was preserved, but any structure in their order was disrupted (Fig.~\ref{stroke_sequence_fig}A).
-We then generated a null distribution of streak lengths for each drawing by repeating this permutation procedure 1000 times and measuring the mean streak length for each permutation.
+To evaluate whether the empirical part sequences were more structured than expected if parts were drawn at random, we constructed a null model to serve as a baseline.
+For this null model, we permuted the part sequence such that the number of instances of each part was preserved, but the temporal structure was disrupted (Fig.~\ref{stroke_sequence_fig}A).
+We generated a null distribution of streak lengths for each drawing by repeating this permutation procedure 1000 times and measuring the mean streak length for each permutation.
 Finally, we obtained a $z$-score for each drawing by computing where the empirical streak length fell in the permuted streak length distribution.
 A drawing with a $z$-score near 0 had a streak length that was commonly obtained by placing strokes in a random order, while a drawing with a higher $z$-score is more structured than expected under the null.
-%This reflects the extent to which same-part strokes were clustered in time relative to a sequence with the same number of strokes depicting each part, but in which strokes were produced in random order. 
 
 We found that the empirical streak length was reliably higher for all objects than that of the permuted sequences (z-score: 2.07, CI: [1.90, 2.23]; Fig.~\ref{stroke_sequence_fig}B), and higher for the close drawings (z-score: 2.58; CI: [2.26, 2.90]) than far drawings (z-score: 1.56; CI: [1.38, 1.74]).
-% This suggests that when multiple strokes were needed to draw a part, which was more common in close contexts, sketchers tended to produce these strokes consecutively, and before moving onto the next part.  
-%
-The lower streak length for far drawings is consistent with their lower stroke count overall---when only one or two strokes are used per part, there is a ceiling on possible streak lengths. 
+The lower streak length for far drawings is consistent with their lower stroke count overall---when only one or two strokes are used per part, there is a ceiling on the mean streak length. 
 However, when sketchers do use multiple strokes to convey a single part (i.e., because there are multiple subparts, or to add more detail), they tend to draw these in succession before moving on to a different part.
-% each part with additional detail as they went along, rather than . 
-% In doing so, they produced the strokes for a given part in a temporally contiguous manner. This indicates that sketchers use the intended meaning for a set of strokes to organize their production.
-%%kushin: Last sentence may be redundant given later concluding sentence for this section
 These results suggest more broadly that the procedure by which people convey semantic information in drawings is organized by the part structure within objects.
 
 \subsection{How is part information emphasized in different communicative contexts?}
 
-Our findings so far bear on how the composition of communicative drawings of objects reflects the sketcher's semantic knowledge of the (part) composition of those objects.
+Our findings so far bear on how the way people compose communicative drawings of objects reflects their semantic knowledge of the parts those objects are composed of.
 A key consequence of such semantically organized part knowledge is that it naturally supports flexible expression across different communicative contexts. 
-For example, when communicating about a chair in a far context containing objects from other basic-level categories, sketchers may include only the essential information to indicate the presence of certain parts that distinguish it at the category level. 
-On the other hand, when communicating about that same chair in a close context containing other, perceptually similar chairs, sketchers may emphasize aspects of parts that distinguish it at the object level (e.g., the number of back slats), by applying more strokes and/or more ink in each stroke.
+For example, when communicating about a chair in a far context containing objects from other basic-level categories, sketchers may include only the essential information to indicate the presence of certain parts (e.g., armrests) that distinguish it at the category level. 
+On the other hand, when communicating about that same chair in a close context containing other, perceptually similar chairs, sketchers may emphasize aspects of parts that distinguish it at the object level (e.g., the curvature of the armrests), by applying more strokes and/or more ink in each stroke.
 
 We hypothesized that sketchers emphasize part information to preserve relevant distinctions in context. 
 To explore this possibility, we asked the following questions: 
