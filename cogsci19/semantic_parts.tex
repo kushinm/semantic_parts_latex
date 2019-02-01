@@ -240,23 +240,25 @@ Conversely, because depictions of parts can be arbitrarily detailed, and some pa
 
 To evaluate the first hypothesis, we computed the number of unique part labels across all splines within each stroke. 
 We found that for 81.6\% of the strokes in our dataset there was only one part label; the remaining 18.4\% of strokes were associated with two or more labels  (Fig.~\ref{stroke_to_part}B).
-In other words, most strokes represented exactly one part, but there are still a minority of cases where a single stroke spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
-However, we were concerned that these proportions were inflated by strokes with very few splines \footnote{The modal number of splines per stroke (20\% of cases) was 1, but there was a long tail; the mean number was 2.6}.
+In other words, most strokes represented exactly one part, but in a minority of cases they spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
+We were concerned, however, that these proportions were inflated by strokes with very few splines\footnote{The modal number of splines per stroke (20\% of cases) was 1, but there was a long tail; the mean number was 2.6.}.
 To address this concern, we constructed a null model controlling for the number of splines.
 Part labels were randomly sampled from the full list of parts in the drawing such that each spline was equally likely to represent any part regardless of the stroke it belonged to.
 In simulations from this null model, only 55\% of strokes corresponded to a unique part while 45\% of strokes spanned multiple parts. 
-Thus, strokes in our dataset were much more likely to fall within part boundaries than would be expected.
+Thus, strokes in our dataset were much more likely to fall within part boundaries than would be expected by composing strokes at random.
 
 To evaluate the second hypothesis, we computed the number of strokes that were used to represent each part of an object (Fig.~\ref{stroke_to_part}C). 
 We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% using exactly two strokes, 11.3\% using exactly three strokes, and 16.6\% using four or more strokes. 
 Thus, nearly half the time, a single action was sufficient to depict an entire object part. 
 However, the remaining 53.9\% of parts required more than one stroke to depict, which would be expected for those parts that consisted of multiple disconnected subparts within an object (e.g., wheels of a car, paws of a dog).
 % \jefan{This should be verified in some way by subsetting on those feature columns that actually are likely to contain multiple instances per object.}
-Together, these findings suggest that the information people convey with each stroke systematically corresponds to the part structure of objects. 
 
-Finally, these multi-part strokes were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
-The proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), perhaps reflecting the tendency to include more detail per part to distinguish the target object from similar distractors. 
-This suggests that sketchers may have been somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing.
+Together, these findings suggest that the information people convey with each stroke systematically corresponds to the part structure of objects.
+We suspected, however, that these properties may vary across communicative contexts.
+Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
+%This suggests that sketchers 
+And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]). 
+These differences suggested that sketchers were somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing and may have included more detail per part to distinguish the target object from similar distractors. 
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
 \begin{figure}[t]
