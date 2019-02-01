@@ -134,7 +134,7 @@ We developed a web-based platform \cite{deLeeuw2015} to collect dense semantic a
 %These drawings were produced in different communicative contexts, including detailed and simpler drawings of each object.  
 
 \subsection{Communicative drawing dataset}
-We obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which pairs of participants played an interactive drawing-based reference game \shortcite{fan2018modeling}.\footnote{All materials and data will be made available following the completion of the review process.}
+We first obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which pairs of participants played an interactive drawing-based reference game \shortcite{fan2018modeling}.\footnote{All materials and data will be made available following the completion of the review process.}
 Object stimuli were photorealistic 3D renderings belonging to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
 % \footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 On each trial of the experiment, participants were presented with a shared context containing four of these objects. 
@@ -151,21 +151,21 @@ This context manipulation led sketchers to produce simpler drawings containing f
 
 Prior work analyzing the semantic properties of drawing data has used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, to investigate how semantic structure manifests during drawing production, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (i.e., \texttt{*.svg}). 
-Thus, each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements.
-These sub-stroke elements are parameterized as cubic Bézier \emph{splines}.
-This format provides a compact representation preserving the sequence in which each element was produced.%of each drawing compared with a raster image, and preserves the sequence in which each element was produced. 
+Thus, each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements, parameterized as cubic Bezier splines.
+This format provides a compact representation that preserves the sequence in which each element was produced.
+%of each drawing compared with a raster image, and preserves the sequence in which each element was produced. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.45\textwidth]{figures/4_annotation_interface.pdf}
-\caption{Drawing annotation interface. Participants selected sub-stroke elements (splines) and tagged them with part labels.} %  from the menu The original communicative context in which the sketch was generated was also provided below the sketch.}% , with the target object highlighted in red and three distractors were displayed in an array below the sketch.}
+\includegraphics[width=0.47\textwidth]{figures/4_annotation_interface.pdf}
+\caption{Annotation interface. Participants selected sub-stroke elements (splines) and tagged them with part labels.} %  from the menu The original communicative context in which the sketch was generated was also provided below the sketch.}% , with the target object highlighted in red and three distractors were displayed in an array below the sketch.}
 \label{annotation_interface}
 \vspace{-1em}
 \end{figure}
 
 \subsection{Semantic part annotation}
 
-We crowdsourced semantic annotations for every spline in every stroke of the drawings from this dataset. 
+We then crowdsourced semantic annotations for every spline in every stroke of the drawings from this dataset. 
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the  IRB.  % Stanford University
