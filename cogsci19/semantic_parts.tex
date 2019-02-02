@@ -223,7 +223,7 @@ Conversely, because depictions of parts can be arbitrarily detailed, and some pa
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{figures/5_stroke_part_relationship.pdf}
+\includegraphics[width=0.45\textwidth]{figures/5_stroke_part_relationship.pdf}
 \caption{(A) To investigate the correspondence between strokes and part labels, we estimated number of unique part labels assigned to different splines within the same stroke, as well as number of different strokes used to draw each part. (B) Distribution over number of unique part labels within a stroke. (C) Distribution over number of strokes used to draw a part.}
 \label{stroke_to_part}
 \end{figure}
@@ -240,7 +240,7 @@ We were concerned, however, that these proportions were inflated by strokes with
 To address this concern, we constructed a null model controlling for the number of splines.
 Part labels were randomly sampled from the full list of parts in the drawing such that each spline was equally likely to represent any part regardless of the stroke it belonged to.
 In simulations from this null model, only 55\% of strokes corresponded to a unique part while 45\% of strokes spanned multiple parts. 
-Thus, strokes in our dataset were much more likely to fall within part boundaries than would be expected by composing strokes at random.
+Thus, individual strokes in our dataset were much more likely to correspond to a single part (i.e., not cross part boundaries) than would be expected under random assignment of part labels to splines.
 % >>>>>>> 6ddb6c5c6cccd2b66c57cafa376616dbccfdad72
 
 To evaluate the second hypothesis, we computed the number of strokes that were used to represent each part of an object (Fig.~\ref{stroke_to_part}C). 
@@ -253,25 +253,24 @@ However, the remaining 53.9\% of the time, more than one stroke was required to 
 % Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
 % =======
 
-Together, these findings suggest that the information people convey with each stroke systematically corresponds to the part structure of objects.
-We suspected, however, that these properties may vary across communicative contexts.
-Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
+Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
+We further hypothesized that these properties may vary between communicative contexts.
+Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparse drawing would be sufficient.
 %This suggests that sketchers 
-And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]). 
-These differences suggested that sketchers were somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing and may have included more detail per part to distinguish the target object from similar distractors. 
+And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), suggesting that they may have included more detail per part to distinguish the target object from similar distractors. 
 % >>>>>>> 6ddb6c5c6cccd2b66c57cafa376616dbccfdad72
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/6_part_sequence.pdf}
+\includegraphics[width=0.5\textwidth]{figures/6_part_sequence.pdf}
 \caption{(A) Analysis of sequence in which strokes depicting each part were drawn. (B) Comparison of mean length of streaks consisting of strokes that depict the same part with null distribution of permuted stroke sequences.}
 \label{stroke_sequence_fig}
 \end{figure}
 
 In the previous section we discovered that slightly more than half of the parts in our dataset were depicted using multiple strokes. %, more than one stroke was used to depict it. 
 This result raised the question: to what extent are strokes depicting the same part drawn in succession, or interleaved among strokes corresponding to other parts?
-In other words, how does the \emph{temporal sequence} of stroke production relate to semantic part structure?
+In other words, how does the temporal sequence of stroke production relate to semantic part structure?
 
 %To investigate this, we estimated the mean length of part streaks consisting of strokes depicting the same part, and compared this to the mean streak length for permuted stroke sequences. 
 %We used mean streak length as a proxy for the prevalence of same-part strokes drawn in succession. 
