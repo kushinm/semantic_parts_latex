@@ -155,7 +155,8 @@ This context manipulation led sketchers to produce simpler drawings containing f
 
 Prior work analyzing the semantic properties of drawing data has used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, to investigate how semantic structure manifests during drawing production, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (i.e., \texttt{*.svg}). 
-Thus, each drawing in our dataset is represented as a sequence of individual strokes, where each stroke consists of a sequence of sub-stroke elements, which are parameterized as cubic Bezier splines.
+Thus, each drawing in our dataset is represented as a sequence of individual strokes. A single stroke corresponds to a sketcher's decision to press the drawing tool to the canvas, make a mark, and raise the tool. 
+Each stroke consists of a sequence of cubic Bezier curves, which we call \textit{splines}. 
 This format provides a compact representation that preserves the sequence in which each element was produced.
 
 \begin{figure}[htbp]
@@ -169,6 +170,7 @@ This format provides a compact representation that preserves the sequence in whi
 \subsection{Semantic part annotation}
 
 We then crowdsourced semantic annotations for every spline in every stroke of the drawings from this dataset. 
+If splines were too short for annotators to feasibly annotate them, they were concatenated with a neighboring splines until the resulting spline was easily selectable with a mouse cursor.
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the  IRB.  % Stanford University
