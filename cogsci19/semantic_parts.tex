@@ -16,6 +16,7 @@
 % Modified : Niels Taatgen (taatgen@cmu.edu)         10/24/2006
 % Modified : David Noelle (dnoelle@ucmerced.edu)     11/19/2014
 
+
 %% Change "letterpaper" in the following line to "a4paper" if you must.
 
 \documentclass[10pt,letterpaper]{article}
@@ -58,12 +59,12 @@
 % \end{tabular}
 % }
 
-% \author{{\large \bf Kushin Mukherjee\textsuperscript{1}, Robert X. D. Hawkins\textsuperscript{2}, Judith E. Fan\textsuperscript{2,3}} \\
-% \textsuperscript{1}Department of Cognitive Science, Vassar College, \\
-% \textsuperscript{2}Department of Psychology, Stanford University, \\
-% \textsuperscript{3}Department of Psychology, University of California, San Diego}
+\author{{\large \bf Kushin Mukherjee\textsuperscript{1}, Robert X. D. Hawkins\textsuperscript{2}, Judith E. Fan\textsuperscript{2,3}} \\
+\textsuperscript{1}Department of Cognitive Science, Vassar College, \\
+\textsuperscript{2}Department of Psychology, Stanford University, \\
+\textsuperscript{3}Department of Psychology, University of California, San Diego}
 
-\author{\large \bf Anonymous CogSci submission}
+%\author{\large \bf Anonymous CogSci submission}
 
 \begin{document}
 \makeatletter
@@ -78,16 +79,18 @@
 \maketitle 
 
 \begin{abstract}
-
-%The ability to represent semantically meaningful structure in our environment is a powerful aspect of human visual perception and cognition. 
 We effortlessly grasp the correspondence between a drawing of an object and that physical object in the world, even when the drawing is far from realistic. 
-How are visual object concepts organized such that we can both recognize these abstract correspondences and also exploit them when communicating them to others in a drawing?
+How are visual object concepts organized such that we can both recognize these abstract correspondences and also flexibly exploit them when communicating them to others in a drawing?
 Here we consider the notion that the compositional nature of object concepts enables us to readily decompose both objects and drawings of objects into a common set of semantically meaningful parts.
 To investigate this, we developed a web-based platform to densely annotate drawings of real-world objects with part information. 
 Our dataset contained both detailed and sparser drawings produced in different communicative contexts.
-We found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time during production; and (4) both more detailed and sparser drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than sparser drawings. 
+We found that: (1) people are consistent in what they interpret individual strokes to represent. (2)Single strokes tend to correspond to single parts with (3)strokes representing the same part often being clustered in time. (4) Both sparse and detailed drawings of the same object emphasize similar part information but (5) detailed drawings of different objects are more distinct from one another than sparse drawings. 
 Taken together, our results support the notion that people flexibly deploy their abstract understanding of the compositional part structure of objects to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
+
+
+
+
 
 \textbf{Keywords:} 
 sketch understanding; visual production; compositionality; objects and categories; perceptual organization
@@ -134,9 +137,8 @@ We developed a web-based platform \cite{deLeeuw2015} to collect dense semantic a
 %These drawings were produced in different communicative contexts, including detailed and simpler drawings of each object.  
 
 \subsection{Communicative drawing dataset}
-We first obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which pairs of participants played an interactive drawing-based reference game \shortcite{fan2018modeling}.\footnote{All materials and data will be made available following the completion of the review process.}
+We first obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which pairs of participants played an interactive drawing-based reference game \shortcite{fan2018modeling}. \footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 Object stimuli were photorealistic 3D renderings belonging to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
-% \footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 On each trial of the experiment, participants were presented with a shared context containing four of these objects. 
 One participant (the sketcher) was privately cued to draw a target object so that the other participant (the viewer) could pick it out from the set of distractors. % (Fig.~\ref{refgame_performance}A). 
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: \textit{close contexts}, in which all four objects belonged to the same basic-level category, and \textit{far contexts}, in which objects belonged to different basic-level categories. % (Fig.~\ref{refgame_performance}B). 
@@ -174,10 +176,8 @@ Participants were given a base compensation of \$0.35, plus \$0.002 for every sp
 Each participant was presented with a sequence of 10 drawings that were randomly sampled from the communicative drawing dataset (Fig.~\ref{annotation_interface}). 
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair).  
 To facilitate consistent tagging, participants were provided with a menu of common part labels that were associated with each basic-level category (Table \ref{tab:parts}).
-% Once a spline was successfully tagged, it was re-rendered in the same color as the correpsonding part label from the part menu. 
 Participants could also generate their own part label if they believed none of the common labels applied.
 To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red. 
-%Thus the participant had full information about which object the sketcher had intended to depict, as well as the identity of the distractors. 
 
 \subsubsection{Data preprocessing}
 \begin{table}[b]
@@ -216,9 +216,7 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 
 When composing a recognizable drawing of a real-world object, how do sketchers decide what information to convey with each stroke? 
 A natural possibility is that their actions closely correspond to the part structure of that object.
-%\kushin{I do think stressing the importance of not only their knowledge of what parts the objects possess but also how they're related to each other (at least spatially) is important too}% and how these parts are related to each other.
 Concretely, we hypothesized that most strokes in our dataset would \emph{not} cross part boundaries: that all splines within a given stroke would be assigned the same part label. 
-% However, because the part labels we considered could reasonably apply to multiple sub-parts (e.g., multiple legs on a bird, chair, or dog), we further hypothesized that multiple strokes would frequently be used to represent all instances of that part in a single sketch.
 Conversely, because depictions of parts can be arbitrarily detailed, and some parts re-occur throughout an object (e.g., multiple legs on a bird, chair, or dog), we often expected to find more than one stroke per part  (Fig.~\ref{stroke_to_part}A).
 
 \begin{figure}[htbp]
@@ -230,35 +228,33 @@ Conversely, because depictions of parts can be arbitrarily detailed, and some pa
 
 To evaluate the first hypothesis, we computed the number of unique part labels across all splines within each stroke. 
 We found that for 81.6\% of the strokes in our dataset there was only one part label; the remaining 18.4\% of strokes were associated with two or more labels  (Fig.~\ref{stroke_to_part}B).
-% <<<<<<< HEAD
+
 % Thus, most strokes represented exactly one part, but there were still a minority of cases where a single stroke spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
 % These multi-part strokes were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
 % This suggests that sketchers were somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing.
-% =======
+
 In other words, most strokes represented exactly one part, but in a minority of cases they spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
 We were concerned, however, that these proportions were inflated by strokes with very few splines.\footnote{The modal number of splines per stroke (20\% of cases) was 1, but there was a long tail; the mean number was 2.6.}
 To address this concern, we constructed a null model controlling for the number of splines.
 Part labels were randomly sampled from the full list of parts in the drawing such that each spline was equally likely to represent any part regardless of the stroke it belonged to.
 In simulations from this null model, only 55\% of strokes corresponded to a unique part while 45\% of strokes spanned multiple parts. 
 Thus, individual strokes in our dataset were much more likely to correspond to a single part (i.e., not cross part boundaries) than would be expected under random assignment of part labels to splines.
-% >>>>>>> 6ddb6c5c6cccd2b66c57cafa376616dbccfdad72
+
 
 To evaluate the second hypothesis, we computed the number of strokes that were used to represent each part of an object (Fig.~\ref{stroke_to_part}C). 
 We found that 46.1\% of parts were depicted using exactly one stroke, 26.0\% using exactly two strokes, 11.3\% using exactly three strokes, and 16.6\% using four or more strokes. 
 Thus, nearly half the time, a single action was sufficient to depict an entire object part. 
 However, the remaining 53.9\% of the time, more than one stroke was required to depict an entire part, which would be expected for those parts that consisted of multiple disconnected subparts within an object (e.g., wheels of a car, paws of a dog).
-% \jefan{This should be verified in some way by subsetting on those feature columns that actually are likely to contain multiple instances per object.}
-% <<<<<<< HEAD
+
 % The proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), perhaps reflecting the tendency to include more detail per part to distinguish the target object from similar distractors. 
 % Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
-% =======
+
 
 Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
 We further hypothesized that these properties may vary between communicative contexts.
 Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
-%This suggests that sketchers 
 And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
-% >>>>>>> 6ddb6c5c6cccd2b66c57cafa376616dbccfdad72
+
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
 \begin{figure}[t]
@@ -268,8 +264,7 @@ And the proportion of parts requiring more than one stroke was slightly higher f
 \label{stroke_sequence_fig}
 \end{figure}
 
-In the previous section we discovered that slightly more than half of the parts in our dataset were depicted using multiple strokes. %, more than one stroke was used to depict it. 
-This result raised the question: to what extent are strokes depicting the same part drawn in succession, or interleaved among strokes corresponding to other parts?
+In the previous section we discovered that slightly more than half of the parts in our dataset were depicted using multiple strokes. This result raised the question: to what extent are strokes depicting the same part drawn in succession, or interleaved among strokes corresponding to other parts?
 In other words, how does the temporal sequence of stroke production relate to semantic part structure?
 
 %To investigate this, we estimated the mean length of part streaks consisting of strokes depicting the same part, and compared this to the mean streak length for permuted stroke sequences. 
@@ -341,14 +336,12 @@ These results show that close and far drawings of the same object exhibit simila
 
 \subsubsection{Detailed drawings are more distinct from each other than sparser drawings}
 
-% The above findings show that close and far drawings exhibited similar patterns of emphasis on different parts. 
+
 While the above findings showed that close and far drawings of the same object exhibit similar patterns of emphasis on different parts, close drawings contain greater emphasis on these parts overall than far drawings (i.e., contained more and longer strokes). 
 How were these additional strokes being spent? 
 
-% \jefan{I think we should report the basic observation that close drawings consist of more strokes and higher arclengths than far, with CIs, around here.}
 
 We hypothesized that the additional part information provided in close drawings was being distributed across parts in different ways for different objects, thereby making them more distinguishable from one another in feature space.
-% This would have the thereby making them more distinguishable from one another,
 % This would have the consequence of increasing the feature distance between close drawings, 
 To evaluate this possibility, we computed the mean correlation between the part-feature vectors of close drawings of objects in a given category and compared this value with the mean correlation between far drawings of exactly the same objects. 
 We found that close drawings were less similar to one another than far drawings were (close similarity: $r = 0.67$, CI: [0.65,69]; far similarity: $r = 0.73$, CI: [0.72,0.75]), suggesting that sketchers discern which parts are most diagnostic of the target object among highly similar distractors, and emphasize these parts accordingly (Fig.~\ref{part_emphasis}C).
@@ -356,7 +349,7 @@ This was particularly apparent when we visualized the spatial layout of part-fea
 Observing these contextual differences is all the more remarkable given that this feature representation captures only the \textit{amount} of emphasis allocated to each part during drawing production, ignoring their visual properties. 
 
 
-\begin{figure}[htbp]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.38\textwidth]{figures/7_part_emphasis.pdf}
 \caption{(A) Visualization of spatial layout of mean part-feature vectors for each object-context combination, projected onto the top two principal components. (B) Comparison of feature similarity between close and far drawings of the same object, relative to close and far drawings of different objects within a category. (C) Comparison of feature similarity between far drawings of objects within a category, relative to close drawings. *** \textit{p}$<0.001.$}
@@ -369,7 +362,6 @@ In this paper, we explored how the way people compose communicative drawings of 
 To accomplish this, we developed a novel web-based platform to collect dense semantic annotations of the stroke elements in drawings of real-world objects that were produced in different communicative contexts. 
 Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time; and (4) detailed and sparse drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context.  
-%\kushin{I assume this paragraph needs some more work to distinguish it from the abstract a bit. Will wait on Robert's revisions first}
 
 These findings are resonant with classic and recent work that has argued for the importance of compositionality in human perception and cognition in general \cite{biederman1987recognition, battaglia2018relational,lake2017building}, and for visual production in particular \cite{lake2015human}. 
 However, unlike prior work which focused on the production of abstract symbols \cite{lake2015human}, we consider the challenge of how people transform perceptually grounded representations of real-world objects into procedures for producing figurative drawings that communicate not only what they see and know about them, but also what is relevant. 
@@ -428,10 +420,9 @@ More broadly, achieving this synthesis will lead to both more robust artificial 
 
 
  
-% \section{Acknowledgments}
-%Hide for now since blinded
-%KM was supported by the Department of Cognitive Science at Vassar College through its Humanities in Cognitive Science program.
-%RXDH was supported by the National Science Foundation Graduate Research Fellowship (DGE-114747). 
+ \section{Acknowledgments}
+KM was supported by the Department of Cognitive Science at Vassar College through its Humanities in Cognitive Science program.
+RXDH was supported by the National Science Foundation Graduate Research Fellowship (DGE-114747). 
 
 %\section{References}
 
