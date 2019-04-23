@@ -368,18 +368,21 @@ To accomplish this, we developed a novel web-based platform to collect dense sem
 Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time; and (4) detailed and sparse drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context.  
 
-While we believe that extending our approach to larger sketch datasets of many different object-categories with a large variety of parts would help establish the robustness of our findings, our results are nonetheless an important first-step in establishing a meaningful relationship between drawing production and semantic knowledge.
+While we believe that extending our approach to larger drawing datasets of many different object-categories with a large variety of parts would help establish the robustness of our findings, our results are nonetheless an important first step in establishing a meaningful relationship between drawing production and semantic knowledge. 
 
 These findings are resonant with classic and recent work that has argued for the importance of compositionality in human perception and cognition in general \cite{biederman1987recognition, battaglia2018relational,lake2017building}, and for visual production in particular \cite{lake2015human}. 
 However, unlike prior work which focused on the production of abstract symbols \cite{lake2015human}, we consider the challenge of how people transform perceptually grounded representations of real-world objects into procedures for producing figurative drawings that communicate not only what they see and know about them, but also what is relevant. 
 
 Our work is also related to recent progress in the development of computational models of drawing production \cite{ha2017neural,li2019photo}. 
 While results from these efforts have been galvanizing, the development of principled metrics by which to rigorously evaluate how well they emulate human drawing behavior has not kept pace. 
-By interrogating in detail how humans encode semantic information into their drawings, and flexibly adjust their production behavior in different contexts, this paper presents a first step towards such a set of behavioral metrics.
+By interrogating in detail how humans encode semantic information into their drawings, and flexibly adjust their production behavior in different contexts, this paper presents a first step towards such a set of behavioral metrics. 
 Having such metrics is important because they would enhance our ability to distinguish between generative models, and thereby help advance further model development. 
+In summary, we establish the importance of semantic part-based knowledge in drawing production, highlighting the importance of compositionality in cognition, and the potential for using our findings to devise new metrics to sevaluate models of drawing production. \kushin{This last sentence sounds repetitive to me when I read it, but maybe it's good to have it as a summary statement of sorts?}
 
 In future work, we plan to extend our analysis of how different part information is expressed in drawings beyond simple effort cost measures (i.e., number of strokes, amount of ink) to encompass content and style information (e.g., the shape of a bird's wing, caricaturization of a chair's armrest). 
-We expect that this will entail augmenting current vision models with the requisite compositional semantic part knowledge to parse drawings in a more human-like way. 
+We expect that augmenting current vision models with a combination of the requisite semantic part knowledge and the ability to discern perceptual properties of these parts, such as style, will allow us to build models that parse drawings in a more human-like way.
+
+%We expect that this will entail augmenting current vision models with the requisite compositional semantic part knowledge to parse drawings in a more human-like way. 
 More broadly, achieving this synthesis will lead to both more robust artificial intelligence and a deeper understanding of human cognition and behavior. 
 
 % %%%%%%%%%%%%%%%%% informal sketch of discussion %%%%%%%%%%%%%%%%%%%%%%%
