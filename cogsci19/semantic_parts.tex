@@ -311,6 +311,8 @@ To explore this possibility, we asked the following questions:
 
 To investigate these questions, we represented each drawing by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
 In order to represent all drawings in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
+Although some labels were shared across object-categories (e.g., leg, head, body), we opted to use common vector dimensions for the same part label. 
+Our motivation behind doing this is the fact that people are able to refer to different parts in different objects with the same part-label in a flexible manner.
 Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes allocated to each part. 
 Before further analysis, we z-scored values within each feature dimension in order to map stroke-count and arc-length measurements to the same unit-variance scale. 
 Because our primary goal was to understand differences between objects and contexts, we then collapsed across drawings within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
