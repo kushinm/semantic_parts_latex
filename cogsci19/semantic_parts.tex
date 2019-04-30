@@ -84,7 +84,7 @@ How are visual object concepts organized such that we can both recognize these a
 Here we consider the notion that the compositional nature of object concepts enables us to readily decompose both objects and drawings of objects into a common set of semantically meaningful parts.
 To investigate this, we developed a web-based platform to densely annotate drawings of real-world objects with part information. 
 Our dataset contained both detailed and sparser drawings produced in different communicative contexts.
-We found that: (1) people are consistent in what they interpret individual strokes to represent. (2)Single strokes tend to correspond to single parts with (3)strokes representing the same part often being clustered in time. (4) Both sparse and detailed drawings of the same object emphasize similar part information but (5) detailed drawings of different objects are more distinct from one another than sparse drawings. 
+\kushin{We found that: (1) people are consistent in what they interpret individual strokes to represent. (2) Single strokes tend to correspond to single parts with (3) strokes representing the same part often being clustered in time. (4) Both sparse and detailed drawings of the same object emphasize similar part information with (5) detailed drawings of different objects are more distinct from one another than sparse drawings}. 
 Taken together, our results support the notion that people flexibly deploy their abstract understanding of the compositional part structure of objects to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
 
@@ -104,7 +104,7 @@ When we open our eyes, we do not experience a meaningless array of photons --- i
 The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition \cite{navon1977forest}. 
 %As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic \cite{eitz2012humans}. 
 As a testament to this ability, we effortlessly grasp the correspondence between a particular physical object in the world and a drawing of the object.
-Simple line drawings lack much of the rich visual information present in real-world objects including color, luminosity, and texture. This makes even well-made drawings far from realistic. 
+\kushin{Simple line drawings lack much of the rich visual information present in real-world objects including color, luminosity, and texture. This makes even well-made drawings far from realistic.} 
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we explore the notion that perceiving these correspondences is supported by our ability to decompose both objects and drawings into a common set of semantically meaningful parts \cite{biederman1988surface}. 
 
@@ -120,7 +120,7 @@ By contrast, visual communication tasks permit participants to include any eleme
 % By interrogating the semantic structure of communicative drawings, the goal of this paper is to shed light on how the semantic organization of visual object concepts supports their flexible expression across contexts. 
 % The goal of this paper is to interrogate the semantic structure of communicative drawings in order to shed light on how the semantic organization of visual object concepts 
 
-While other works have addressed techniques for recognition of drawings \cite{ha2017neural,li2019photo}, through this paper we shed light on the correspondence between visual semantic knowledge and the procedure by which people robustly convey this knowledge in their drawings. That is, we focus on how semantic knowledge about object part-structure not only helps in decomposing objects during perception, but also on how this knowledge manifests in drawing production.
+\kushin{While other works have addressed techniques for recognition of drawings \cite{ha2017neural,li2019photo}, we aim to shed light on the correspondence between semantic knowledge and the procedure by which people robustly convey this knowledge through line drawings. That is, we focus on how knowledge about object part-structure not only helps in decomposing objects during perception, but also on how this knowledge manifests in drawing production.}
 %The goal of this paper is to shed light on the correspondence between visual semantic knowledge and the procedure by which people robustly convey this knowledge in their drawings.
 This paper advances recent work \cite{FanCommon2018} investigating how drawings convey semantic information in three ways: 
 \textit{first}, we introduce a new dataset of drawings with dense part annotations, allowing an explicit focus on compositional part structure,
@@ -145,7 +145,7 @@ Object stimuli were photorealistic 3D renderings belonging to one of four basic-
 On each trial of the experiment, participants were presented with a shared context containing four of these objects. 
 One participant (the sketcher) was privately cued to draw a target object so that the other participant (the viewer) could pick it out from the set of distractors. % (Fig.~\ref{refgame_performance}A). 
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: \textit{close contexts}, in which all four objects belonged to the same basic-level category, and \textit{far contexts}, in which objects belonged to different basic-level categories. % (Fig.~\ref{refgame_performance}B). 
-The viewer was allowed to make a guess only after the sketcher had finished drawing, so there was no imposed time-constraint that may have led to a minimalistic approach to production.
+\kushin{The viewer was allowed to make a guess only after the sketcher had finished drawing, so there was no imposed time-constraint that may have led to a minimalistic approach to production.}
 This context manipulation led sketchers to produce relatively simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context.
 
 % (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
@@ -159,11 +159,12 @@ This context manipulation led sketchers to produce relatively simpler drawings c
 
 Prior work analyzing the semantic properties of drawing data has used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, to investigate how semantic structure manifests during drawing production, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (i.e., \texttt{*.svg}). 
-Thus, each drawing in our dataset is represented as a sequence of individual strokes. A single stroke corresponds to a sketcher's decision to press the drawing tool to the canvas, make a mark, and raise the tool. 
-Each stroke consists of a sequence of cubic Bezier curves, which we call \textit{splines}. 
+Thus, each drawing in our dataset is represented as a sequence of individual strokes. 
+\kushin{A single stroke corresponds to a sketcher's decision to press the drawing tool to the canvas, make a mark, and raise the tool. 
+Each stroke consists of a sequence of cubic Bezier curves, which we call \textit{splines}. }
 This format provides a compact representation that preserves the sequence in which each element was produced.
 
-\begin{figure}[htbp]
+\begin{figure}[htbp] 
 \centering
 \includegraphics[width=0.47\textwidth]{figures/4_annotation_interface.pdf}
 \caption{Annotation interface. Participants selected sub-stroke elements (splines) and tagged them with part labels.} %  from the menu The original communicative context in which the sketch was generated was also provided below the sketch.}% , with the target object highlighted in red and three distractors were displayed in an array below the sketch.}
@@ -174,7 +175,7 @@ This format provides a compact representation that preserves the sequence in whi
 \subsection{Semantic part annotation}
 
 We then crowdsourced semantic annotations for every spline in every stroke of the drawings from this dataset. 
-If splines were too short for annotators to feasibly annotate them, they were concatenated with a neighboring splines until the resulting spline was easily selectable with a mouse cursor.
+\kushin{If splines were too short for annotators to feasibly annotate them, they were concatenated with a neighboring splines until the resulting spline was easily selectable with a mouse cursor. }
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the Stanford IRB. 
@@ -185,7 +186,7 @@ Each participant was presented with a sequence of 10 drawings that were randomly
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair).  
 To facilitate consistent tagging, participants were provided with a menu of common part labels that were associated with each basic-level category (Table \ref{tab:parts}).
 Participants could also generate their own part label if they believed none of the common labels applied.
-To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red. 
+\kushin{To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red.} 
 
 \subsubsection{Data preprocessing}
 \begin{table}[b]
@@ -260,8 +261,8 @@ However, the remaining 53.9\% of the time, more than one stroke was required to 
 
 Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
 We further hypothesized that these properties may vary between communicative contexts.
-Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
-And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]), suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
+Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), \kushin{$p$=0.07}, suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
+And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]),\kushin{ $p$ = 0.02}, suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
 
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
@@ -307,12 +308,12 @@ We hypothesized that sketchers emphasize part information to preserve relevant d
 To explore this possibility, we asked the following questions: 
 (1) How similarly is object-specific part information emphasized in close and far contexts? 
 % (2) To the extent close and far drawings of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
-(2) How do differences in how part information is emphasized across contexts affect the discriminability of drawings?
+(2) \kushin{How do differences in how part information is emphasized in drawings of the same object across contexts affect the discriminability of drawings?}
 
 To investigate these questions, we represented each drawing by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
 In order to represent all drawings in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
-Although some labels were shared across object-categories (e.g., leg, head, body), we opted to use common vector dimensions for the same part label. 
-Our motivation behind doing this is the fact that people are able to refer to different parts in different objects with the same part-label in a flexible manner.
+\kushin{Although some part-labels appeared in multiple object-categories (e.g., leg appeared in dog, bird, and chair), we chose to use common vector dimensions for the same part across categories. 
+Since all our analyses were within-category there was no need to create category-specific part-labels for these shared labels.}
 Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes allocated to each part. 
 Before further analysis, we z-scored values within each feature dimension in order to map stroke-count and arc-length measurements to the same unit-variance scale. 
 Because our primary goal was to understand differences between objects and contexts, we then collapsed across drawings within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
@@ -382,7 +383,6 @@ Our work is also related to recent progress in the development of computational 
 While results from these efforts have been galvanizing, the development of principled metrics by which to rigorously evaluate how well they emulate human drawing behavior has not kept pace. 
 By interrogating in detail how humans encode semantic information into their drawings, and flexibly adjust their production behavior in different contexts, this paper presents a first step towards such a set of behavioral metrics. 
 Having such metrics is important because they would enhance our ability to distinguish between generative models, and thereby help advance further model development. 
-In summary, we establish the importance of semantic part-based knowledge in drawing production, highlighting the importance of compositionality in cognition, and the potential for using our findings to devise new metrics to evaluate models of drawing production. \kushin{This last sentence sounds repetitive to me when I read it, but maybe it's good to have it as a summary statement of sorts?}
 
 In future work, we plan to extend our analysis of how different part information is expressed in drawings beyond simple effort cost measures (i.e., number of strokes, amount of ink) to encompass content and style information (e.g., the shape of a bird's wing, caricaturization of a chair's armrest). 
 We expect that augmenting current vision models with a combination of the requisite semantic part knowledge and the ability to discern perceptual properties of these parts, such as style, will allow us to build models that parse drawings in a more human-like way.
