@@ -207,8 +207,8 @@ Moreover, to ensure the reliability of our annotations, we only examined drawing
 Our final preprocessing step was to incorporate manual part labels provided by participants (i.e. labels not in the menu).
 Some of these labels were valid, but were synonymous with or subsumed by other more frequently occurring labels. 
 For example, some strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
-In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels.
-This resulted in us refining the total number of unique labels in our dataset from 304 to 24.
+\kushin{In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels.
+Through this procedure, labels for 8261 out of 83474 splines were remapped. This resulted in us refining the total number of unique labels in our dataset from 304 to 24. }
 After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
 \section{Results}
@@ -262,8 +262,8 @@ However, the remaining 53.9\% of the time, more than one stroke was required to 
 
 Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
 We further hypothesized that these properties may vary between communicative contexts.
-Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), \kushin{$p$=0.07}, suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
-And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]),\kushin{ $p$ = 0.02}, suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
+Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), \kushin{\textit{p}$=0.07$}, suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
+And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]),\kushin{ \textit{p} $= 0.02$}, suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
 
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
