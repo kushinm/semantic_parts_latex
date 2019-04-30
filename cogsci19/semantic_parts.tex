@@ -202,14 +202,18 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \caption{Part labels provided to annotators.} % All user-generated labels were mapped to this set of labels.
 \label{tab:parts}
 \end{table}
-To reduce bias due to missing data, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged).  %  when analyzing the relative emphasis that sketchers placed on different part information
-Moreover, to ensure the reliability of our annotations, we only examined drawings that were annotated by three distinct participants. 
-Our final preprocessing step was to incorporate manual part labels provided by participants (i.e. labels not in the menu).
+
+\kushin{METACOMMENT : I reordered some things here to better reflect our preprocessing steps. \textit{First} we remapped spline labels to common labels and only after that did we subset for sketches having 3 complete annotations}
+
+Our \kushin{first} preprocessing step was to incorporate manual part labels provided by participants (i.e. labels not in the menu).
 Some of these labels were valid, but were synonymous with or subsumed by other more frequently occurring labels. 
-For example, some strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
+For example, some splines that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
+
 \kushin{In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels.
 Through this procedure, labels for 8261 out of 83474 splines were remapped. This resulted in us refining the total number of unique labels in our dataset from 304 to 24. }
 After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
+To reduce bias due to missing data, we restricted our analyses to annotation trials in which the drawing was completely annotated (i.e., all splines were tagged).  %  when analyzing the relative emphasis that sketchers placed on different part information
+Moreover, to ensure the reliability of our annotations, we only examined drawings that were annotated by three distinct participants. 
 
 \section{Results}
 
