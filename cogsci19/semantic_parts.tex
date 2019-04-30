@@ -207,7 +207,8 @@ Moreover, to ensure the reliability of our annotations, we only examined drawing
 Our final preprocessing step was to incorporate manual part labels provided by participants (i.e. labels not in the menu).
 Some of these labels were valid, but were synonymous with or subsumed by other more frequently occurring labels. 
 For example, some strokes that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
-In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels. 
+In order to ensure that parts of drawings were segmented at a consistent level of granularity, we manually constructed a part dictionary to map these less-frequent part labels to one of the common part labels.
+This resulted in us refining the total number of unique labels in our dataset from 304 to 24.
 After applying these preprocessing steps, our annotated dataset consisted of 864 drawings that had been annotated exactly three times each, using a set of 24 unique part labels. 
 
 \section{Results}
@@ -383,6 +384,13 @@ Our work is also related to recent progress in the development of computational 
 While results from these efforts have been galvanizing, the development of principled metrics by which to rigorously evaluate how well they emulate human drawing behavior has not kept pace. 
 By interrogating in detail how humans encode semantic information into their drawings, and flexibly adjust their production behavior in different contexts, this paper presents a first step towards such a set of behavioral metrics. 
 Having such metrics is important because they would enhance our ability to distinguish between generative models, and thereby help advance further model development. 
+
+
+%
+%
+%
+
+
 
 In future work, we plan to extend our analysis of how different part information is expressed in drawings beyond simple effort cost measures (i.e., number of strokes, amount of ink) to encompass content and style information (e.g., the shape of a bird's wing, caricaturization of a chair's armrest). 
 We expect that augmenting current vision models with a combination of the requisite semantic part knowledge and the ability to discern perceptual properties of these parts, such as style, will allow us to build models that parse drawings in a more human-like way.
