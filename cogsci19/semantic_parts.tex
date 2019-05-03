@@ -73,7 +73,8 @@
   \includegraphics[width=0.92\textwidth]
     {figures/1_banner.pdf}
     \captionsetup{width=0.92\textwidth}
- \captionof{figure}{\footnotesize{Objects used in communication game with example drawings of each object, where stroke color indicates different parts.}}\bigskip} 
+ \captionof{figure}{\footnotesize{Objects used in communication game with example drawings of each object, where stroke color indicates different parts.}}\bigskip}
+
 \makeatother
 
 \maketitle 
@@ -83,9 +84,9 @@ We effortlessly grasp the correspondence between a drawing of an object and that
 How are visual object concepts organized such that we can both recognize these abstract correspondences and also flexibly exploit them when communicating them to others in a drawing?
 Here we consider the notion that the compositional nature of object concepts enables us to readily decompose both objects and drawings of objects into a common set of semantically meaningful parts.
 %To investigate this, we developed a web-based platform to densely annotate drawings of real-world objects with part information. 
-\kushin{To investigate this, we collected data on the part information expressed in drawings by having participants densely annotate drawings of real-world objects.}
+To investigate this, we collected data on the part information expressed in drawings by having participants densely annotate drawings of real-world objects.
 Our dataset contained both detailed and sparser drawings produced in different communicative contexts.
-\kushin{We found that: (1) people are consistent in what they interpret individual strokes to represent. (2) Single strokes tend to correspond to single parts with (3) strokes representing the same part often being clustered in time. (4) Both sparse and detailed drawings of the same object emphasize similar part information with (5) detailed drawings of different objects being more distinct from one another than sparse drawings}. 
+We found that: (1) people are consistent in what they interpret individual strokes to represent; (2) that single strokes tend to correspond to single parts, with strokes representing the same part often being clustered in time; and (3) that both sparse and detailed drawings of the same object emphasize similar part information, with detailed drawings of different objects being more distinct from one another than sparse drawings. 
 Taken together, our results support the notion that people flexibly deploy their abstract understanding of the compositional part structure of objects to communicate relevant information about them in context. 
 More broadly, they highlight the importance of structured knowledge for understanding how pictorial representations convey meaning. 
 
@@ -103,8 +104,7 @@ sketch understanding; visual production; compositionality; objects and categorie
 When we open our eyes, we do not experience a meaningless array of photons --- instead, we parse the world into people, objects, and their relationships. 
 The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition \cite{navon1977forest}. 
 %As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic \cite{eitz2012humans}. 
-As a testament to this ability, we effortlessly grasp the correspondence between a physical object in the world and a drawing of the object.
-\kushin{Simple line drawings lack much of the rich visual information present in real-world objects including color, luminosity, and texture. Thus drawings are far from realistic across several dimensions.} 
+As a testament to this ability, we effortlessly grasp the correspondence between a physical object in the world and a simple line drawing of it, even though such drawings lack much of the rich visual information present in real-world objects including color and texture. 
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we explore the notion that perceiving these correspondences is supported by our ability to decompose both objects and drawings into a common set of semantically meaningful parts \cite{biederman1988surface}. 
 
@@ -115,14 +115,13 @@ A promising approach to closing this gap may be to exploit the parsimony and int
 However, pursuit of this strategy relies upon a thorough empirical understanding of this conceptual organization and how people express this knowledge in natural behavior. 
 We aim to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
 This approach departs from the conventional strategy for inferring the organization of visual object concepts, which entails eliciting judgments with respect to a small number of experimenter-defined dimensions. 
-By contrast, visual communication tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how people organize and deploy visual semantic knowledge under a natural task objective. 
+Instead, drawing tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how people organize and deploy visual semantic knowledge under a natural task objective. 
 
 % By interrogating the semantic structure of communicative drawings, the goal of this paper is to shed light on how the semantic organization of visual object concepts supports their flexible expression across contexts. 
 % The goal of this paper is to interrogate the semantic structure of communicative drawings in order to shed light on how the semantic organization of visual object concepts 
-
-\kushin{While other works have addressed techniques for recognition of drawings \cite{ha2017neural,li2019photo}, we aim to shed light on the correspondence between semantic knowledge and the procedure by which people robustly convey this knowledge through drawings. That is, we focus on how knowledge about object part-structure not only helps in decomposing objects during perception, but also on how this knowledge manifests in drawing production.}
-%The goal of this paper is to shed light on the correspondence between visual semantic knowledge and the procedure by which people robustly convey this knowledge in their drawings.
-This paper advances recent work \cite{FanCommon2018} investigating how drawings convey semantic information in three ways: 
+Much prior work using drawing tasks to probe visual concepts have focused on either recognition \cite{eitz2012humans,yu2017sketch} or generation \cite{ha2017neural,li2019photo} of entire sketches. 
+By contrast, the present study aims to shed light on the correspondence between semantic knowledge about the internal part structure of objects and the procedure by which people robustly convey this knowledge in their drawings. 
+Specifically, this paper advances recent work investigating how drawings convey semantic information \cite{FanCommon2018} in three ways: 
 \textit{first}, we introduce a new dataset of drawings with dense part annotations, allowing an explicit focus on compositional part structure,
 \textit{second}, we explore the link between this semantic structure and the %temporal%
  dynamics of drawing production,
@@ -137,15 +136,15 @@ and \textit{third}, we examine differences in how visual semantic knowledge is e
 
 \section{Methods}
 
-We developed a web-based platform \cite{deLeeuw2015} to collect dense semantic annotations of the stroke elements in drawings of real-world objects (Fig. 1).
+We developed a web-based crowdsourcing tool, built with \texttt{jsPsych.js} \cite{deLeeuw2015}, to collect dense semantic annotations of the stroke elements in drawings of real-world objects (Fig. 1).
 
 \subsection{Communicative drawing dataset}
-We first obtained 1195 drawings of 32 real-world objects from a recent experimental dataset in which pairs of participants played an interactive drawing-based reference game \shortcite{fan2018modeling}. \footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
+We first obtained 1195 drawings of 32 real-world objects from a previously collected experimental dataset in which pairs of participants played an interactive drawing-based reference game \cite{fan2019pragmatic}.\footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 Object stimuli were photorealistic 3D renderings belonging to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
 On each trial of the experiment, participants were presented with a shared context containing four of these objects. 
 One participant (the sketcher) was privately cued to draw a target object so that the other participant (the viewer) could pick it out from the set of distractors. % (Fig.~\ref{refgame_performance}A). 
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: \textit{close contexts}, in which all four objects belonged to the same basic-level category, and \textit{far contexts}, in which objects belonged to different basic-level categories. % (Fig.~\ref{refgame_performance}B). 
-\kushin{The viewer was allowed to make a guess only after the sketcher had finished drawing, so there was no imposed time-constraint that may have driven a minimalistic approach to production.}
+% \kushin{The viewer was allowed to make a guess only after the sketcher had finished drawing, so there was no imposed time-constraint that may have driven a minimalistic approach to production.}
 This context manipulation led sketchers to produce relatively simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context.
 
 % (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
@@ -160,8 +159,8 @@ This context manipulation led sketchers to produce relatively simpler drawings c
 Prior work analyzing the semantic properties of drawing data has used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, to investigate how semantic structure manifests during drawing production, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (i.e., \texttt{*.svg}). 
 Thus, each drawing in our dataset is represented as a sequence of individual strokes. 
-\kushin{A single stroke corresponds to a sketcher's decision to press the drawing tool to the canvas, make a mark, and raise the tool. 
-Each stroke consists of a sequence of cubic Bezier curves, which we call \textit{splines}. }
+A stroke is defined as the full path taken by the virtual pen on the drawing canvas between being `placed' onto the drawing canvas and being `lifted' up.
+We parameterized each stroke by a sequence of cubic Bezier curves, called \textit{splines}.
 This format provides a compact representation that preserves the sequence in which each element was produced.
 
 \begin{figure}[htbp] 
@@ -378,7 +377,7 @@ Observing these contextual differences is all the more remarkable given that thi
 In this paper, we explored how the way people compose communicative drawings of objects reflects their semantic knowledge about what objects are composed of. 
 \kushin{To accomplish this, we first collected dense semantic annotations of stroke elements in drawings of real-world objects that were produced in different communicative contexts. 
 Next, we looked beyond recognizability of drawings by investigating the relationship between drawing production and semantic knowledge}
-Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts; (3) strokes representing the same part tend to be clustered in time; and (4) detailed and sparse drawings of the same object emphasized similar part information, although (5) detailed drawings of different objects tend to be more distinct from one another than simpler ones. 
+Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) that single strokes tend to correspond to single parts, with strokes representing the same part tending to be clustered in time; and (3) that both detailed and sparse drawings of the same object emphasized similar part information, with detailed drawings of different objects tending to be more distinct from one another than simpler ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context.  
 \kushin{In the future, it will be important to apply our approaches to other drawing datasets with a larger variety of object-categories to ascertain the robustness of our findings.}
 
