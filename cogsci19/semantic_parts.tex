@@ -266,8 +266,8 @@ However, the remaining 53.9\% of the time, more than one stroke was required to 
 
 Together, these findings suggest that the information people convey with each stroke systematically corresponds to the parts that objects contain. 
 We further hypothesized that these properties may vary between communicative contexts.
-Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}), \kushin{\textit{p}$=0.07$}, suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
-And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%]),\kushin{ \textit{p} $= 0.02$}, suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
+Indeed, strokes spanning multiple parts were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}, \textit{p}$=0.07$), suggesting that sketchers were somewhat more likely to use a single stroke to represent multiple contiguous parts in a context where a sparser drawing would be sufficient.
+And the proportion of parts requiring more than one stroke was slightly higher for close drawings (55.8\%, CI: [53.7\%, 58.6\%]) than far drawings (52.0\%, CI: [49.9\%, 54.6\%],\textit{p} $= 0.02$), suggesting that sketchers may have included more detail per part in close drawings to distinguish the target object from similar distractors. 
 
 
 \subsection{Do strokes representing the same part tend to be produced in succession?}
@@ -297,7 +297,10 @@ We generated a null distribution of streak lengths for each drawing by repeating
 Finally, we obtained a $z$-score for each drawing by computing where the empirical streak length fell in the permuted streak length distribution.
 A drawing with a $z$-score near 0 had a streak length that was commonly obtained by placing strokes in a random order, while a drawing with a higher $z$-score is more structured than expected under the null.
 
-\kushin{METACOMMENT: Should we leave the CIs for the z-scores as they are or should we just report mean z-score?}We found that the empirical streak length was reliably higher for all objects than that of the permuted sequences (mean $z$-score: 2.07, CI: [1.90, 2.23]; Fig.~\ref{stroke_sequence_fig}B), and higher for the close drawings (mean $z$-score: 2.58; CI: [2.26, 2.90]) than far drawings (mean $z$-score: 1.56; CI: [1.38, 1.74]).
+% \kushin{METACOMMENT: Should we leave the CIs for the z-scores as they are or should we just report mean z-score?}
+%% good question: We might be okay saying that the mean we're reporting is the z-score _across drawings_, and the CI is for the mean z-score...
+
+We found that the empirical streak length was reliably higher for all objects than that of the permuted sequences (mean $z$-score across drawings: 2.07, CI: [1.90, 2.23]; Fig.~\ref{stroke_sequence_fig}B), and higher for the close drawings (mean $z$-score: 2.58; CI: [2.26, 2.90]) than far drawings (mean $z$-score: 1.56; CI: [1.38, 1.74]).
 The lower streak length for far drawings is consistent with their lower stroke count overall---when only one or two strokes are used per part, there is a ceiling on the mean streak length. 
 However, when sketchers do use multiple strokes to convey a single part (i.e., because there are multiple subparts, or to add more detail), they tend to draw these in succession before moving on to a different part.
 These results suggest more broadly that the procedure by which people convey semantic information in drawings is organized by the part structure within objects.
@@ -311,19 +314,18 @@ On the other hand, when communicating about that same chair in a close context c
 
 We hypothesized that sketchers emphasize part information to preserve relevant distinctions in context. 
 To explore this possibility, we asked the following questions: 
-(1) How similarly is object-specific part information emphasized in close and far contexts? 
-% (2) To the extent close and far drawings of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? 
-(2) \kushin{How do differences in how part information is emphasized in drawings of the same object across contexts affect the discriminability of drawings?}
+(1) How similarly is object-specific part information emphasized in both close and far contexts? 
+% (2) To the extent close and far drawings of the same object emphasize part information differently, does this reflect large differences in emphasis on a few parts, or small differences in emphasis across many parts? %% really liked your edit here, way more streamlined. 
+(2) How do differences in how part information is emphasized \textit{between} contexts affect how discriminable those drawings are?
 
-To investigate these questions, we represented each drawing by a \textit{part-feature vector} that combined information about: (a) how many strokes and (b) how much total ink was expended on each part of that object. 
-In order to represent all drawings in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. 
-\kushin{Although some part-labels appeared in multiple object-categories (e.g., leg appeared in dog, bird, and chair), we chose to use common vector dimensions for the same part across categories. 
-Since all our analyses were within-category there was no need to create category-specific part-labels for these shared labels.}
-Each part-feature vector thus consisted of 48 elements: 24 of these represented the number of strokes allocated to each part, and the remaining 24 represented the total arc length of all strokes allocated to each part. 
-Before further analysis, we z-scored values within each feature dimension in order to map stroke-count and arc-length measurements to the same unit-variance scale. 
-Because our primary goal was to understand differences between objects and contexts, we then collapsed across drawings within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
-
-\vspace*{4px}
+To investigate these questions, we represented each drawing by a 48-dimensional \textit{part-feature vector} that contained information about: (a) how many strokes and (b) how much total ink was allocated to each part, for each of the 24 unique part labels in our dataset. 
+% In order to represent all drawings in our dataset using a common feature representation, we combined part labels across categories, yielding a set of 24 unique part labels to which any stroke could be assigned. %% we already explained that collapsed to 24 labels during preprocessing
+% \kushin{Although some part-labels appeared in multiple object-categories (e.g., leg appeared in dog, bird, and chair), we chose to use common vector dimensions for the same part across categories. 
+% Since all our analyses were within-category there was no need to create category-specific part-labels for these shared labels.}
+%% I think going out of our way to say this would potentially cause more confusion than necessary... especially since we already explained earlier that we are using the "common set" of 24 part labels. 
+Specifically, the first 24 elements of each part-feature vector contained the number of strokes allocated to each part, and the remaining 24 contained the total arc length of all strokes allocated to each part. 
+Because our primary goal was to understand \textit{relative} differences in how much emphasis was placed on each part across drawings in our dataset, we first z-scored the raw stroke-count and arc-length measurements within each feature dimension, thereby mapping all features to the same unit-variance scale. 
+We then collapsed across drawings within each object-context combination, yielding 64 average part-feature vectors (i.e., 32 objects x 2 context conditions). 
 
 \subsubsection{Similar part information emphasized across different communicative contexts}
 
@@ -335,7 +337,7 @@ Specifically, insofar as similar object-specific part information is emphasized 
 Consistent with this, we found strong correlations between the feature vectors for close and far drawings of the same object ($r = 0.740$,  CI: [0.726, 0.753]), which were significantly stronger than close and far drawings of \emph{different} objects ($r = 0.653$, CI: [0.646, 0.659]), \kushin{\textit{p}$<0.001$}.
 These results show that close and far drawings of the same object exhibit similar \emph{patterns} of emphasis across different parts, and this similarity exceeded that expected due to merely being members of the same basic-level category (Fig.~\ref{part_emphasis}B). 
 
-\vspace*{4px}
+
 
 % \subsubsection{Greater emphasis on a few parts when producing detailed drawings}
 
