@@ -173,9 +173,8 @@ This format provides a compact representation that preserves the sequence in whi
 
 \subsection{Semantic part annotation}
 
-We then crowdsourced semantic annotations for every spline in every stroke of the drawings from this dataset. 
-\kushin{If splines were too short for annotators to feasibly annotate them, they were concatenated with a neighboring splines until the resulting spline was easily selectable with a mouse cursor. 
-We refer to our data as being \textit{dense} annotation data because labels were provided for splines, which are at a finer level of granularity than strokes.}
+We then crowdsourced dense semantic annotations for every spline in every stroke of the drawings from this dataset. 
+We refer to our annotation data as \textit{dense} because labels were provided for splines, which are at a finer level of granularity than strokes.
 
 \subsubsection{Participants}
 326 participants were recruited via Amazon Mechanical Turk (AMT) and provided informed consent in accordance with the Stanford IRB. 
@@ -185,8 +184,9 @@ Participants were given a base compensation of \$0.35, plus \$0.002 for every sp
 Each participant was presented with a sequence of 10 drawings that were randomly sampled from the communicative drawing dataset (Fig.~\ref{annotation_interface}). 
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair).  
 To facilitate consistent tagging, participants were provided with a menu of common part labels that were associated with each basic-level category (Table \ref{tab:parts}).
+If any given spline was too short for annotators to feasibly annotate them with their mouse cursor, it was concatenated with its neighboring splines until the resulting spline was long enough to easily select. 
 Participants could also generate their own part label if they believed none of the common labels applied.
-\kushin{To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red.} 
+To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red.
 
 \subsubsection{Data preprocessing}
 \begin{table}[b]
@@ -203,9 +203,8 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \label{tab:parts}
 \end{table}
 
-\kushin{METACOMMENT : I reordered some things here to better reflect our preprocessing steps. \textit{First} we remapped spline labels to common labels and only after that did we subset for sketches having 3 complete annotations}
-
-Our \kushin{first} preprocessing step was to incorporate manual part labels provided by participants (i.e. labels not in the menu).
+\textit{First,} we remapped spline labels to common labels and only after that did we subset for sketches having 3 complete annotations.
+This \kushin{first} preprocessing step was performed in order to incorporate manual part labels provided by participants (i.e. labels not in the menu).
 Some of these labels were valid, but were synonymous with or subsumed by other more frequently occurring labels. 
 For example, some splines that represented subparts of the leg of a chair were labeled as `leg support', `foot', and `strut.'
 
