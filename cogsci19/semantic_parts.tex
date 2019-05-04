@@ -101,7 +101,7 @@ sketch understanding; visual production; compositionality; objects and categorie
 When we open our eyes, we do not experience a meaningless array of photons --- instead, we parse the world into people, objects, and their relationships. 
 The ability to represent semantically meaningful structure in our environment is a core aspect of human visual perception and cognition \cite{navon1977forest}. 
 %As a testament to this ability, we effortlessly grasp the correspondence between a drawing of a particular object and that physical object in the world, even if the drawing is far from realistic \cite{eitz2012humans}. 
-As a testament to this ability, we effortlessly grasp the correspondence between a physical object in the world and a simple line drawing of it, even though such drawings lack much of the rich visual information present in real-world objects including color and texture. 
+As a testament to this ability, we effortlessly grasp the correspondence between a physical object in the world and a simple line drawing of it, even though such drawings lack much of the rich visual information present in real-world objects, including color and texture. 
 How are visual object concepts organized such that they can robustly encode such abstract correspondences?
 Here we explore the notion that perceiving these correspondences is supported by our ability to decompose both objects and drawings into a common set of semantically meaningful parts \cite{biederman1988surface}. 
 
@@ -112,16 +112,16 @@ A promising approach to closing this gap may be to exploit the parsimony and int
 However, pursuit of this strategy relies upon a thorough empirical understanding of this conceptual organization and how people express this knowledge in natural behavior. 
 We aim to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
 This approach departs from the conventional strategy for inferring the organization of visual object concepts, which entails eliciting judgments with respect to a small number of experimenter-defined dimensions. 
-Instead, drawing tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how people organize and deploy visual semantic knowledge under a natural task objective. 
+Instead, drawing tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how people organize and deploy visual semantic knowledge under a naturalistic task objective. 
 
 % By interrogating the semantic structure of communicative drawings, the goal of this paper is to shed light on how the semantic organization of visual object concepts supports their flexible expression across contexts. 
 % The goal of this paper is to interrogate the semantic structure of communicative drawings in order to shed light on how the semantic organization of visual object concepts 
-Much prior work using drawing tasks to probe visual concepts have focused on either recognition \cite{eitz2012humans,yu2017sketch} or generation \cite{ha2017neural,li2019photo} of entire sketches. 
-By contrast, the present study aims to shed light on the correspondence between semantic knowledge about the internal part structure of objects and the procedure by which people robustly convey this knowledge in their drawings. 
+Recent computational work using drawing tasks to probe visual concepts have focused on either recognition \cite{eitz2012humans,yu2017sketch} or generation \cite{ha2017neural,li2019photo} of \textit{entire} drawings. 
+However, the question of how semantic information \textit{within} drawings is organized has not been investigated as thoroughly (cf. \citeNP{li2018fast,schneider2016example}).
+The goal of this paper is to present a systematic approach to analyzing the correspondence between semantic knowledge about the internal part structure of objects and the procedure by which people robustly convey this knowledge in their drawings. 
 Specifically, this paper advances recent work investigating how drawings convey semantic information \cite{FanCommon2018} in three ways: 
-\textit{first}, we introduce a new dataset of drawings with dense part annotations, allowing an explicit focus on compositional part structure,
-\textit{second}, we explore the link between this semantic structure and the %temporal%
- dynamics of drawing production,
+\textit{first}, we collect dense part annotations on freehand drawings of real-world objects, allowing an explicit focus on compositional part structure,
+\textit{second}, we explore the link between this semantic structure and the dynamics of drawing production,
 and \textit{third}, we examine differences in how visual semantic knowledge is expressed between contexts. 
 
 % \begin{figure}[htbp]
@@ -136,7 +136,7 @@ and \textit{third}, we examine differences in how visual semantic knowledge is e
 We developed a web-based crowdsourcing tool, built with \texttt{jsPsych.js} \cite{deLeeuw2015}, to collect dense semantic annotations of the stroke elements in drawings of real-world objects (Fig. 1).
 
 \subsection{Communicative drawing dataset}
-We first obtained 1195 drawings of 32 real-world objects from a previously collected experimental dataset in which pairs of participants played an interactive drawing-based reference game \cite{fan2019pragmatic}.\footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
+We first obtained 1195 drawings of 32 real-world objects from a previously collected experimental dataset in which pairs of participants played a drawing-based reference game \cite{fan2019pragmatic}.\footnote{All materials and data are available at \url{https://github.com/cogtoolslab/semantic_parts}.}
 Object stimuli were photorealistic 3D renderings belonging to one of four basic-level categories (i.e., bird, car, chair, dog), each of which contained eight exemplars. %(Fig.~\ref{refgame_gallery}A).
 On each trial of the experiment, participants were presented with a shared context containing four of these objects. 
 One participant (the sketcher) was privately cued to draw a target object so that the other participant (the viewer) could pick it out from the set of distractors. % (Fig.~\ref{refgame_performance}A). 
