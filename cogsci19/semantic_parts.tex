@@ -20,7 +20,7 @@
 %% Change "letterpaper" in the following line to "a4paper" if you must.
 
 \documentclass[10pt,letterpaper]{article}
-
+\usepackage{hyperref}
 \usepackage{cogsci}
 \usepackage{comment}
 \usepackage{pslatex}
@@ -51,27 +51,26 @@
 
 \title{Communicating semantic part information in drawings}
 
-\author{\begin{tabular}[htbp]{c@{\extracolsep{1em}}c@{\extracolsep{1em}}c@{\extracolsep{1em}}c} \\
-{\large \bf Kushin Mukherjee} & {\large \bf Robert X. D. Hawkins} & {\large \bf Judith E. Fan}\\
-Department of Cognitive Science  & Department of Psychology & Department of Psychology \\ 
-Vassar College & Stanford University & Stanford University \\
-\texttt{kumukherjee@vassar.edu} & \texttt{rxdh@stanford.edu} & \texttt{jefan@stanford.edu} \\
-\end{tabular}
-}
-
-\author{{\large \bf Kushin Mukherjee\textsuperscript{1}, Robert X. D. Hawkins\textsuperscript{2}, Judith E. Fan\textsuperscript{2,3}} \\
-\textsuperscript{1}Department of Cognitive Science, Vassar College, \\
-\textsuperscript{2}Department of Psychology, Stanford University, \\
-\textsuperscript{3}Department of Psychology, University of California, San Diego}
-
-
-% \author{
-% \textbf{Kushin Mukherjee}  \\ Department of Cognitive Science \\  Vassar College \\  \texttt{kumukherjee@vassar.edu}
-%  \And
-% \textbf{Robert X. D. Hawkins} \\ Department of Psychology \\  Stanford University \\ \texttt{rxdh@stanford.edu}
-%  \And
-% \textbf{Judith E. Fan} \\ Department of Psychology \\ UC San Diego \\ \texttt{jefan@ucsd.edu}
+% \author{\begin{tabular}[htbp]{c@{\extracolsep{1em}}c@{\extracolsep{1em}}c@{\extracolsep{1em}}c} \\
+% {\large \bf Kushin Mukherjee} & {\large \bf Robert X. D. Hawkins} & {\large \bf Judith E. Fan}\\
+% Department of Cognitive Science  & Department of Psychology & Department of Psychology \\ 
+% Vassar College & Stanford University & Stanford University \\
+% \texttt{kumukherjee@vassar.edu} & \texttt{rxdh@stanford.edu} & \texttt{jefan@stanford.edu} \\
+% \end{tabular}
 % }
+
+% \author{{\large \bf Kushin Mukherjee\textsuperscript{1}, Robert X. D. Hawkins\textsuperscript{2}, Judith E. Fan\textsuperscript{2,3}} \\
+% \textsuperscript{1}Department of Cognitive Science, Vassar College, \\
+% \textsuperscript{2}Department of Psychology, Stanford University, \\
+% \textsuperscript{3}Department of Psychology, University of California, San Diego}
+
+\author{
+\textbf{Kushin Mukherjee}  \\ Department of Cognitive Science \\  Vassar College \\  \texttt{kumukherjee@vassar.edu}
+ \And
+\textbf{Robert X. D. Hawkins} \\ Department of Psychology \\  Stanford University \\ \texttt{rxdh@stanford.edu}
+ \And
+\textbf{Judith E. Fan} \\ Department of Psychology \\ UC San Diego \\ \texttt{jefan@ucsd.edu}
+}
 
 
 %\author{\large \bf Anonymous CogSci submission}
@@ -337,7 +336,7 @@ We then collapsed across drawings within each object-context combination, yieldi
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.38\textwidth]{figures/7_part_emphasis.pdf}
+\includegraphics[width=0.4\textwidth]{figures/7_part_emphasis.pdf}
 \caption{(A) Visualization of spatial layout of mean part-feature vectors for each object-context combination, projected onto the top two principal components. (B) Comparison of feature similarity between close and far drawings of the same object, relative to close and far drawings of different objects within a category. (C) Comparison of feature similarity between far drawings of objects within a category, relative to close drawings. *** \textit{p}$<0.001$; ** \textit{p}=$0.003$.}
 \label{part_emphasis}
 \end{figure}
@@ -368,7 +367,6 @@ These results show that close and far drawings of the same object exhibit simila
 % We found that difference vectors were moderately sparse ($s=0.675$, 95\% CI: [0.653, 0.686]), suggesting that close drawings place more emphasis on a few different parts relative to far drawings, but not to the same extent for all parts (Fig.~\ref{part_emphasis}C).
 
 \subsubsection{Detailed drawings are more distinct from each other than sparser drawings}
-
 
 While the above findings showed that close and far drawings of the same object exhibit similar patterns of emphasis on different parts, close drawings contain greater emphasis on these parts overall than far drawings (i.e., contained more and longer strokes). 
 How were these additional strokes being spent? 
@@ -442,14 +440,19 @@ More broadly, achieving this synthesis will lead to both more robust artificial 
 % Taken as a whole, these results show that drawings reveal people's conceptual knowledge of objects through how components of the object are expressed through strokes. We show that by considering the number of strokes and amount of effort expended in producing each stroke we are able to account for how drawings are able to flexibly convey information across different communicative contexts. Future work will look to investigate the properties of the parts that these strokes represent, i.e., the quality of the content they express over just the quantity and organization of semantically meaningful parts. This would allow us to understand how the perceptual properties of objects and parts influence this semantic decomposition
 
 % % \kushin{need to tighten this paragraph to have a narrative throughline}
-
-
  
- \section{Acknowledgments}
+\section{Acknowledgments}
 KM was supported by the Department of Cognitive Science at Vassar College through its Humanities in Cognitive Science program.
 RXDH was supported by the National Science Foundation Graduate Research Fellowship (DGE-114747). 
 
-%\section{References}
+
+\vspace{1em}
+\fbox{\parbox[b][][c]{7.3cm}{\centering {All code and materials available at: \\
+\href{https://github.com/cogtoolslab/semantic_parts}{\url{https://github.com/cogtoolslab/semantic_parts}}
+}}}
+\vspace{1em} \noindent 
+
+
 
 \bibliography{semantic_parts}
 \bibliographystyle{apacite}
