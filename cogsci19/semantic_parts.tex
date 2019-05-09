@@ -41,7 +41,7 @@
 \usepackage{nicefrac}
 \usepackage[export]{adjustbox}
 \usepackage{makecell}
-\hyphenpenalty=100
+\hyphenpenalty=1000
 \renewcommand\theadfont{\normalsize}
 \usepackage[font={footnotesize}]{caption}
 \newcommand{\jefan}[1]{{\color{blue}{[jefan: #1]}}}
@@ -385,7 +385,7 @@ In this paper, we explored how the way people compose communicative drawings of 
 To accomplish this, we first collected dense semantic annotations of sub-stroke elements in communicative drawings of real-world objects that were produced in different contexts. 
 This allowed us to interrogate the internal semantic structure within drawings, and relate this structure to the dynamics of drawing production in a naturalistic visual communication task.
 
-Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) that single strokes tend to correspond to single parts, with strokes representing the same part tending to be clustered in time; and (3) that both detailed and sparse drawings of the same object emphasized similar part information, with detailed drawings of different objects tending to be more distinct from one another than simpler ones. 
+Overall, we found that: (1) people are highly consistent in how they interpret what individual strokes represent; (2) single strokes tend to correspond to single parts, with strokes representing the same part tending to be clustered in time; and (3) both detailed and sparse drawings of the same object emphasized similar part information, with detailed drawings of different objects tending to be more distinct from one another than simpler ones. 
 Taken together, our results support the notion that people deploy their abstract understanding of the compositional part structure of objects in order to select actions to communicate relevant information about them in context.  
 
 These findings are resonant with classic and recent work that has argued for the importance of compositionality in human perception and cognition in general \cite{biederman1987recognition, battaglia2018relational,lake2017building}, and for visual production in particular \cite{lake2015human}. 
@@ -395,7 +395,7 @@ Our work is also related to recent progress in the development of computational 
 While results from these efforts have been galvanizing, the development of principled metrics by which to rigorously evaluate how well they emulate human drawing behavior has not kept pace. 
 By interrogating in detail how humans encode semantic information into their drawings, and flexibly adjust their production behavior in different contexts, this paper presents a first step towards such a set of behavioral metrics. 
 Having such metrics is important because they would enhance our ability to distinguish between generative models, and thereby help advance further model development. 
-It would thus be valuable, in future work, to scale up our analytical approach to the large drawing datasets \cite{eitz2012humans,sangkloy2016sketchy,quickdraw2017} that have provided the basis for these modeling approaches.
+It would thus be valuable to apply up our analytical approach to the large drawing datasets \cite{eitz2012humans,sangkloy2016sketchy,quickdraw2017} that have provided the basis for these modeling approaches.
 
 In ongoing work, we are extending our analysis of how different part information is expressed in drawings beyond simple effort cost measures (i.e., number of strokes, amount of ink) to encompass content and style information (e.g., the shape of a bird's wing, caricaturization of a chair's armrest). 
 We expect that augmenting current vision models with a combination of the requisite semantic part knowledge and the ability to discern perceptual properties of these parts, such as style, will enable us to build models that parse drawings in a more human-like way.
@@ -442,6 +442,8 @@ More broadly, achieving this synthesis will lead to both more robust artificial 
 
 % % \kushin{need to tighten this paragraph to have a narrative throughline}
  
+\newpage
+
 \section{Acknowledgments}
 KM was supported by the Department of Cognitive Science at Vassar College through its Humanities in Cognitive Science program and the Center for the Study of Language and Information at Stanford.
 RXDH was supported by the National Science Foundation Graduate Research Fellowship (DGE-114747). 
@@ -453,7 +455,7 @@ RXDH was supported by the National Science Foundation Graduate Research Fellowsh
 }}}
 \vspace{2em} \noindent 
 
-\newpage
+
 
 \bibliography{semantic_parts}
 \bibliographystyle{apacite}
