@@ -194,9 +194,8 @@ Participants could also generate their own part label if they believed none of t
 If any spline was too short for annotators to feasibly annotate them with their mouse cursor, it was concatenated with its neighboring splines until the resulting spline was long enough to easily select. 
 To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red.
 
-\subsubsection{Data preprocessing}
 \begin{table}[b]
-\vspace{-2em}
+\vspace{-0.5em}
 \begin{tabular}{ll}
 \hline
 \textbf{category} & \textbf{part labels} \\ \hline
@@ -208,6 +207,8 @@ dog & eye, mouth, ear, head, neck, body, leg, paw, tail \\ \hline
 \caption{Part labels provided to annotators.} % All user-generated labels were mapped to this set of labels.
 \label{tab:parts}
 \end{table}
+
+\subsubsection{Data preprocessing}
 
 % Note: Labels for 8261 out of 83474 splines were remapped.
 % This resulted in us refining the total number of unique labels in our dataset from 304 to 24. 
@@ -234,7 +235,7 @@ In subsequent analyses, we collapsed over inter-annotator variation: we assigned
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.45\textwidth]{figures/5_stroke_part_relationship.pdf}
+\includegraphics[width=0.44\textwidth]{figures/5_stroke_part_relationship.pdf}
 \caption{(A) Analyzing the correspondence between strokes and part labels: number of unique part labels assigned to different splines within the same stroke and number of different strokes used to draw each part. (B) Distribution over number of part labels within a stroke. (C) Distribution over number of strokes used to draw a part.}
 \label{stroke_to_part}
 \end{figure}
@@ -249,11 +250,9 @@ Conversely, because depictions of parts can be arbitrarily detailed, and some pa
 
 To evaluate the first hypothesis, we computed the number of unique part labels across all splines within each stroke. 
 We found that for 81.6\% of the strokes in our dataset there was only one part label; the remaining 18.4\% of strokes were associated with two or more labels  (Fig.~\ref{stroke_to_part}B).
-
 % Thus, most strokes represented exactly one part, but there were still a minority of cases where a single stroke spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
 % These multi-part strokes were slightly more common in drawings produced in far contexts (19.4\%, CI: [17.9\%, 20.9\%]) than close contexts (17.6\%, CI: [16.1\%, 18.8\%]\footnote{95\% confidence intervals were estimated via stratified bootstrap resampling (N=1000 iterations) of drawings within each object-context combination.}). 
 % This suggests that sketchers were somewhat more likely to use a single stroke to represent multiple spatially contiguous parts in a context that did not require them to produce a highly detailed drawing.
-
 In other words, most strokes represented exactly one part, but in a minority of cases they spanned multiple parts (e.g., a single stroke connecting the head and body of a bird, or an armrest and leg of a chair). 
 We were concerned, however, that these proportions were inflated by strokes with very few splines.\footnote{The modal number of splines per stroke (20\% of cases) was 1, but there was a long tail; the mean number was 2.6.}
 To address this concern, we constructed a null model controlling for the number of splines.
