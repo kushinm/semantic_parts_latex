@@ -89,7 +89,7 @@
 \maketitle 
 
 \begin{abstract}
-We effortlessly grasp the correspondence between a drawing of an object and that physical object in the world, even when the drawing is far from realistic. 
+We effortlessly grasp the correspondence between a drawing of an object and that physical object in the world, even when the drawing is far from realistic.
 How are visual object concepts organized such that we can both recognize these abstract correspondences and also flexibly exploit them when communicating them to others in a drawing?
 Here we consider the notion that the compositional nature of object concepts enables us to readily decompose both objects and drawings of objects into a common set of semantically meaningful parts.
 %To investigate this, we developed a web-based platform to densely annotate drawings of real-world objects with part information. 
@@ -118,7 +118,7 @@ Recent advances in computational neuroscience have provided an unprecedentedly c
 Nevertheless, a major gap remains in adapting such deep learning models to emulate the structure and flexibility of human semantic knowledge \cite{lake2017building}.
 A promising approach to closing this gap may be to exploit the parsimony and interpretability of structured representations that reflect how visual concepts are organized in the mind \cite{battaglia2018relational}.
 
-However, pursuit of this strategy relies upon a thorough empirical understanding of this conceptual organization and of how people express this knowledge in natural behavior. 
+However, pursuit of this strategy relies upon a thorough empirical understanding of this conceptual organization and how people express this knowledge in natural behavior. 
 We aim to contribute to this understanding by probing the expression of visual semantic knowledge in a naturalistic setting that exposes both its structure and flexibility: visual communication via drawing. 
 This approach departs from the conventional strategy for inferring the organization of visual object concepts, which entails eliciting judgments with respect to a small number of experimenter-defined dimensions. 
 Instead, drawing tasks permit participants to include any elements they consider relevant and combine these elements freely, yielding high-dimensional information about how people organize and deploy visual semantic knowledge under a naturalistic task objective. 
@@ -151,7 +151,7 @@ On each trial of the experiment, participants were presented with a shared conte
 One participant (the sketcher) was privately cued to draw a target object so that the other participant (the viewer) could pick it out from the set of distractors. % (Fig.~\ref{refgame_performance}A). 
 Across trials, the similarity of the distractors to the target was manipulated, yielding two types of communicative contexts: \textit{close contexts}, in which all four objects belonged to the same basic-level category, and \textit{far contexts}, in which objects belonged to different basic-level categories. % (Fig.~\ref{refgame_performance}B). 
 % \kushin{The viewer was allowed to make a guess only after the sketcher had finished drawing, so there was no imposed time-constraint that may have driven a minimalistic approach to production.}
-This context manipulation led sketchers to produce relatively simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both types of context.
+This context manipulation led sketchers to produce relatively simpler drawings containing fewer strokes and less ink on far trials than on close trials, while still achieving high recognition accuracy in both contexts.
 
 % (Fig.~\ref{refgame_performance}C). %, Fig.~\ref{refgame_gallery}B\&C). 
  
@@ -170,16 +170,16 @@ This context manipulation led sketchers to produce relatively simpler drawings c
 \vspace{-1em}
 \end{figure}
 
-Prior work analyzing the semantic properties of drawing data has used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
+Prior works analyzing the semantic properties of drawing data have used a raster image representation (e.g., \texttt{*.png}), an expedient format for applying modern convolutional neural network architectures \shortcite{FanCommon2018,sangkloy2016sketchy,yu2017sketch}. 
 However, to investigate how semantic structure manifests during drawing production, it was critical to encode each drawing using a vector image format that preserves the inherently sequential and contour-based nature of drawing production (e.g., \texttt{*.svg}). 
 Thus, each drawing in our dataset is represented as a sequence of individual strokes. 
 A stroke is defined as the mark left by a virtual pen on a digital drawing canvas between being `placed onto' the canvas and being `lifted up'. %, with a commonly used interface involving clicking and dragging a mouse cursor, followefd by release of the mouse button. 
 We parameterized each stroke by a sequence of cubic Bézier curves, called \textit{splines}.
-This format provides a compact representation of drawing data, which preserves the sequence in which each element was produced.
+This format provides a compact representation of drawing data, which also preserves the sequence in which each element was produced.
 
 \subsection{Semantic part annotation}
 
-We then crowdsourced dense semantic annotations for every spline in every stroke of the drawings from this dataset. 
+We crowdsourced dense semantic annotations for every spline in every stroke of the drawings from this dataset. 
 We refer to our annotation data as \textit{dense} because labels were provided for splines, which are at a finer level of granularity than strokes.
 
 \subsubsection{Participants}
@@ -191,7 +191,7 @@ Each participant was presented with a sequence of 10 drawings that were randomly
 Their goal was to tag each spline with a label corresponding to the part it represented (e.g., seat, leg, back for a chair).  
 To facilitate consistent tagging, participants were provided with a menu of common part labels that were associated with each basic-level category (Table \ref{tab:parts}).
 Participants could also generate their own part label if they believed none of the common labels applied.
-If any spline was too short for annotators to feasibly annotate them with their mouse cursor, it was concatenated with its neighboring splines until the resulting spline was long enough to easily select. 
+If any spline was too short for annotators to feasibly annotate it with their mouse cursor, it was concatenated with its neighboring splines until the resulting spline was long enough to easily select. 
 To give participants full information about the original communicative context, we showed the drawing with the same array of four objects that the original sketcher had viewed, with the target object highlighted in red.
 
 \begin{table}[b]
